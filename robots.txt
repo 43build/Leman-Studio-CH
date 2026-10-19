@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /onepager-generator-v2.html
+Disallow: /demos/Kalis%20Overview%20Document/
+
+Sitemap: https://www.lemanstudio.ch/sitemap.xml
