@@ -6,33 +6,368 @@
 <title>Hauteville · Automobiles d'exception à Genève</title>
 <meta name="description" content="Hauteville, automobiles d'exception à Genève. Une collection restreinte de sportives, de grand tourisme et de voitures de collection, expertisées et présentées sur rendez-vous à Vésenaz.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#f3ebdd">
+<meta name="theme-color" content="#0b0a09">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Archivo:ital,wght@0,400;0,500;1,400&family=Archivo+Narrow:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/911-pluie.webp">
-<link rel="stylesheet" href="style.css">
+<style>
+:root{
+  --bg:#0b0a09; --bg-2:#12110f; --bg-3:#191714;
+  --ivory:#ede7dc; --ivory-2:#d9d1c3;
+  --mute:rgba(237,231,220,.62); --faint:rgba(237,231,220,.38);
+  --line:rgba(237,231,220,.13); --line-2:rgba(237,231,220,.24);
+  --gold:#b89b6a; --gold-2:#d4bc8f;
+  --paper:#ece6da; --ink:#141210; --ink-2:rgba(20,18,16,.62); --ink-line:rgba(20,18,16,.14);
+  --serif:"Instrument Serif", "Times New Roman", serif;
+  --sans:"Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --pad:clamp(20px, 4.2vw, 64px);
+  --max:1480px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --ease-io:cubic-bezier(.76,0,.24,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--bg);color:var(--ivory);font-family:var(--sans);font-size:16px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+::selection{background:var(--gold);color:var(--bg)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--mute)}
+.eyebrow b{color:var(--gold);font-weight:500}
+.serif{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+em{font-style:italic}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Grain */
+body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-1%,3%)}80%{transform:translate(3%,1%)}100%{transform:translate(0,0)}}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:14px;height:52px;padding:0 26px;border:1px solid var(--line-2);border-radius:999px;font-size:13px;letter-spacing:.06em;font-weight:500;transition:background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease)}
+.btn svg{width:14px;height:14px;transition:transform .5s var(--ease)}
+.btn:hover{background:var(--ivory);color:var(--bg);border-color:var(--ivory)}
+.btn:hover svg{transform:translateX(4px)}
+.btn--solid{background:var(--ivory);color:var(--bg);border-color:var(--ivory)}
+.btn--solid:hover{background:var(--gold-2);border-color:var(--gold-2)}
+.link{position:relative;display:inline-flex;gap:10px;align-items:center;font-size:13px;letter-spacing:.06em;font-weight:500}
+.link::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform-origin:right;transform:scaleX(.35);transition:transform .6s var(--ease)}
+.link:hover::after{transform-origin:left;transform:scaleX(1)}
+
+/* Loader */
+.loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:clip-path 1.1s var(--ease-io);clip-path:inset(0 0 0 0)}
+.loader__mark{font-size:12px;letter-spacing:.6em;padding-left:.6em;font-weight:500;overflow:hidden}
+.loader__mark span{display:inline-block;transform:translateY(110%);animation:up .9s var(--ease) forwards}
+.loader__bar{position:absolute;left:50%;bottom:22%;width:120px;height:1px;background:var(--line);transform:translateX(-50%);overflow:hidden}
+.loader__bar::after{content:"";position:absolute;inset:0;background:var(--gold);transform-origin:left;animation:bar 1s var(--ease) .1s both}
+.is-ready .loader{clip-path:inset(0 0 100% 0)}
+@keyframes up{to{transform:none}}
+@keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* Header */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;transition:background .6s var(--ease),border-color .6s var(--ease),transform .7s var(--ease);border-bottom:1px solid transparent}
+.hdr.is-solid{background:rgba(11,10,9,.78);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);border-color:var(--line)}
+.hdr.is-hidden{transform:translateY(-100%)}
+.hdr__in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:84px}
+.mark{display:inline-flex;align-items:center;gap:14px;font-size:13px;letter-spacing:.42em;font-weight:500}
+.mark i{display:block;width:26px;height:26px;border:1px solid var(--ivory);border-radius:50%;position:relative}
+.mark i::after{content:"";position:absolute;inset:6px;border-top:1px solid var(--ivory);border-bottom:1px solid var(--ivory)}
+.nav{display:flex;gap:38px;font-size:13px;letter-spacing:.04em;color:var(--mute)}
+.nav a{transition:color .4s}
+.nav a:hover{color:var(--ivory)}
+.hdr__end{display:flex;justify-content:flex-end;align-items:center;gap:28px;font-size:13px}
+.hdr__end .tel{color:var(--mute);transition:color .4s}
+.hdr__end .tel:hover{color:var(--ivory)}
+.hdr .btn{height:42px;padding:0 20px}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line-2);border-radius:50%;position:relative}
+.burger span{position:absolute;left:13px;right:13px;height:1px;background:var(--ivory);transition:transform .5s var(--ease)}
+.burger span:first-child{top:17px}.burger span:last-child{top:24px}
+.menu-open .burger span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.menu-open .burger span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:45;background:var(--bg);padding:120px var(--pad) 40px;display:flex;flex-direction:column;justify-content:space-between;clip-path:inset(0 0 100% 0);transition:clip-path .9s var(--ease-io)}
+.menu-open .mnav{clip-path:inset(0)}
+.mnav a.big{display:block;font-family:var(--serif);font-size:44px;line-height:1.15;border-bottom:1px solid var(--line);padding:10px 0}
+
+/* Hero */
+.hero{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;isolation:isolate}
+.hero__media{position:absolute;inset:0;z-index:-2}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 52%;transform:scale(1.12);transition:transform 2.6s var(--ease)}
+.is-ready .hero__media img{transform:scale(1.02)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,rgba(11,10,9,.62) 0%,rgba(11,10,9,0) 22%,rgba(11,10,9,0) 48%,rgba(11,10,9,.86) 88%,var(--bg) 100%),
+  linear-gradient(90deg,rgba(11,10,9,.72) 0%,rgba(11,10,9,.12) 52%,rgba(11,10,9,0) 100%)}
+.hero__in{position:absolute;inset:auto 0 0;padding-bottom:clamp(28px,5vh,56px)}
+.hero__grid{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(58px,9.4vw,168px);line-height:.9;letter-spacing:-.035em;margin:18px 0 0}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:block;transform:translateY(105%);transition:transform 1.4s var(--ease)}
+.hero h1 .ln:nth-child(2)>span{transition-delay:.12s}
+.is-ready .hero h1 .ln>span{transform:none}
+.hero h1 em{color:var(--ivory-2)}
+.hero .eyebrow{opacity:0;transition:opacity 1s .5s}
+.is-ready .hero .eyebrow{opacity:1}
+.hero__lede{max-width:430px;color:var(--mute);margin:26px 0 0;font-size:16px;opacity:0;transform:translateY(14px);transition:opacity 1s .7s,transform 1.2s .7s var(--ease)}
+.is-ready .hero__lede{opacity:1;transform:none}
+.feat{width:340px;border-top:1px solid var(--line-2);padding-top:18px;opacity:0;transform:translateY(14px);transition:opacity 1s .9s,transform 1.2s .9s var(--ease)}
+.is-ready .feat{opacity:1;transform:none}
+.feat__top{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.feat__top b{color:var(--gold);font-weight:500}
+.feat h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;margin:14px 0 6px;letter-spacing:-.01em}
+.feat p{margin:0;color:var(--mute);font-size:13px}
+.feat__row{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+.feat__price{font-size:15px;letter-spacing:.02em}
+.hero__foot{display:flex;justify-content:space-between;align-items:center;margin-top:clamp(28px,5vh,52px);padding-top:18px;border-top:1px solid var(--line);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);opacity:0;transition:opacity 1s 1.1s}
+.is-ready .hero__foot{opacity:1}
+.scrollcue{display:inline-flex;align-items:center;gap:14px}
+.scrollcue i{display:block;width:1px;height:28px;background:var(--line-2);position:relative;overflow:hidden}
+.scrollcue i::after{content:"";position:absolute;left:0;right:0;top:0;height:40%;background:var(--ivory);animation:cue 2.2s var(--ease-io) infinite}
+@keyframes cue{0%{transform:translateY(-100%)}100%{transform:translateY(260%)}}
+
+/* Reveals */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1.1s var(--ease),transform 1.3s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-img{clip-path:inset(12% 0 0 0);transition:clip-path 1.5s var(--ease)}
+.rv-img img{transform:scale(1.15);transition:transform 1.8s var(--ease)}
+.rv-img.in{clip-path:inset(0)}
+.rv-img.in img{transform:none}
+
+/* Manifeste */
+.manifest{padding:clamp(110px,16vw,220px) 0 clamp(90px,12vw,170px)}
+.manifest__grid{display:grid;grid-template-columns:240px 1fr;gap:var(--pad)}
+.manifest p.big{font-family:var(--serif);font-size:clamp(30px,3.9vw,62px);line-height:1.08;letter-spacing:-.02em;margin:0;max-width:1060px}
+.manifest p.big .w{opacity:.16;transition:opacity .5s}
+.manifest p.big .w.on{opacity:1}
+.manifest p.big em{color:var(--gold-2)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(70px,9vw,130px);border-top:1px solid var(--line)}
+.stat{padding:28px 28px 0 0}
+.stat+.stat{padding-left:28px;border-left:1px solid var(--line)}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(46px,5vw,78px);line-height:1;letter-spacing:-.02em}
+.stat b sup{font-size:.38em;vertical-align:top;position:relative;top:.35em;margin-left:4px;color:var(--gold)}
+.stat>span{display:block;margin-top:12px;color:var(--mute);font-size:14px;max-width:220px}
+
+/* Collection */
+.coll{padding:0 0 clamp(100px,12vw,180px)}
+.coll__head{display:flex;justify-content:space-between;align-items:end;gap:40px;padding-bottom:34px;border-bottom:1px solid var(--line)}
+.h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6.2vw,104px);line-height:.95;letter-spacing:-.03em;margin:16px 0 0}
+.h2 em{color:var(--ivory-2)}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{height:38px;padding:0 16px;border:1px solid var(--line);border-radius:999px;font-size:12px;letter-spacing:.06em;color:var(--mute);transition:all .4s var(--ease)}
+.filters button:hover{color:var(--ivory);border-color:var(--line-2)}
+.filters button[aria-pressed="true"]{background:var(--ivory);color:var(--bg);border-color:var(--ivory)}
+.coll__meta{display:flex;justify-content:space-between;padding:18px 0 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 28px}
+.car{display:block;text-align:left;width:100%;transition:opacity .6s var(--ease),transform .8s var(--ease)}
+.car.is-out{display:none}
+.car__img{position:relative;aspect-ratio:4/3.05;overflow:hidden;background:var(--bg-2)}
+.car__img img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) brightness(.88) contrast(1.06);transition:transform 1.4s var(--ease),filter 1s var(--ease)}
+.car__img::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(11,10,9,.45) 100%)}
+.car:hover .car__img img{transform:scale(1.045);filter:saturate(1) brightness(.98) contrast(1.02)}
+.car__tag{position:absolute;top:16px;left:16px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:7px 11px;background:rgba(11,10,9,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line)}
+.car__tag.res{color:var(--gold-2)}
+.car__view{position:absolute;right:16px;bottom:16px;width:52px;height:52px;border-radius:50%;background:var(--ivory);color:var(--bg);display:grid;place-items:center;transform:scale(.6);opacity:0;transition:transform .6s var(--ease),opacity .4s}
+.car__view svg{width:16px;height:16px}
+.car:hover .car__view{transform:none;opacity:1}
+.car__body{display:flex;justify-content:space-between;align-items:start;gap:16px;padding-top:20px}
+.car__make{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.car h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.05;margin:8px 0 0;letter-spacing:-.01em}
+.car__price{text-align:right;font-size:15px;white-space:nowrap;padding-top:2px}
+.car__price small{display:block;margin-top:6px;color:var(--faint);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.car__specs{display:flex;gap:0;margin-top:16px;border-top:1px solid var(--line);padding-top:14px;font-size:13px;color:var(--mute)}
+.car__specs span+span::before{content:"";display:inline-block;width:3px;height:3px;border-radius:50%;background:var(--faint);margin:0 12px;vertical-align:middle}
+.coll__more{display:flex;justify-content:center;margin-top:80px;gap:16px;flex-wrap:wrap}
+
+/* Fiche véhicule */
+.sheet{position:fixed;inset:0;z-index:70;pointer-events:none}
+.sheet__veil{position:absolute;inset:0;background:rgba(5,5,4,.6);opacity:0;transition:opacity .7s var(--ease)}
+.sheet__panel{position:absolute;top:0;right:0;bottom:0;width:min(1120px,100%);background:var(--bg-2);border-left:1px solid var(--line);transform:translateX(100%);transition:transform 1s var(--ease-io);display:grid;grid-template-columns:1.15fr 1fr;overflow:hidden}
+.sheet.open{pointer-events:auto}
+.sheet.open .sheet__veil{opacity:1}
+.sheet.open .sheet__panel{transform:none}
+.sheet__media{position:relative;background:#000}
+.sheet__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sheet__close{position:absolute;top:24px;left:24px;z-index:2;width:48px;height:48px;border-radius:50%;background:rgba(11,10,9,.6);backdrop-filter:blur(8px);border:1px solid var(--line-2);display:grid;place-items:center;transition:background .4s}
+.sheet__close:hover{background:var(--ivory);color:var(--bg)}
+.sheet__close svg{width:14px;height:14px}
+.sheet__body{overflow-y:auto;padding:48px 48px 40px;overscroll-behavior:contain}
+.sheet__body h3{font-family:var(--serif);font-weight:400;font-size:52px;line-height:1;letter-spacing:-.02em;margin:12px 0 10px}
+.sheet__price{font-size:20px;margin:22px 0 30px;display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sheet__price small{font-size:12px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;margin:0 0 30px}
+.spec div{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.spec dt{color:var(--mute)}
+.spec dd{margin:0}
+.sheet__note{color:var(--mute);font-size:14px;margin:0 0 30px}
+.checks{list-style:none;padding:0;margin:0 0 34px;display:grid;gap:10px;font-size:14px}
+.checks li{display:flex;gap:12px;align-items:center}
+.checks li::before{content:"";width:16px;height:1px;background:var(--gold)}
+
+/* Formulaires */
+.form{display:grid;gap:14px}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fld{position:relative}
+.fld input,.fld select,.fld textarea{width:100%;height:58px;background:transparent;border:0;border-bottom:1px solid var(--line-2);padding:22px 0 8px;font-size:15px;border-radius:0;outline:none;transition:border-color .4s;-webkit-appearance:none;appearance:none}
+.fld textarea{height:96px;resize:none;padding-top:26px}
+.fld select{cursor:pointer}
+.fld select option{background:var(--bg-2);color:var(--ivory)}
+.fld label{position:absolute;left:0;top:20px;font-size:14px;color:var(--faint);pointer-events:none;transition:all .4s var(--ease)}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--gold)}
+.fld input:focus+label,.fld input:not(:placeholder-shown)+label,.fld textarea:focus+label,.fld textarea:not(:placeholder-shown)+label,.fld select+label{top:2px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.fld--sel::after{content:"";position:absolute;right:4px;top:30px;width:7px;height:7px;border-right:1px solid var(--mute);border-bottom:1px solid var(--mute);transform:rotate(45deg);pointer-events:none}
+.form .btn{margin-top:14px;justify-self:start}
+.form__ok{display:none;padding:22px 0;font-family:var(--serif);font-size:28px;line-height:1.2}
+.form.sent>*:not(.form__ok){display:none}
+.form.sent .form__ok{display:block}
+.legal{font-size:12px;color:var(--faint);margin:6px 0 0}
+
+/* Monaco / services */
+.serv{position:relative;background:var(--bg-2);border-top:1px solid var(--line)}
+.serv__grid{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.serv__media{position:relative}
+.serv__sticky{position:sticky;top:0;height:100vh;overflow:hidden}
+.serv__sticky img{width:100%;height:115%;object-fit:cover;object-position:50% 60%;will-change:transform}
+.serv__sticky figcaption{position:absolute;left:var(--pad);bottom:36px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(237,231,220,.8)}
+.serv__body{padding:clamp(90px,11vw,170px) var(--pad) clamp(90px,10vw,150px) clamp(40px,6vw,110px)}
+.serv__body .h2{font-size:clamp(44px,5.2vw,88px)}
+.serv__lede{color:var(--mute);max-width:470px;margin:30px 0 64px;font-size:17px}
+.svc{border-top:1px solid var(--line);padding:30px 0;display:grid;grid-template-columns:56px 1fr;gap:0 18px}
+.svc:last-of-type{border-bottom:1px solid var(--line)}
+.svc>span{font-size:12px;letter-spacing:.1em;color:var(--gold);padding-top:8px}
+.svc h3{font-family:var(--serif);font-weight:400;font-size:32px;margin:0;line-height:1.1;letter-spacing:-.01em}
+.svc p{grid-column:2;margin:12px 0 0;color:var(--mute);font-size:15px;max-width:460px}
+
+/* Marques */
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:30px 0;white-space:nowrap}
+.marq__t{display:inline-flex;gap:56px;animation:marq 46s linear infinite;font-family:var(--serif);font-size:clamp(34px,4vw,60px);letter-spacing:-.01em;color:var(--ivory-2)}
+.marq__t span{display:inline-flex;align-items:center;gap:56px}
+.marq__t span::after{content:"";width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* Vendre (section claire) */
+.sell{background:var(--paper);color:var(--ink);padding:clamp(100px,12vw,180px) 0}
+.sell .eyebrow{color:var(--ink-2)}
+.sell .eyebrow b{color:#8a6d3f}
+.sell .h2 em{color:#5b4f40}
+.sell__grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,7vw,120px);align-items:start}
+.sell__lede{font-size:18px;color:var(--ink-2);max-width:520px;margin:30px 0 56px}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:70px 1fr;padding:24px 0;border-top:1px solid var(--ink-line)}
+.steps li:last-child{border-bottom:1px solid var(--ink-line)}
+.steps li::before{counter-increment:s;content:"0" counter(s);font-family:var(--serif);font-size:30px;line-height:1;color:#8a6d3f}
+.steps h3{margin:0;font-size:17px;font-weight:500}
+.steps p{margin:6px 0 0;color:var(--ink-2);font-size:15px}
+.card-sell{background:#f5f0e7;border:1px solid var(--ink-line);padding:clamp(28px,3.4vw,52px);position:sticky;top:110px}
+.card-sell h3{font-family:var(--serif);font-weight:400;font-size:38px;line-height:1.05;margin:0 0 8px;letter-spacing:-.01em}
+.card-sell>p{margin:0 0 20px;color:var(--ink-2);font-size:15px}
+.sell .fld input,.sell .fld select{border-color:rgba(20,18,16,.24)}
+.sell .fld label{color:rgba(20,18,16,.45)}
+.sell .fld input:focus+label,.sell .fld input:not(:placeholder-shown)+label,.sell .fld select+label{color:var(--ink-2)}
+.sell .fld input:focus,.sell .fld select:focus{border-color:#8a6d3f}
+.sell .fld select option{background:#f5f0e7;color:var(--ink)}
+.sell .fld--sel::after{border-color:var(--ink-2)}
+.sell .btn{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.sell .btn:hover{background:#8a6d3f;border-color:#8a6d3f;color:#fff}
+
+/* Citation */
+.quote{padding:clamp(110px,14vw,210px) 0;text-align:center}
+.quote blockquote{margin:0 auto;max-width:1150px;font-family:var(--serif);font-size:clamp(34px,4.6vw,74px);line-height:1.06;letter-spacing:-.02em}
+.quote blockquote::before{content:"“";display:block;font-size:2.2em;line-height:.6;color:var(--gold);margin-bottom:.15em}
+.quote cite{display:block;margin-top:44px;font-style:normal;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+
+/* Rendez-vous */
+.rdv{border-top:1px solid var(--line);padding:clamp(100px,12vw,170px) 0}
+.rdv__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,140px)}
+.rdv__info{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.rdv__info h4{margin:0 0 10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--gold)}
+.rdv__info p{margin:0;color:var(--mute);font-size:15px;line-height:1.7}
+.rdv__info a:hover{color:var(--ivory)}
+
+/* Pied de page */
+.foot{background:var(--bg);border-top:1px solid var(--line);padding:80px 0 30px;overflow:hidden}
+.foot__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:80px}
+.foot__grid h4{margin:0 0 16px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--faint)}
+.foot__grid ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:14px;color:var(--mute)}
+.foot__grid a:hover{color:var(--ivory)}
+.foot__news p{color:var(--mute);font-size:15px;max-width:360px;margin:0 0 22px}
+.news{display:flex;border-bottom:1px solid var(--line-2);max-width:380px}
+.news input{flex:1;background:none;border:0;height:50px;outline:none;font-size:15px}
+.news input::placeholder{color:var(--faint)}
+.news button{font-size:13px;letter-spacing:.06em}
+.foot__word{font-family:var(--serif);font-size:min(19.5vw,330px);line-height:.8;letter-spacing:-.05em;text-align:center;color:var(--ivory);margin:0 0 30px;user-select:none;white-space:nowrap}
+.foot__bar{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:var(--faint)}
+.foot__bar a:hover{color:var(--ivory)}
+
+/* Responsive */
+@media (max-width:1100px){
+  .nav{display:none}
+  .hdr__in{grid-template-columns:1fr auto}
+  .hdr__end .tel{display:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .sheet__panel{grid-template-columns:1fr;grid-template-rows:42vh 1fr}
+  .foot__grid{grid-template-columns:1fr 1fr}
+  .foot__news{grid-column:1/-1}
+}
+@media (max-width:820px){
+  .hdr__in{height:70px}
+  .hdr .btn{display:none}
+  .burger{display:block}
+  .hero__grid{grid-template-columns:1fr}
+  .feat{width:100%}
+  .hide-m{display:none}
+  .hero h1{font-size:clamp(54px,15vw,92px)}
+  .manifest__grid{grid-template-columns:1fr;gap:26px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat{padding-bottom:28px;border-bottom:1px solid var(--line)}
+  .coll__head{flex-direction:column;align-items:start}
+  .filters{overflow-x:auto;flex-wrap:nowrap;max-width:100%;scrollbar-width:none}
+  .filters button{flex:none}
+  .grid{grid-template-columns:1fr;gap:48px}
+  .serv__grid{grid-template-columns:1fr;min-height:0}
+  .serv__sticky{position:relative;height:70vh}
+  .serv__body{padding:80px var(--pad)}
+  .sell__grid,.rdv__grid{grid-template-columns:1fr}
+  .card-sell{position:relative;top:0}
+  .rdv__info{grid-template-columns:1fr}
+  .form .row{grid-template-columns:1fr}
+  .spec{grid-template-columns:1fr}
+  .sheet__body{padding:34px var(--pad)}
+  .sheet__body h3{font-size:40px}
+  .foot__grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .rv,.hero h1 .ln>span{opacity:1;transform:none}
+  .rv-img{clip-path:none}
+  .manifest p.big .w{opacity:1}
+}
+</style>
 </head>
 <body>
 
-<div class="banner">
-  <p class="container banner__in"><span>Genève, automobiles d’exception depuis 1998</span> <span>Route de Thonon 54, 1222 Vésenaz</span> <span>Du lundi au samedi, sur rendez-vous uniquement</span></p>
+<div class="loader" aria-hidden="true">
+  <div class="loader__mark"><span>HAUTEVILLE</span></div>
+  <div class="loader__bar"></div>
 </div>
 
-<header class="bar" id="hdr">
-  <div class="container bar__in">
-    <a class="wordmark" href="#top" aria-label="Hauteville, accueil">Hauteville</a>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="mark" href="#top" aria-label="Hauteville, accueil"><i></i>HAUTEVILLE</a>
     <nav class="nav" aria-label="Navigation principale">
       <a href="#collection">Collection</a>
-      <a href="#maison">La maison</a>
       <a href="#services">Services</a>
       <a href="#vendre">Vendre</a>
+      <a href="#maison">La maison</a>
       <a href="#rendez-vous">Contact</a>
     </nav>
-    <div class="bar__end">
+    <div class="hdr__end">
       <a class="tel num" href="tel:+41227001818">+41 22 700 18 18</a>
-      <a class="btn btn--line" href="#rendez-vous">Rendez-vous</a>
-      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+      <a class="btn" href="#rendez-vous">Rendez-vous</a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -40,208 +375,203 @@
 <div class="mnav" id="mnav" aria-hidden="true">
   <nav aria-label="Menu mobile">
     <a class="big" href="#collection">Collection</a>
-    <a class="big" href="#maison">La maison</a>
     <a class="big" href="#services">Services</a>
     <a class="big" href="#vendre">Vendre</a>
+    <a class="big" href="#maison">La maison</a>
     <a class="big" href="#rendez-vous">Contact</a>
   </nav>
-  <div class="mnav__foot">
-    <p class="small">Salon sur rendez-vous</p>
-    <a class="mnav__tel num" href="tel:+41227001818">+41 22 700 18 18</a>
+  <div>
+    <p class="eyebrow">Salon sur rendez-vous</p>
+    <a class="serif" style="font-size:30px" href="tel:+41227001818">+41 22 700 18 18</a>
   </div>
 </div>
 
 <main id="top">
 
 <section class="hero" aria-label="Accueil">
-  <div class="container hero__in">
-    <figure class="hero__plate" data-slot="hero" data-alt="La voiture en vitrine, photographiée au salon ou dehors en lumière basse">
-      <img src="img/911-pluie.webp" width="2000" height="1333" alt="Porsche 911 Turbo S grise, vue arrière, sous la pluie" fetchpriority="high">
-    </figure>
-    <div class="hero__ledge">
-      <div class="hero__text">
-        <h1>L’exception,<br> sans ostentation.</h1>
-        <div class="hero__sub">
-          <p class="lead">Une soixantaine de voitures par an, choisies une à une.</p>
-          <a class="btn" href="#rendez-vous">Demander un rendez-vous</a>
+  <div class="hero__media"><img src="img/911-pluie.webp" alt="Porsche 911 Turbo S grise, vue arrière, sous la pluie" fetchpriority="high"></div>
+  <div class="hero__in">
+    <div class="wrap">
+      <div class="hero__grid">
+        <div>
+          <p class="eyebrow"><b>Genève</b> &nbsp;·&nbsp; <span class="hide-m">Automobiles d'exception </span>depuis 1998</p>
+          <h1><span class="ln"><span>L'exception,</span></span><span class="ln"><span><em>sans ostentation.</em></span></span></h1>
+          <p class="hero__lede">Une soixantaine de voitures par an, choisies une à une, expertisées et présentées dans notre salon de Vésenaz. Sur rendez-vous uniquement.</p>
         </div>
+        <a class="feat" href="#collection" data-open="turbo-s">
+          <div class="feat__top"><span>En vitrine</span><b>Nouvel arrivage</b></div>
+          <h2>Porsche 911 Turbo S</h2>
+          <p class="num">2022 &nbsp;·&nbsp; 8 900 km &nbsp;·&nbsp; 650 ch &nbsp;·&nbsp; Gris GT métallisé</p>
+          <div class="feat__row"><span class="feat__price num">CHF 229 000</span><span class="link">Voir la fiche <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" width="14" height="14"><path d="M1 8h14M9 2l6 6-6 6"/></svg></span></div>
+        </a>
       </div>
-      <article class="fiche well" aria-labelledby="feat-title">
-        <div class="fiche__head">
-          <h2 id="feat-title">Porsche 911 Turbo S</h2>
-          <p class="fiche__tag">Nouvel arrivage</p>
-        </div>
-        <dl class="rows num">
-          <div><dt>Année</dt><dd>2022</dd></div>
-          <div><dt>Kilométrage</dt><dd>8 900 km</dd></div>
-          <div><dt>Puissance</dt><dd>650 ch</dd></div>
-          <div><dt>Teinte</dt><dd>Gris GT métallisé</dd></div>
-        </dl>
-        <div class="fiche__foot">
-          <p class="fiche__price num">CHF 229 000</p>
-          <a class="link" href="#collection" data-open="turbo-s">Voir la fiche</a>
-        </div>
-      </article>
+      <div class="hero__foot">
+        <span class="scrollcue"><i></i>Défiler</span>
+        <span class="hide-m">Route de Thonon 54 · 1222 Vésenaz</span>
+        <span class="hide-m">Lun – Sam · Sur rendez-vous</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="manifest" id="maison" aria-label="La maison">
+  <div class="wrap">
+    <div class="manifest__grid">
+      <p class="eyebrow rv"><b>01</b> &nbsp;La maison</p>
+      <div>
+        <p class="big" id="manifest">Nous ne vendons pas des voitures au mètre. Chaque modèle de la collection a été <em>choisi</em>, inspecté sur 160 points et documenté jusqu'au dernier carnet. Ce que nous refusons compte autant que ce que nous exposons.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat rv"><b class="num" data-count="27">0</b><span>ans de métier à Genève, sous la même famille.</span></div>
+      <div class="stat rv"><b class="num"><span data-count="160">0</span><sup>pts</sup></b><span>de contrôle avant qu'une voiture entre au salon.</span></div>
+      <div class="stat rv"><b class="num" data-count="64">0</b><span>voitures confiées par nos clients en 2025.</span></div>
+      <div class="stat rv"><b class="num"><span data-count="12">0</span><sup>mois</sup></b><span>de garantie, quelle que soit la voiture.</span></div>
     </div>
   </div>
 </section>
 
 <section class="coll" id="collection" aria-label="Collection">
-  <div class="container coll__head">
-    <h2>Disponibles au salon.</h2>
-    <div class="coll__tools">
-      <div class="filters" role="group" aria-label="Filtrer la collection">
-        <button type="button" aria-pressed="true" data-f="all">Toutes</button>
-        <button type="button" aria-pressed="false" data-f="sport">Sportives</button>
-        <button type="button" aria-pressed="false" data-f="gt">Grand tourisme</button>
-        <button type="button" aria-pressed="false" data-f="coll">Collection</button>
-        <button type="button" aria-pressed="false" data-f="suv">Berlines &amp; SUV</button>
+  <div class="wrap">
+    <div class="coll__head">
+      <div>
+        <p class="eyebrow rv"><b>02</b> &nbsp;Collection</p>
+        <h2 class="h2 rv">Disponibles <em>au salon.</em></h2>
       </div>
-      <div class="coll__row">
-        <p class="coll__meta small"><span id="count" class="num" aria-live="polite">12 voitures</span> <span>Mise à jour le 17 octobre</span></p>
-        <div class="rail-nav">
-          <button class="rail-btn" type="button" data-rail="prev" aria-controls="grid" aria-label="Voitures précédentes" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <button class="rail-btn" type="button" data-rail="next" aria-controls="grid" aria-label="Voitures suivantes"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
+      <div class="filters rv" role="group" aria-label="Filtrer la collection">
+        <button aria-pressed="true" data-f="all">Toutes</button>
+        <button aria-pressed="false" data-f="sport">Sportives</button>
+        <button aria-pressed="false" data-f="gt">Grand tourisme</button>
+        <button aria-pressed="false" data-f="coll">Collection</button>
+        <button aria-pressed="false" data-f="suv">Berlines &amp; SUV</button>
       </div>
     </div>
-  </div>
-  <div class="rail" id="grid" tabindex="0" aria-label="Voitures disponibles"><article class="car" data-id="turbo-s" data-f="sport"><span class="car__img" data-slot="car-turbo-s"><img src="img/911-pluie.webp" alt="" loading="lazy" style="object-position:50% 50%"><span class="car__tag" data-keep>Nouvel arrivage</span></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Porsche 911 Turbo S, voir la fiche">911 Turbo S</button></h3><span class="car__make">Porsche</span></span><span class="car__price num">CHF 229 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2022</span><span>8 900 km</span><span>650 ch</span></span></article><article class="car" data-id="gt3" data-f="sport"><span class="car__img" data-slot="car-gt3"><img src="img/gt3-noire.webp" alt="" loading="lazy" style="object-position:50% 60%"></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Porsche 911 GT3 (992), voir la fiche">911 GT3 (992)</button></h3><span class="car__make">Porsche</span></span><span class="car__price num">CHF 239 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2022</span><span>6 200 km</span><span>510 ch</span></span></article><article class="car" data-id="touring" data-f="gt"><span class="car__img" data-slot="car-touring"><img src="img/gt3-touring.webp" alt="" loading="lazy" style="object-position:50% 60%"><span class="car__tag car__tag--res" data-keep>Réservée</span></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Porsche 911 GT3 Touring, voir la fiche">911 GT3 Touring</button></h3><span class="car__make">Porsche</span></span><span class="car__price num">CHF 259 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2023</span><span>3 100 km</span><span>510 ch</span></span></article><article class="car" data-id="f8" data-f="sport"><span class="car__img" data-slot="car-f8"><img src="img/f8.webp" alt="" loading="lazy" style="object-position:50% 55%"></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Ferrari F8 Tributo, voir la fiche">F8 Tributo</button></h3><span class="car__make">Ferrari</span></span><span class="car__price num">CHF 279 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2021</span><span>7 400 km</span><span>720 ch</span></span></article><article class="car" data-id="720s" data-f="sport"><span class="car__img" data-slot="car-720s"><img src="img/720s.webp" alt="" loading="lazy" style="object-position:50% 60%"></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="McLaren 720S Performance, voir la fiche">720S Performance</button></h3><span class="car__make">McLaren</span></span><span class="car__price num">CHF 219 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2020</span><span>11 800 km</span><span>720 ch</span></span></article><article class="car" data-id="chiron" data-f="coll"><span class="car__img" data-slot="car-chiron"><img src="img/chiron.webp" alt="" loading="lazy" style="object-position:50% 55%"><span class="car__tag" data-keep>Collection</span></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Bugatti Chiron, voir la fiche">Chiron</button></h3><span class="car__make">Bugatti</span></span><span class="car__price num">Prix sur demande<small>Sur rendez-vous</small></span></span><span class="car__specs num"><span>2019</span><span>2 900 km</span><span>1500 ch</span></span></article><article class="car" data-id="laferrari" data-f="coll"><span class="car__img" data-slot="car-laferrari"><img src="img/laferrari.webp" alt="" loading="lazy" style="object-position:50% 60%"><span class="car__tag" data-keep>Collection</span></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Ferrari LaFerrari, voir la fiche">LaFerrari</button></h3><span class="car__make">Ferrari</span></span><span class="car__price num">Prix sur demande<small>Sur rendez-vous</small></span></span><span class="car__specs num"><span>2015</span><span>1 850 km</span><span>963 ch</span></span></article><article class="car" data-id="wraith" data-f="gt"><span class="car__img" data-slot="car-wraith"><img src="img/wraith.webp" alt="" loading="lazy" style="object-position:50% 62%"></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Rolls-Royce Wraith Black Badge, voir la fiche">Wraith Black Badge</button></h3><span class="car__make">Rolls-Royce</span></span><span class="car__price num">CHF 239 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2019</span><span>22 000 km</span><span>632 ch</span></span></article><article class="car" data-id="amg" data-f="sport"><span class="car__img" data-slot="car-amg"><img src="img/amg-gtr.webp" alt="" loading="lazy" style="object-position:50% 60%"></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Mercedes-AMG GT R, voir la fiche">GT R</button></h3><span class="car__make">Mercedes-AMG</span></span><span class="car__price num">CHF 159 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2020</span><span>18 200 km</span><span>585 ch</span></span></article><article class="car" data-id="r8" data-f="sport"><span class="car__img" data-slot="car-r8"><img src="img/r8.webp" alt="" loading="lazy" style="object-position:50% 60%"></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Audi R8 V10 Performance, voir la fiche">R8 V10 Performance</button></h3><span class="car__make">Audi</span></span><span class="car__price num">CHF 164 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2021</span><span>14 500 km</span><span>620 ch</span></span></article><article class="car" data-id="s580" data-f="suv"><span class="car__img" data-slot="car-s580"><img src="img/classe-s.webp" alt="" loading="lazy" style="object-position:50% 62%"></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Mercedes-Benz S 580 4MATIC, voir la fiche">S 580 4MATIC</button></h3><span class="car__make">Mercedes-Benz</span></span><span class="car__price num">CHF 149 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2023</span><span>9 800 km</span><span>503 ch</span></span></article><article class="car" data-id="svr" data-f="suv"><span class="car__img" data-slot="car-svr"><img src="img/range.webp" alt="" loading="lazy" style="object-position:50% 60%"></span><span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="Land Rover Range Rover Sport SVR, voir la fiche">Range Rover Sport SVR</button></h3><span class="car__make">Land Rover</span></span><span class="car__price num">CHF 119 000<small>TVA incluse</small></span></span><span class="car__specs num"><span>2021</span><span>21 000 km</span><span>575 ch</span></span></article></div>
-  <div class="container coll__foot">
-    <ul class="marques" aria-label="Marques">
-      <li>Porsche</li><li>Ferrari</li><li>McLaren</li><li>Rolls-Royce</li><li>Bentley</li><li>Aston Martin</li><li>Mercedes-AMG</li><li>Lamborghini</li>
-    </ul>
-    <a class="link" href="#rendez-vous">Recherche sur mandat</a>
+    <div class="coll__meta"><span id="count" class="num">12 voitures</span><span>Mise à jour le 17 octobre</span></div>
+    <div class="grid" id="grid"></div>
+    <div class="coll__more">
+      <a class="btn" href="#rendez-vous">Recherche sur mandat <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 8h14M9 2l6 6-6 6"/></svg></a>
+    </div>
   </div>
 </section>
 
-<section class="maison" id="maison" aria-label="La maison">
-  <div class="container maison__grid">
-    <div class="maison__text">
-      <h2>Nous ne vendons pas des voitures au mètre.</h2>
-      <p class="lead" id="manifest">Chaque modèle de la collection a été <em>choisi</em>, inspecté sur 160 points et documenté jusqu’au dernier carnet. Ce que nous refusons compte autant que ce que nous exposons.</p>
-    </div>
-    <ul class="figures">
-      <li><span class="figures__n num">27</span><span class="figures__l">ans de métier à Genève, sous la même famille.</span></li>
-      <li><span class="figures__n num">160<small>pts</small></span><span class="figures__l">de contrôle avant qu’une voiture entre au salon.</span></li>
-      <li><span class="figures__n num">64</span><span class="figures__l">voitures confiées par nos clients en 2025.</span></li>
-      <li><span class="figures__n num">12<small>mois</small></span><span class="figures__l">de garantie, quelle que soit la voiture.</span></li>
-    </ul>
+<div class="marq" aria-hidden="true">
+  <div class="marq__t">
+    <span>Porsche</span><span>Ferrari</span><span>McLaren</span><span>Rolls-Royce</span><span>Bentley</span><span>Aston Martin</span><span>Mercedes-AMG</span><span>Lamborghini</span>
+    <span>Porsche</span><span>Ferrari</span><span>McLaren</span><span>Rolls-Royce</span><span>Bentley</span><span>Aston Martin</span><span>Mercedes-AMG</span><span>Lamborghini</span>
   </div>
-</section>
+</div>
 
 <section class="serv" id="services" aria-label="Services">
-  <div class="container">
-    <div class="split-head">
-      <h2>Votre voiture,<br> où que vous soyez.</h2>
-      <p class="lead">L’achat n’est que le début. Nous gérons tout ce qui l’entoure, avec un seul interlocuteur du premier appel jusqu’à la remise des clés.</p>
-    </div>
-    <figure class="serv__plate">
-      <div class="serv__img" data-slot="livraison" data-alt="Une livraison récente, la voiture sur place chez son client">
-        <img id="para" src="img/monaco.webp" width="2200" height="3130" alt="Mercedes-AMG GT R noire mate sur un quai, yachts en arrière-plan" loading="lazy">
+  <div class="serv__grid">
+    <figure class="serv__media" style="margin:0">
+      <div class="serv__sticky">
+        <img src="img/monaco.webp" alt="Mercedes-AMG GT R noire mate sur un quai, yachts en arrière-plan" loading="lazy" id="para">
+        <figcaption>Livraison · Port Hercule, mars 2025</figcaption>
       </div>
-      <figcaption class="small">Livraison · Port Hercule, mars 2025</figcaption>
     </figure>
-    <ul class="svc">
-      <li><h3>Livraison en camion fermé</h3><p>En Suisse et partout en Europe, assurée de bout en bout. La voiture arrive propre, chargée, avec son dossier complet.</p></li>
-      <li><h3>Import et homologation</h3><p>Dédouanement, expertise cantonale, plaques genevoises. Vous signez, nous nous occupons du reste auprès de l’OCV.</p></li>
-      <li><h3>Recherche sur mandat</h3><p>Une configuration précise, une couleur rare, un numéro de série. Nous activons notre réseau de collectionneurs et de maisons partenaires.</p></li>
-      <li><h3>Garde et hivernage</h3><p>Stockage climatisé à Vésenaz, maintien de charge, roulage mensuel et préparation avant chaque sortie.</p></li>
-      <li><h3>Financement et leasing</h3><p>Leasing sur 24 à 60 mois avec nos banques partenaires, reprise de votre véhicule actuel incluse dans l’offre.</p></li>
-    </ul>
+    <div class="serv__body">
+      <p class="eyebrow rv"><b>03</b> &nbsp;Services</p>
+      <h2 class="h2 rv">Votre voiture,<br><em>où que vous soyez.</em></h2>
+      <p class="serv__lede rv">L'achat n'est que le début. Nous gérons tout ce qui l'entoure, avec un seul interlocuteur du premier appel jusqu'à la remise des clés.</p>
+      <div class="svc rv"><span>I</span><h3>Livraison en camion fermé</h3><p>En Suisse et partout en Europe, assurée de bout en bout. La voiture arrive propre, chargée, avec son dossier complet.</p></div>
+      <div class="svc rv"><span>II</span><h3>Import et homologation</h3><p>Dédouanement, expertise cantonale, plaques genevoises. Vous signez, nous nous occupons du reste auprès de l'OCV.</p></div>
+      <div class="svc rv"><span>III</span><h3>Recherche sur mandat</h3><p>Une configuration précise, une couleur rare, un numéro de série. Nous activons notre réseau de collectionneurs et de maisons partenaires.</p></div>
+      <div class="svc rv"><span>IV</span><h3>Garde et hivernage</h3><p>Stockage climatisé à Vésenaz, maintien de charge, roulage mensuel et préparation avant chaque sortie.</p></div>
+      <div class="svc rv"><span>V</span><h3>Financement et leasing</h3><p>Leasing sur 24 à 60 mois avec nos banques partenaires, reprise de votre véhicule actuel incluse dans l'offre.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="sell" id="vendre" aria-label="Vendre votre voiture">
-  <div class="container sell__grid">
-    <div class="sell__text">
-      <h2>Confiez-nous<br> la suivante.</h2>
-      <p class="lead">Rachat immédiat ou dépôt-vente : nous présentons votre voiture à une clientèle qui sait ce qu’elle vaut, sans annonce publique si vous le souhaitez.</p>
+  <div class="wrap sell__grid">
+    <div>
+      <p class="eyebrow rv"><b>04</b> &nbsp;Vendre</p>
+      <h2 class="h2 rv">Confiez-nous<br><em>la suivante.</em></h2>
+      <p class="sell__lede rv">Rachat immédiat ou dépôt-vente : nous présentons votre voiture à une clientèle qui sait ce qu'elle vaut, sans annonce publique si vous le souhaitez.</p>
       <ol class="steps">
-        <li><h3>Une estimation sous 48 heures</h3><p>Sur la base de la configuration, de l’historique et du marché européen réel, pas d’une cote générique.</p></li>
-        <li><h3>Une expertise au salon</h3><p>Inspection complète, mesure de peinture, essai routier. Le prix est confirmé par écrit.</p></li>
-        <li><h3>Paiement le jour même</h3><p>En rachat, virement à la signature. En dépôt-vente, nous gérons visites, essais et transfert.</p></li>
+        <li class="rv"><div><h3>Une estimation sous 48 heures</h3><p>Sur la base de la configuration, de l'historique et du marché européen réel, pas d'une cote générique.</p></div></li>
+        <li class="rv"><div><h3>Une expertise au salon</h3><p>Inspection complète, mesure de peinture, essai routier. Le prix est confirmé par écrit.</p></div></li>
+        <li class="rv"><div><h3>Paiement le jour même</h3><p>En rachat, virement à la signature. En dépôt-vente, nous gérons visites, essais et transfert.</p></div></li>
       </ol>
     </div>
-    <div class="sell__card well">
-      <h3>Demande d’estimation</h3>
-      <p class="sell__note">Réponse d’un conseiller sous 48 heures ouvrées.</p>
-      <form class="form" data-form data-endpoint="">
+    <div class="card-sell rv">
+      <h3>Demande d'estimation</h3>
+      <p>Réponse d'un conseiller sous 48 heures ouvrées.</p>
+      <form class="form" data-form>
         <div class="row">
-          <div class="fld"><label for="s-make">Marque</label><input id="s-make" required></div>
-          <div class="fld"><label for="s-model">Modèle</label><input id="s-model" required></div>
+          <div class="fld"><input id="s-make" placeholder=" " required><label for="s-make">Marque</label></div>
+          <div class="fld"><input id="s-model" placeholder=" " required><label for="s-model">Modèle</label></div>
         </div>
         <div class="row">
-          <div class="fld"><label for="s-year">Année</label><input id="s-year" inputmode="numeric" required></div>
-          <div class="fld"><label for="s-km">Kilométrage</label><input id="s-km" inputmode="numeric" required></div>
+          <div class="fld"><input id="s-year" inputmode="numeric" placeholder=" " required><label for="s-year">Année</label></div>
+          <div class="fld"><input id="s-km" inputmode="numeric" placeholder=" " required><label for="s-km">Kilométrage</label></div>
         </div>
-        <div class="fld fld--sel"><label for="s-mode">Formule</label><select id="s-mode"><option>Rachat immédiat</option><option>Dépôt-vente</option><option>Reprise contre une voiture de la collection</option></select></div>
-        <div class="fld"><label for="s-tel">Téléphone</label><input id="s-tel" type="tel" required autocomplete="tel"></div>
-        <button class="btn btn--line" type="submit">Recevoir une estimation</button>
-        <p class="form__ok" role="status">Démonstration : rien n’a été envoyé. Une fois le formulaire relié, un conseiller vous rappelle sous 48 heures.</p>
+        <div class="fld fld--sel"><select id="s-mode"><option>Rachat immédiat</option><option>Dépôt-vente</option><option>Reprise contre une voiture de la collection</option></select><label for="s-mode">Formule</label></div>
+        <div class="fld"><input id="s-tel" type="tel" placeholder=" " required><label for="s-tel">Téléphone</label></div>
+        <button class="btn" type="submit">Recevoir une estimation <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 8h14M9 2l6 6-6 6"/></svg></button>
+        <p class="form__ok">Merci. Un conseiller vous rappelle sous 48 heures.</p>
       </form>
     </div>
   </div>
 </section>
 
 <section class="quote" aria-label="Témoignage">
-  <div class="container">
-    <figure class="quote__fig">
-      <blockquote><p>Ils m’ont déconseillé la première voiture que je voulais acheter. La deuxième, je la garde depuis six ans.</p></blockquote>
-      <figcaption>Client depuis 2019 · Cologny</figcaption>
-    </figure>
+  <div class="wrap">
+    <blockquote class="rv">Ils m'ont déconseillé la première voiture que je voulais acheter. La deuxième, je la garde depuis six ans.</blockquote>
+    <cite class="rv">Client depuis 2019 · Cologny</cite>
   </div>
 </section>
 
 <section class="rdv" id="rendez-vous" aria-label="Rendez-vous">
-  <div class="container rdv__grid">
-    <div class="rdv__text">
-      <h2>Le salon vous<br> est réservé.</h2>
+  <div class="wrap rdv__grid">
+    <div>
+      <p class="eyebrow rv"><b>05</b> &nbsp;Rendez-vous</p>
+      <h2 class="h2 rv">Le salon vous<br><em>est réservé.</em></h2>
       <div class="rdv__info">
-        <div><h3>Salon</h3><p>Route de Thonon 54<br>1222 Vésenaz, Genève<br>Parking privé</p></div>
-        <div><h3>Horaires</h3><p>Lundi au vendredi, 9 h à 19 h<br>Samedi, 10 h à 17 h<br>Le dimanche sur demande</p></div>
-        <div><h3>Conseil</h3><p><a class="num" href="tel:+41227001818">+41 22 700 18 18</a><br><a href="mailto:salon@hauteville.ch">salon@hauteville.ch</a></p></div>
-        <div><h3>Langues</h3><p>Français, English,<br>Deutsch, Italiano, Русский</p></div>
+        <div class="rv"><h4>Salon</h4><p>Route de Thonon 54<br>1222 Vésenaz, Genève<br>Parking privé</p></div>
+        <div class="rv"><h4>Horaires</h4><p>Lundi – vendredi, 9 h – 19 h<br>Samedi, 10 h – 17 h<br>Le dimanche sur demande</p></div>
+        <div class="rv"><h4>Conseil</h4><p><a class="num" href="tel:+41227001818">+41 22 700 18 18</a><br><a href="mailto:salon@hauteville.ch">salon@hauteville.ch</a></p></div>
+        <div class="rv"><h4>Langues</h4><p>Français, English,<br>Deutsch, Italiano, Русский</p></div>
       </div>
     </div>
-    <form class="form rdv__form" data-form data-endpoint="" id="rdv-form">
-      <div class="row">
-        <div class="fld"><label for="r-name">Nom</label><input id="r-name" required autocomplete="name"></div>
-        <div class="fld"><label for="r-tel">Téléphone</label><input id="r-tel" type="tel" required autocomplete="tel"></div>
-      </div>
-      <div class="fld"><label for="r-mail">E-mail</label><input id="r-mail" type="email" autocomplete="email"></div>
-      <div class="fld fld--sel"><label for="r-car">Voiture</label><select id="r-car"><option value="">Pas de modèle précis</option></select></div>
-      <div class="row">
-        <div class="fld fld--sel"><label for="r-type">Format</label><select id="r-type"><option>Présentation au salon</option><option>Essai sur route</option><option>Présentation à domicile</option><option>Appel vidéo</option></select></div>
-        <div class="fld fld--sel"><label for="r-when">Quand</label><select id="r-when"><option>Cette semaine</option><option>La semaine prochaine</option><option>Ce mois-ci</option><option>Je suis flexible</option></select></div>
-      </div>
-      <div class="fld"><label for="r-msg">Votre message (facultatif)</label><textarea id="r-msg"></textarea></div>
-      <div class="form__end">
-        <button class="btn" type="submit">Demander un rendez-vous</button>
-        <p class="legal">Vos données ne servent qu’à vous recontacter. Elles ne sont jamais transmises.</p>
-      </div>
-      <p class="form__ok" role="status">Démonstration : rien n’a été envoyé. Une fois le formulaire relié, nous vous appelons dans la journée pour fixer l’heure.</p>
-    </form>
+    <div class="rv">
+      <form class="form" data-form id="rdv-form">
+        <div class="row">
+          <div class="fld"><input id="r-name" placeholder=" " required autocomplete="name"><label for="r-name">Nom</label></div>
+          <div class="fld"><input id="r-tel" type="tel" placeholder=" " required autocomplete="tel"><label for="r-tel">Téléphone</label></div>
+        </div>
+        <div class="fld"><input id="r-mail" type="email" placeholder=" " autocomplete="email"><label for="r-mail">E-mail</label></div>
+        <div class="fld fld--sel"><select id="r-car"><option value="">Pas de modèle précis</option></select><label for="r-car">Voiture</label></div>
+        <div class="row">
+          <div class="fld fld--sel"><select id="r-type"><option>Présentation au salon</option><option>Essai sur route</option><option>Présentation à domicile</option><option>Appel vidéo</option></select><label for="r-type">Format</label></div>
+          <div class="fld fld--sel"><select id="r-when"><option>Cette semaine</option><option>La semaine prochaine</option><option>Ce mois-ci</option><option>Je suis flexible</option></select><label for="r-when">Quand</label></div>
+        </div>
+        <div class="fld"><textarea id="r-msg" placeholder=" "></textarea><label for="r-msg">Votre message (facultatif)</label></div>
+        <button class="btn btn--solid" type="submit">Demander un rendez-vous <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 8h14M9 2l6 6-6 6"/></svg></button>
+        <p class="legal">Vos données ne servent qu'à vous recontacter. Elles ne sont jamais transmises.</p>
+        <p class="form__ok">Merci. Nous vous appelons dans la journée pour fixer l'heure.</p>
+      </form>
+    </div>
   </div>
 </section>
 
 </main>
 
 <footer class="foot">
-  <div class="container">
+  <div class="wrap">
     <div class="foot__grid">
       <div class="foot__news">
-        <p class="foot__word">Hauteville</p>
-        <h3>Arrivages</h3>
+        <h4>Arrivages</h4>
         <p>Les nouvelles voitures sont proposées à nos clients avant leur mise en ligne. Une lettre par mois, au plus.</p>
-        <form class="news" data-news data-endpoint=""><input type="email" placeholder="Votre e-mail" aria-label="Votre e-mail" autocomplete="email" required><button class="btn btn--line" type="submit">S’inscrire</button></form>
+        <form class="news" data-news><input type="email" placeholder="Votre e-mail" aria-label="Votre e-mail" required><button type="submit">S'inscrire</button></form>
       </div>
-      <div class="foot__col"><h3>Maison</h3><ul><li><a href="#collection">Collection</a></li><li><a href="#services">Services</a></li><li><a href="#vendre">Vendre</a></li><li><a href="#rendez-vous">Contact</a></li></ul></div>
-      <div class="foot__col"><h3>Salon</h3><ul><li>Route de Thonon 54</li><li>1222 Vésenaz</li><li><a class="num" href="tel:+41227001818">+41 22 700 18 18</a></li></ul></div>
-      <div class="foot__col"><h3>Suivre</h3><ul><li><a href="#top">Instagram</a></li><li><a href="#top">LinkedIn</a></li><li><a href="#top">YouTube</a></li></ul></div>
+      <div><h4>Maison</h4><ul><li><a href="#collection">Collection</a></li><li><a href="#services">Services</a></li><li><a href="#vendre">Vendre</a></li><li><a href="#rendez-vous">Contact</a></li></ul></div>
+      <div><h4>Salon</h4><ul><li>Route de Thonon 54</li><li>1222 Vésenaz</li><li><a class="num" href="tel:+41227001818">+41 22 700 18 18</a></li></ul></div>
+      <div><h4>Suivre</h4><ul><li><a href="#top">Instagram</a></li><li><a href="#top">LinkedIn</a></li><li><a href="#top">YouTube</a></li></ul></div>
     </div>
+    <p class="foot__word" aria-hidden="true">Hauteville</p>
     <div class="foot__bar">
-      <p><span>© 2026 Hauteville Automobiles SA</span> <span>Entreprise fictive</span></p>
+      <span>© 2026 Hauteville Automobiles SA · Entreprise fictive</span>
       <a href="/" target="_top">Site de démonstration conçu par Léman Studio</a>
     </div>
   </div>
@@ -250,67 +580,70 @@
 <div class="sheet" id="sheet" aria-hidden="true">
   <div class="sheet__veil" data-close></div>
   <aside class="sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sh-title">
-    <div class="sheet__media" data-slot="fiche" data-alt="La voiture ouverte dans la fiche, en grand">
-      <img id="sh-img" src="img/911-pluie.webp" width="2000" height="1333" alt="Porsche 911 Turbo S" loading="lazy">
-      <button class="sheet__close" type="button" data-close data-keep aria-label="Fermer la fiche"><svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13"/></svg></button>
+    <div class="sheet__media">
+      <button class="sheet__close" data-close aria-label="Fermer la fiche"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 1l12 12M13 1L1 13"/></svg></button>
+      <img id="sh-img" alt="">
     </div>
     <div class="sheet__body">
+      <p class="eyebrow" id="sh-make"></p>
       <h3 id="sh-title"></h3>
-      <p class="sheet__make" id="sh-make"></p>
       <p class="sheet__note" id="sh-note"></p>
       <div class="sheet__price"><span id="sh-price" class="num"></span><small id="sh-status"></small></div>
-      <dl class="rows rows--sheet" id="sh-spec"></dl>
+      <dl class="spec" id="sh-spec"></dl>
       <ul class="checks">
         <li>Inspection 160 points, rapport remis</li>
-        <li>Mesure d’épaisseur de peinture, panneau par panneau</li>
-        <li>Historique d’entretien vérifié auprès du réseau</li>
+        <li>Mesure d'épaisseur de peinture, panneau par panneau</li>
+        <li>Historique d'entretien vérifié auprès du réseau</li>
         <li>Garantie 12 mois, extensible à 36 mois</li>
       </ul>
-      <form class="form" data-form data-endpoint="">
-        <h4 class="form__title">Présentation privée</h4>
+      <form class="form" data-form>
+        <p class="eyebrow" style="margin:0 0 4px">Présentation privée</p>
         <div class="row">
-          <div class="fld"><label for="sh-name">Nom</label><input id="sh-name" required autocomplete="name"></div>
-          <div class="fld"><label for="sh-tel">Téléphone</label><input id="sh-tel" type="tel" required autocomplete="tel"></div>
+          <div class="fld"><input id="sh-name" placeholder=" " required><label for="sh-name">Nom</label></div>
+          <div class="fld"><input id="sh-tel" type="tel" placeholder=" " required><label for="sh-tel">Téléphone</label></div>
         </div>
-        <button class="btn" type="submit">Réserver une présentation</button>
-        <p class="form__ok" role="status">Démonstration : rien n’a été envoyé. Une fois le formulaire relié, la voiture vous est réservée 48 heures.</p>
+        <button class="btn btn--solid" type="submit">Réserver une présentation <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 8h14M9 2l6 6-6 6"/></svg></button>
+        <p class="form__ok">C'est noté. La voiture vous est réservée 48 heures.</p>
       </form>
     </div>
   </aside>
 </div>
 
+<script src="../../assets/vendor/lenis.min.js" defer></script>
 <script>
 (function(){
   var CARS = [
     {id:"turbo-s", make:"Porsche", model:"911 Turbo S", f:"sport", year:2022, km:8900, hp:650, price:229000, img:"911-pluie", pos:"50% 50%", tag:"Nouvel arrivage", color:"Gris GT métallisé", box:"PDK 8 rapports", owners:1, note:"Première main suisse, entretenue exclusivement au Centre Porsche de Genève. Pack Sport Chrono, échappement sport, PCCB."},
     {id:"gt3", make:"Porsche", model:"911 GT3 (992)", f:"sport", year:2022, km:6200, hp:510, price:239000, img:"gt3-noire", pos:"50% 60%", tag:"", color:"Noir intense", box:"PDK 7 rapports", owners:1, note:"Pack Clubsport, sièges baquets carbone, lift avant. Pneus neufs, révision effectuée en septembre."},
     {id:"touring", make:"Porsche", model:"911 GT3 Touring", f:"gt", year:2023, km:3100, hp:510, price:259000, img:"gt3-touring", pos:"50% 60%", tag:"Réservée", color:"Argent GT", box:"Manuelle 6 rapports", owners:1, note:"La GT3 sans aileron, en boîte manuelle. Intérieur cuir et Race-Tex, configuration très recherchée."},
-    {id:"f8", make:"Ferrari", model:"F8 Tributo", f:"sport", year:2021, km:7400, hp:720, price:279000, img:"f8", pos:"50% 55%", tag:"", color:"Rosso Corsa", box:"F1 DCT 7 rapports", owners:2, note:"Programme d’entretien Ferrari valable jusqu’en 2028. Lift, caméra, sièges racing, jantes forgées."},
+    {id:"f8", make:"Ferrari", model:"F8 Tributo", f:"sport", year:2021, km:7400, hp:720, price:279000, img:"f8", pos:"50% 55%", tag:"", color:"Rosso Corsa", box:"F1 DCT 7 rapports", owners:2, note:"Programme d'entretien Ferrari valable jusqu'en 2028. Lift, caméra, sièges racing, jantes forgées."},
     {id:"720s", make:"McLaren", model:"720S Performance", f:"sport", year:2020, km:11800, hp:720, price:219000, img:"720s", pos:"50% 60%", tag:"", color:"Silica White", box:"SSG 7 rapports", owners:1, note:"Pack carbone extérieur, échappement sport, système audio Bowers & Wilkins. Film de protection intégral."},
     {id:"chiron", make:"Bugatti", model:"Chiron", f:"coll", year:2019, km:2900, hp:1500, price:0, img:"chiron", pos:"50% 55%", tag:"Collection", color:"Glacier White", box:"DSG 7 rapports", owners:1, note:"Exemplaire européen, première main. Dossier complet, entretien constructeur à jour. Présentée uniquement sur rendez-vous."},
-    {id:"laferrari", make:"Ferrari", model:"LaFerrari", f:"coll", year:2015, km:1850, hp:963, price:0, img:"laferrari", pos:"50% 60%", tag:"Collection", color:"Rosso Corsa", box:"F1 DCT 7 rapports", owners:2, note:"Certification Ferrari Classiche en cours. Livrets, outillage et housse d’origine. Visible au salon sur rendez-vous."},
+    {id:"laferrari", make:"Ferrari", model:"LaFerrari", f:"coll", year:2015, km:1850, hp:963, price:0, img:"laferrari", pos:"50% 60%", tag:"Collection", color:"Rosso Corsa", box:"F1 DCT 7 rapports", owners:2, note:"Certification Ferrari Classiche en cours. Livrets, outillage et housse d'origine. Visible au salon sur rendez-vous."},
     {id:"wraith", make:"Rolls-Royce", model:"Wraith Black Badge", f:"gt", year:2019, km:22000, hp:632, price:239000, img:"wraith", pos:"50% 62%", tag:"", color:"Arctic White, toit noir", box:"ZF 8 rapports", owners:2, note:"Ciel étoilé, intérieur Black Badge, portes à fermeture assistée. Révision complète chez le concessionnaire officiel."},
     {id:"amg", make:"Mercedes-AMG", model:"GT R", f:"sport", year:2020, km:18200, hp:585, price:159000, img:"amg-gtr", pos:"50% 60%", tag:"", color:"Designo gris magno", box:"AMG Speedshift 7", owners:1, note:"Coilovers réglables, freins carbone-céramique, Track Pace. Garantie constructeur étendue."},
-    {id:"r8", make:"Audi", model:"R8 V10 Performance", f:"sport", year:2021, km:14500, hp:620, price:164000, img:"r8", pos:"50% 60%", tag:"", color:"Rouge Tango", box:"S tronic 7", owners:1, note:"L’un des derniers V10 atmosphériques. Carbone extérieur, Bang & Olufsen, sièges baquets."},
+    {id:"r8", make:"Audi", model:"R8 V10 Performance", f:"sport", year:2021, km:14500, hp:620, price:164000, img:"r8", pos:"50% 60%", tag:"", color:"Rouge Tango", box:"S tronic 7", owners:1, note:"L'un des derniers V10 atmosphériques. Carbone extérieur, Bang & Olufsen, sièges baquets."},
     {id:"s580", make:"Mercedes-Benz", model:"S 580 4MATIC", f:"suv", year:2023, km:9800, hp:503, price:149000, img:"classe-s", pos:"50% 62%", tag:"", color:"Noir obsidienne", box:"9G-Tronic", owners:1, note:"Châssis long, pack Chauffeur, sièges massants arrière, affichage tête haute à réalité augmentée."},
     {id:"svr", make:"Land Rover", model:"Range Rover Sport SVR", f:"suv", year:2021, km:21000, hp:575, price:119000, img:"range", pos:"50% 60%", tag:"", color:"Santorini Black", box:"ZF 8 rapports", owners:1, note:"Toit carbone, freins carbone-céramique, sièges SVR. Entretien suivi chez le réseau officiel."}
   ];
-  var fr = function(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); };
+  var fr = function(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); };
   var price = function(c){ return c.price ? "CHF " + fr(c.price) : "Prix sur demande"; };
+  var ARR = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 13L13 3M5 3h8v8"/></svg>';
 
-  /* Collection : chaque voiture en fiche */
+  /* Grille */
   var grid = document.getElementById("grid");
   grid.innerHTML = CARS.map(function(c){
-    return '<article class="car" data-id="'+c.id+'" data-f="'+c.f+'">'+
-      '<span class="car__img" data-slot="car-'+c.id+'"><img src="img/'+c.img+'.webp" alt="" loading="lazy" style="object-position:'+c.pos+'">'+
-      (c.tag ? '<span class="car__tag'+(c.tag==="Réservée"?" car__tag--res":"")+'" data-keep>'+c.tag+'</span>' : '')+'</span>'+
-      '<span class="car__body"><span class="car__id"><h3><button class="car__open" type="button" aria-label="'+c.make+' '+c.model+', voir la fiche">'+c.model+'</button></h3><span class="car__make">'+c.make+'</span></span>'+
-      '<span class="car__price num">'+price(c)+'<small>'+(c.price?'TVA incluse':'Sur rendez-vous')+'</small></span></span>'+
-      '<span class="car__specs num"><span>'+c.year+'</span><span>'+fr(c.km)+' km</span><span>'+c.hp+' ch</span></span>'+
-    '</article>';
+    return '<button class="car rv" data-id="'+c.id+'" data-f="'+c.f+'" aria-label="'+c.make+' '+c.model+', voir la fiche">'+
+      '<div class="car__img rv-img"><img src="img/'+c.img+'.webp" alt="'+c.make+' '+c.model+'" loading="lazy" style="object-position:'+c.pos+'">'+
+      (c.tag ? '<span class="car__tag'+(c.tag==="Réservée"?" res":"")+'">'+c.tag+'</span>' : '')+
+      '<span class="car__view">'+ARR+'</span></div>'+
+      '<div class="car__body"><div><div class="car__make">'+c.make+'</div><h3>'+c.model+'</h3></div>'+
+      '<div class="car__price num">'+price(c)+(c.price?'<small>TVA incluse</small>':'<small>Sur rendez-vous</small>')+'</div></div>'+
+      '<div class="car__specs num"><span>'+c.year+'</span><span>'+fr(c.km)+' km</span><span>'+c.hp+' ch</span></div>'+
+    '</button>';
   }).join("");
   var sel = document.getElementById("r-car");
-  CARS.forEach(function(c){ var o=document.createElement("option"); o.value=c.id; o.textContent=c.make+" "+c.model+", "+c.year; sel.appendChild(o); });
+  CARS.forEach(function(c){ var o=document.createElement("option"); o.value=c.id; o.textContent=c.make+" "+c.model+" · "+c.year; sel.appendChild(o); });
 
   /* Filtres */
   var count = document.getElementById("count");
@@ -321,19 +654,11 @@
       grid.querySelectorAll(".car").forEach(function(el){
         var on = f==="all" || el.dataset.f===f;
         el.classList.toggle("is-out", !on);
-        if(on) n++;
+        if(on){ n++; el.classList.remove("in"); requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add("in"); el.querySelector(".rv-img").classList.add("in"); }); }); }
       });
       count.textContent = n + (n>1?" voitures":" voiture");
-      grid.scrollLeft = 0;
     });
   });
-
-  /* Rail : précédentes, suivantes */
-  var railBtns = document.querySelectorAll("[data-rail]");
-  function railState(){ var max = grid.scrollWidth - grid.clientWidth - 2; railBtns.forEach(function(b){ b.disabled = b.dataset.rail==="prev" ? grid.scrollLeft <= 2 : grid.scrollLeft >= max; }); }
-  railBtns.forEach(function(b){ b.addEventListener("click", function(){ grid.scrollBy({left: (b.dataset.rail==="next" ? 1 : -1) * grid.clientWidth * 0.75, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); }); });
-  grid.addEventListener("scroll", railState, {passive:true}); addEventListener("resize", railState); railState();
-  document.querySelectorAll(".filters button").forEach(function(b){ b.addEventListener("click", function(){ requestAnimationFrame(railState); }); });
 
   /* Fiche */
   var sheet = document.getElementById("sheet"), $ = function(id){ return document.getElementById(id); }, last;
@@ -341,20 +666,22 @@
     var c = CARS.filter(function(x){ return x.id===id; })[0]; if(!c) return;
     last = document.activeElement;
     $("sh-img").src = "img/"+c.img+".webp"; $("sh-img").alt = c.make+" "+c.model; $("sh-img").style.objectPosition = c.pos;
-    $("sh-make").textContent = c.make+", "+c.year;
+    $("sh-make").innerHTML = "<b>"+c.make+"</b> &nbsp;·&nbsp; "+c.year;
     $("sh-title").textContent = c.model;
     $("sh-note").textContent = c.note;
     $("sh-price").textContent = price(c);
-    $("sh-status").textContent = c.tag==="Réservée" ? "Réservée, liste d’attente" : c.price ? "TVA incluse" : "Sur rendez-vous";
+    $("sh-status").textContent = c.tag==="Réservée" ? "Réservée, liste d'attente" : c.price ? "TVA incluse" : "Sur rendez-vous";
     var rows = [["Année",c.year],["Kilométrage",fr(c.km)+" km"],["Puissance",c.hp+" ch"],["Boîte",c.box],["Teinte",c.color],["Propriétaires",c.owners],["Expertise","Oui, OCV Genève"],["Garantie","12 mois"]];
     $("sh-spec").innerHTML = rows.map(function(r){ return "<div><dt>"+r[0]+"</dt><dd class='num'>"+r[1]+"</dd></div>"; }).join("");
     sheet.querySelector(".form").classList.remove("sent");
     sheet.classList.add("open"); sheet.setAttribute("aria-hidden","false");
+    if(window.__lenis) window.__lenis.stop();
     document.documentElement.style.overflow="hidden";
-    setTimeout(function(){ sheet.querySelector(".sheet__close").focus(); }, 60);
+    setTimeout(function(){ sheet.querySelector(".sheet__close").focus(); }, 400);
   }
   function closeCar(){
     sheet.classList.remove("open"); sheet.setAttribute("aria-hidden","true");
+    if(window.__lenis) window.__lenis.start();
     document.documentElement.style.overflow="";
     if(last) last.focus();
   }
@@ -365,16 +692,45 @@
 
   /* Formulaires (démo) */
   document.querySelectorAll("[data-form]").forEach(function(f){ f.addEventListener("submit", function(e){ e.preventDefault(); f.classList.add("sent"); }); });
-  document.querySelectorAll("[data-news]").forEach(function(f){ f.addEventListener("submit", function(e){ e.preventDefault(); f.innerHTML = '<p class="news__ok" role="status">Démonstration : aucune adresse n’a été enregistrée.</p>'; }); });
+  document.querySelectorAll("[data-news]").forEach(function(f){ f.addEventListener("submit", function(e){ e.preventDefault(); f.innerHTML = '<p style="margin:14px 0;color:var(--mute)">Merci, vous êtes inscrit.</p>'; }); });
 
-  /* Barre : se retire en descendant, revient en remontant */
-  var hdr=document.getElementById("hdr"), lastY=0;
+  /* Manifeste mot à mot */
+  var m = document.getElementById("manifest");
+  (function split(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function(t){ if(!t) return; if(/^\s+$/.test(t)){ frag.appendChild(document.createTextNode(t)); } else { var s=document.createElement("span"); s.className="w"; s.textContent=t; frag.appendChild(s); } });
+        node.replaceChild(frag,n);
+      } else if(n.nodeType===1){ split(n); }
+    });
+  })(m);
+  var words = m.querySelectorAll(".w");
+
+  /* Révélations */
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, {rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".rv,.rv-img").forEach(function(el){ io.observe(el); });
+
+  /* Compteurs */
+  var co = new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(!e.isIntersecting) return; co.unobserve(e.target);
+    var el=e.target, to=+el.dataset.count, t0=performance.now(), d=1600;
+    (function tick(t){ var p=Math.min(1,(t-t0)/d); p=1-Math.pow(1-p,4); el.textContent=Math.round(to*p); if(p<1) requestAnimationFrame(tick); })(t0);
+  }); }, {threshold:.6});
+  document.querySelectorAll("[data-count]").forEach(function(el){ co.observe(el); });
+
+  /* Défilement : en-tête, manifeste, parallaxe */
+  var hdr=document.getElementById("hdr"), para=document.getElementById("para"), lastY=0;
   function onScroll(){
     var y = window.scrollY;
     hdr.classList.toggle("is-solid", y>40);
     hdr.classList.toggle("is-hidden", y>innerHeight && y>lastY+2 && !document.body.classList.contains("menu-open"));
     if(y<lastY-2) hdr.classList.remove("is-hidden");
     lastY = y;
+    var r = m.getBoundingClientRect(), p = (innerHeight*0.82 - r.top) / (r.height + innerHeight*0.25);
+    var k = Math.round(Math.max(0,Math.min(1,p)) * words.length);
+    for(var i=0;i<words.length;i++) words[i].classList.toggle("on", i<k);
+    if(para && innerWidth>820){ var pr=para.parentNode.getBoundingClientRect(); para.style.transform="translate3d(0,"+(-pr.top*0.12 - innerHeight*0.06)+"px,0)"; }
   }
   addEventListener("scroll", onScroll, {passive:true}); onScroll();
 
@@ -384,13 +740,23 @@
   burger.addEventListener("click", function(){ menu(!document.body.classList.contains("menu-open")); });
   mnav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ menu(false); }); });
 
-  /* Ancres */
-  var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function go(hash){ var t=document.querySelector(hash); if(!t) return; if(hash==="#top") window.scrollTo({top:0, behavior: still ? "auto" : "smooth"}); else t.scrollIntoView({behavior: still ? "auto" : "smooth"}); }
+  /* Ancres + Lenis */
+  function go(hash){ var t=document.querySelector(hash); if(!t) return; if(window.__lenis) window.__lenis.scrollTo(t,{offset:hash==="#top"?0:-20,duration:1.6}); else t.scrollIntoView({behavior:"smooth"}); }
   document.querySelectorAll('a[href^="#"]').forEach(function(a){ a.addEventListener("click", function(e){ if(a.hasAttribute("data-open")) return; e.preventDefault(); go(a.getAttribute("href")); }); });
+  addEventListener("load", function(){
+    if(window.Lenis && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+      var l = window.__lenis = new Lenis({lerp:.085, wheelMultiplier:.9});
+      (function raf(t){ l.raf(t); requestAnimationFrame(raf); })(performance.now());
+    }
+  });
+
+  /* Entrée */
+  var ready = function(){ document.documentElement.classList.add("is-ready"); };
+  var img = document.querySelector(".hero__media img");
+  var start = performance.now();
+  function go2(){ setTimeout(ready, Math.max(0, 1000 - (performance.now()-start))); }
+  if(img.complete) go2(); else { img.addEventListener("load", go2); img.addEventListener("error", go2); setTimeout(ready, 2500); }
 })();
 </script>
-<script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
-document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
 </body>
 </html>
