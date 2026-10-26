@@ -4,416 +4,224 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="https://raw.githubusercontent.com/yanisassaki-cmd/Leman-Studio-CH/refs/heads/main/favicon.ico" type="image/x-icon" />
-<title>Plombier Genève — Urgence 24h/24 — 022 518 34 92</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: Arial, Helvetica, sans-serif; background: #fff; color: #111; }
-
-  .topbar {
-    background: #cc0000;
-    color: #fff;
-    text-align: center;
-    padding: 12px 16px;
-    font-size: 18px;
-    font-weight: bold;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  .topbar a { color: #fff; text-decoration: none; }
-  .topbar a:hover { text-decoration: underline; }
-
-  .hero {
-    background: #111;
-    color: #fff;
-    padding: 60px 20px;
-    text-align: center;
-  }
-  .hero h1 {
-    font-size: clamp(28px, 5vw, 52px);
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-  .hero p {
-    font-size: clamp(16px, 2.5vw, 22px);
-    color: #ccc;
-    margin-bottom: 32px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .btn-urgence {
-    display: block;
-    background: #cc0000;
-    color: #fff;
-    font-size: clamp(20px, 3vw, 32px);
-    font-weight: 900;
-    text-decoration: none;
-    padding: 24px 40px;
-    border-radius: 6px;
-    max-width: 600px;
-    margin: 0 auto 16px auto;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: pulse 1.5s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(204,0,0,0.5); }
-    50% { box-shadow: 0 0 0 16px rgba(204,0,0,0); }
-  }
-  .hero-sub { font-size: 14px; color: #aaa; }
-
-  .trust {
-    background: #f4f4f4;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .trust-item {
-    flex: 1 1 200px;
-    text-align: center;
-    padding: 24px 16px;
-    border-right: 1px solid #ddd;
-  }
-  .trust-item:last-child { border-right: none; }
-  .trust-item .icon { font-size: 32px; margin-bottom: 8px; }
-  .trust-item strong { display: block; font-size: 16px; margin-bottom: 4px; }
-  .trust-item span { font-size: 13px; color: #555; }
-
-  .services { padding: 48px 20px; max-width: 1000px; margin: 0 auto; }
-  .services h2 {
-    font-size: clamp(22px, 3vw, 36px);
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    text-align: center;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
-  .service-card {
-    border: 3px solid #111;
-    border-left: 8px solid #cc0000;
-    padding: 24px 20px;
-    border-radius: 4px;
-  }
-  .service-card .icon { font-size: 36px; margin-bottom: 12px; }
-  .service-card h3 { font-size: 18px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
-  .service-card p { font-size: 14px; color: #444; margin-bottom: 16px; }
-  .service-card a {
-    display: inline-block;
-    background: #cc0000;
-    color: #fff;
-    padding: 10px 18px;
-    font-weight: bold;
-    font-size: 14px;
-    text-decoration: none;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-
-  .why { background: #111; color: #fff; padding: 60px 20px; }
-  .why-inner { max-width: 900px; margin: 0 auto; }
-  .why h2 {
-    font-size: clamp(22px, 3vw, 36px);
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .why .lead {
-    font-size: 18px;
-    color: #ccc;
-    margin-bottom: 32px;
-    border-left: 5px solid #cc0000;
-    padding-left: 16px;
-    line-height: 1.6;
-  }
-  .why-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-  .why-list li {
-    background: #222;
-    padding: 20px;
-    border-left: 5px solid #cc0000;
-    font-size: 15px;
-    line-height: 1.5;
-  }
-  .why-list li strong { display: block; font-size: 16px; margin-bottom: 6px; text-transform: uppercase; }
-  .why .cta-why {
-    display: block;
-    background: #cc0000;
-    color: #fff;
-    font-size: clamp(18px, 2.5vw, 26px);
-    font-weight: 900;
-    text-decoration: none;
-    padding: 22px 32px;
-    border-radius: 6px;
-    text-align: center;
-    margin-top: 40px;
-    text-transform: uppercase;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .avis { padding: 60px 20px; background: #fafafa; }
-  .avis h2 {
-    text-align: center;
-    font-size: clamp(22px, 3vw, 36px);
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-  }
-  .avis-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .avis-card {
-    background: #fff;
-    border: 2px solid #ddd;
-    border-top: 5px solid #cc0000;
-    padding: 24px;
-    border-radius: 4px;
-  }
-  .stars { color: #cc0000; font-size: 20px; margin-bottom: 12px; }
-  .avis-card p { font-size: 14px; line-height: 1.6; color: #333; font-style: italic; margin-bottom: 12px; }
-  .avis-author { font-weight: bold; font-size: 13px; }
-  .avis-context { font-size: 12px; color: #888; }
-
-  .zones { padding: 48px 20px; text-align: center; max-width: 900px; margin: 0 auto; }
-  .zones h2 { font-size: clamp(20px, 2.5vw, 30px); font-weight: 900; text-transform: uppercase; margin-bottom: 16px; }
-  .zones p { font-size: 15px; color: #444; margin-bottom: 16px; }
-  .zones .pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-  .zones .pill {
-    background: #111;
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
-  }
-
-  .cta-final {
-    background: #cc0000;
-    color: #fff;
-    text-align: center;
-    padding: 60px 20px;
-  }
-  .cta-final h2 { font-size: clamp(22px, 3vw, 38px); font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
-  .cta-final p { font-size: 18px; margin-bottom: 32px; }
-  .cta-final a {
-    display: inline-block;
-    background: #fff;
-    color: #cc0000;
-    font-size: clamp(20px, 3vw, 34px);
-    font-weight: 900;
-    padding: 22px 48px;
-    border-radius: 6px;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  footer {
-    background: #111;
-    color: #ccc;
-    padding: 40px 20px;
-    font-size: 13px;
-  }
-  .footer-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 32px;
-  }
-  footer h4 { color: #fff; font-size: 14px; text-transform: uppercase; margin-bottom: 12px; }
-  footer a { color: #ccc; text-decoration: none; display: block; margin-bottom: 6px; }
-  footer a:hover { color: #fff; }
-  .footer-copy {
-    text-align: center;
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid #333;
-    font-size: 12px;
-    color: #666;
-  }
-
-  @media (max-width: 600px) {
-    .trust-item { border-right: none; border-bottom: 1px solid #ddd; }
-  }
-</style>
+<title>Plombier Genève | Urgence 24h/24 | 022 518 34 92</title>
+<meta name="description" content="Plombier Genève, urgence 24h/24, 7j/7 : fuite d’eau, WC bouché, évier, boiler en panne. On arrive en 30 minutes. Appeler le 022 518 34 92.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500&family=Saira+Condensed:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-<div class="topbar">
-  🚨 FUITE D'EAU ? WC BOUCHÉ ? &nbsp;|&nbsp; URGENCE 24h/24 — 7j/7 &nbsp;|&nbsp;
-  <a href="tel:0225183492">📞 APPELER : 022 518 34 92</a>
-</div>
+<header class="banner">
+  <div class="container banner__in">
+    <p class="banner__line">Urgence 24h/24, 7j/7<span class="banner__more">. Nuits, week-ends, jours fériés.</span></p>
+    <a class="banner__call" href="tel:0225183492"><span class="banner__verb">Appeler&nbsp;:&nbsp;</span>022&nbsp;518&nbsp;34&nbsp;92</a>
+  </div>
+</header>
 
-<section class="hero">
-  <h1>Plombier Genève<br>On arrive en 30 minutes.</h1>
-  <p>Fuite, WC bouché, boiler en panne — appelez maintenant. Un vrai technicien décroche, pas un répondeur.</p>
-  <a class="btn-urgence" href="tel:0225183492">📞 APPELER LE 022 518 34 92</a>
-  <p class="hero-sub">Devis gratuit avant de commencer · Tarif annoncé à l'avance · Techniciens certifiés CFC</p>
-</section>
-
-<div class="trust">
-  <div class="trust-item">
-    <div class="icon">🕐</div>
-    <strong>24h/24 — 7j/7</strong>
-    <span>Nuits, week-ends, jours fériés. On décroche toujours.</span>
-  </div>
-  <div class="trust-item">
-    <div class="icon">💶</div>
-    <strong>Prix annoncé avant</strong>
-    <span>Aucune surprise sur la facture. Zéro.</span>
-  </div>
-  <div class="trust-item">
-    <div class="icon">🎓</div>
-    <strong>Techniciens CFC</strong>
-    <span>Formés, assurés, salariés. Pas de sous-traitants inconnus.</span>
-  </div>
-  <div class="trust-item">
-    <div class="icon">🏢</div>
-    <strong>Agréé régies & assurances</strong>
-    <span>On gère directement avec votre régie si besoin.</span>
-  </div>
-</div>
-
-<section class="services">
-  <h2>Ce qu'on règle maintenant</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="icon">💧</div>
-      <h3>Fuite d'eau</h3>
-      <p>Tuyau, joint, vanne — chaque minute aggrave les dégâts. On localise et stoppe immédiatement.</p>
-      <a href="tel:0225183492">📞 Appeler</a>
-    </div>
-    <div class="service-card">
-      <div class="icon">🚽</div>
-      <h3>WC Bouché</h3>
-      <p>Même en pleine nuit. Débouchage haute pression, résultat garanti au premier passage.</p>
-      <a href="tel:0225183492">📞 Appeler</a>
-    </div>
-    <div class="service-card">
-      <div class="icon">🚿</div>
-      <h3>Évier / Douche</h3>
-      <p>Écoulement bloqué, siphon saturé. On déplace, on débouche, on repart proprement.</p>
-      <a href="tel:0225183492">📞 Appeler</a>
-    </div>
-    <div class="service-card">
-      <div class="icon">🔥</div>
-      <h3>Boiler en panne</h3>
-      <p>Plus d'eau chaude ? On répare toutes marques, même le dimanche matin.</p>
-      <a href="tel:0225183492">📞 Appeler</a>
-    </div>
-  </div>
-</section>
-
-<section class="why">
-  <div class="why-inner">
-    <h2>Pourquoi nous appeler et pas un autre ?</h2>
-    <p class="lead">
-      Il est 23h, votre salle de bain est inondée. Vous appelez le premier numéro trouvé sur Google.
-      Le technicien arrive et vous balance une facture de 800 CHF pour 20 minutes de travail — sans devis, sans explication.
-      Ce scénario arrive tous les jours à Genève. On est là pour que ça ne vous arrive pas.
-    </p>
-    <ul class="why-list">
-      <li><strong>On décroche à 3h du matin</strong>Vraiment. Pas un répondeur, pas un formulaire. Un technicien.</li>
-      <li><strong>Prix avant de commencer</strong>Si le tarif ne vous convient pas, vous ne payez rien. Point.</li>
-      <li><strong>On nettoie après</strong>On protège vos sols, on range notre matériel. Vous ne verrez pas la différence, sauf que ça marche.</li>
-      <li><strong>Facture détaillée</strong>Vous savez exactement ce que vous payez et pourquoi. Toujours.</li>
+<nav class="bar" aria-label="Navigation principale" data-retract>
+  <div class="container bar__in">
+    <a class="wordmark" href="#top" aria-label="PlombierGenève.ch, accueil">PlombierGenève.ch</a>
+    <ul class="bar__links" role="list">
+      <li><a href="#urgences">Nos services</a></li>
+      <li><a href="#zones">Zone d’intervention</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="cta-why" href="tel:0225183492">📞 022 518 34 92 — APPELER MAINTENANT</a>
   </div>
-</section>
+</nav>
 
-<section class="avis">
-  <h2>Ce que disent nos clients</h2>
-  <div class="avis-grid">
-    <div class="avis-card">
-      <div class="stars">★★★★★</div>
-      <p>"Fuite sous l'évier un dimanche à 22h. Ils ont décroché immédiatement, technicien chez moi en 20 minutes. Prix annoncé avant, facture identique. Je recommande sans hésitation."</p>
-      <div class="avis-author">Marc D. — Carouge</div>
-      <div class="avis-context">Fuite sous évier, dimanche soir</div>
-    </div>
-    <div class="avis-card">
-      <div class="stars">★★★★★</div>
-      <p>"WC bouché un samedi matin avec des invités à midi. Appel à 9h, réglé à 9h50. Efficace, rapide, propre. Merci."</p>
-      <div class="avis-author">Sophie L. — Plainpalais</div>
-      <div class="avis-context">Débouchage WC, samedi matin</div>
-    </div>
-    <div class="avis-card">
-      <div class="stars">★★★★★</div>
-      <p>"Gérant d'un restaurant aux Eaux-Vives. Évier bouché en plein service du samedi soir. Ils sont venus discrètement, réglé sans perturber le service. Seul numéro que j'appelle désormais."</p>
-      <div class="avis-author">Karim B. — Les Eaux-Vives</div>
-      <div class="avis-context">Débouchage cuisine pro, samedi soir</div>
+<main id="main">
+
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="container hero__in">
+    <p class="hero__q"><span>Fuite d’eau&#8239;?</span> <span>WC bouché&#8239;?</span></p>
+    <div class="hero__ledge">
+      <div class="hero__text">
+        <h1 id="hero-h"><span class="h1__name">Plombier Genève</span> <span class="h1__promise">On arrive en 30 minutes.</span></h1>
+        <p class="hero__note">Un vrai technicien décroche, pas un répondeur.</p>
+      </div>
+      <div class="hero__act">
+        <a class="bib" href="tel:0225183492"><span class="bib__label">Appeler le</span> <span class="bib__num"><span>022&nbsp;518</span> <span>34&nbsp;92</span></span></a>
+        <p class="hero__terms">Devis gratuit avant de commencer. Tarif annoncé à l’avance.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="zones">
-  <h2>On intervient partout dans le canton</h2>
-  <p>Pas sûr qu'on couvre votre secteur ? <strong>Appelez — on vous répond en 30 secondes.</strong></p>
-  <div class="pills">
-    <span class="pill">Genève Centre</span>
-    <span class="pill">Carouge</span>
-    <span class="pill">Lancy</span>
-    <span class="pill">Meyrin</span>
-    <span class="pill">Vernier</span>
-    <span class="pill">Onex</span>
-    <span class="pill">Bernex</span>
-    <span class="pill">Champel</span>
-    <span class="pill">Plainpalais</span>
-    <span class="pill">Les Eaux-Vives</span>
-    <span class="pill">Chêne-Bougeries</span>
-    <span class="pill">Thônex</span>
-    <span class="pill">Grand-Saconnex</span>
-    <span class="pill">Cologny</span>
-    <span class="pill">Bellevue</span>
-    <span class="pill">Collonge-Bellerive</span>
+<section class="urgences" id="urgences" aria-labelledby="urgences-h">
+  <div class="container">
+    <h2 id="urgences-h">Ce qu’on règle maintenant</h2>
+    <ul class="rows" role="list">
+      <li class="row">
+        <h3 class="row__title">Fuite d’eau</h3>
+        <p class="row__line">Tuyau, joint, vanne&nbsp;: chaque minute aggrave les dégâts. On localise et stoppe immédiatement.</p>
+        <a class="btn" href="tel:0225183492">Appeler<span class="visually-hidden"> pour une fuite d’eau</span></a>
+      </li>
+      <li class="row">
+        <h3 class="row__title">WC Bouché</h3>
+        <p class="row__line">Même en pleine nuit. Débouchage haute pression, résultat garanti au premier passage.</p>
+        <a class="btn" href="tel:0225183492">Appeler<span class="visually-hidden"> pour un WC bouché</span></a>
+      </li>
+      <li class="row">
+        <h3 class="row__title">Évier / Douche</h3>
+        <p class="row__line">Écoulement bloqué, siphon saturé. On déplace, on débouche, on repart proprement.</p>
+        <a class="btn" href="tel:0225183492">Appeler<span class="visually-hidden"> pour un évier ou une douche</span></a>
+      </li>
+      <li class="row">
+        <h3 class="row__title">Boiler en panne</h3>
+        <p class="row__line">Plus d’eau chaude&#8239;? On répare toutes marques, même le dimanche matin.</p>
+        <a class="btn" href="tel:0225183492">Appeler<span class="visually-hidden"> pour un boiler en panne</span></a>
+      </li>
+    </ul>
   </div>
 </section>
 
-<section class="cta-final">
-  <h2>Vous avez un problème maintenant ?</h2>
-  <p>N'attendez pas. Chaque minute compte.</p>
-  <a href="tel:0225183492">📞 022 518 34 92</a>
+<section class="raisons" id="raisons" aria-labelledby="raisons-h">
+  <div class="container raisons__grid">
+    <div class="raisons__arg">
+      <h2 id="raisons-h">Pourquoi nous appeler et pas un autre&#8239;?</h2>
+      <p class="raisons__story">Il est 23h, votre salle de bain est inondée. Vous appelez le premier numéro trouvé sur Google. Le technicien arrive et vous balance une facture de 800&nbsp;CHF pour 20&nbsp;minutes de travail, sans devis, sans explication. Ce scénario arrive tous les jours à Genève.</p>
+      <p class="raisons__claim">On est là pour que ça ne vous arrive pas.</p>
+      <a class="btn btn--paper" href="tel:0225183492">Appeler maintenant</a>
+    </div>
+    <dl class="raisons__list">
+      <div><dt>On décroche à 3h du matin</dt><dd>Vraiment. Pas un répondeur, pas un formulaire. Un technicien.</dd></div>
+      <div><dt>Prix avant de commencer</dt><dd>Si le tarif ne vous convient pas, vous ne payez rien. Point.</dd></div>
+      <div><dt>Facture détaillée</dt><dd>Aucune surprise&nbsp;: vous savez exactement ce que vous payez et pourquoi. Toujours.</dd></div>
+      <div><dt>Techniciens certifiés CFC</dt><dd>Formés, assurés, salariés. Pas de sous-traitants inconnus.</dd></div>
+      <div><dt>Agréé régies &amp; assurances</dt><dd>On gère directement avec votre régie si besoin.</dd></div>
+      <div><dt>On nettoie après</dt><dd>On protège vos sols, on range notre matériel. Vous ne verrez pas la différence, sauf que ça marche.</dd></div>
+    </dl>
+  </div>
 </section>
 
-<footer>
-  <div class="footer-inner">
-    <div>
-      <h4>PlombierGenève.ch</h4>
-      <p>📍 Rue de Carouge 42<br>1205 Genève, Suisse</p><br>
-      <p>📞 <a href="tel:0225183492">022 518 34 92</a></p>
-      <p>✉️ <a href="mailto:contact@plombiergeneve.ch">contact@plombiergeneve.ch</a></p><br>
-      <p>Disponible 24h/24 — 7j/7</p>
+<section class="avis" id="avis" aria-labelledby="avis-h">
+  <div class="container">
+    <h2 id="avis-h">Ce que disent nos clients</h2>
+    <ul class="avis__list" role="list">
+      <li class="avis__row">
+        <div class="avis__who">
+          <p class="avis__name">Marc D.</p>
+          <p class="avis__place">Carouge</p>
+          <p class="avis__ctx">Fuite sous évier, dimanche soir</p>
+          <p class="avis__note"><span class="visually-hidden">Note&nbsp;: </span>5/5</p>
+        </div>
+        <blockquote class="avis__quote"><p>«&#8239;Fuite sous l’évier un dimanche à 22h. Ils ont décroché immédiatement, technicien chez moi en 20&nbsp;minutes. Prix annoncé avant, facture identique. Je recommande sans hésitation.&#8239;»</p></blockquote>
+      </li>
+      <li class="avis__row">
+        <div class="avis__who">
+          <p class="avis__name">Sophie L.</p>
+          <p class="avis__place">Plainpalais</p>
+          <p class="avis__ctx">Débouchage WC, samedi matin</p>
+          <p class="avis__note"><span class="visually-hidden">Note&nbsp;: </span>5/5</p>
+        </div>
+        <blockquote class="avis__quote"><p>«&#8239;WC bouché un samedi matin avec des invités à midi. Appel à 9h, réglé à 9h50. Efficace, rapide, propre. Merci.&#8239;»</p></blockquote>
+      </li>
+      <li class="avis__row">
+        <div class="avis__who">
+          <p class="avis__name">Karim B.</p>
+          <p class="avis__place">Les Eaux-Vives</p>
+          <p class="avis__ctx">Débouchage cuisine pro, samedi soir</p>
+          <p class="avis__note"><span class="visually-hidden">Note&nbsp;: </span>5/5</p>
+        </div>
+        <blockquote class="avis__quote"><p>«&#8239;Gérant d’un restaurant aux Eaux-Vives. Évier bouché en plein service du samedi soir. Ils sont venus discrètement, réglé sans perturber le service. Seul numéro que j’appelle désormais.&#8239;»</p></blockquote>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="zones" id="zones" aria-labelledby="zones-h">
+  <div class="container">
+    <div class="zones__head">
+      <h2 id="zones-h">On intervient partout dans le canton</h2>
+      <p class="lead">Pas sûr qu’on couvre votre secteur&#8239;? <strong>Appelez&nbsp;: on vous répond en 30&nbsp;secondes.</strong></p>
     </div>
-    <div>
-      <h4>Navigation</h4>
-      <a href="#">Accueil</a>
-      <a href="#">Nos Services</a>
-      <a href="#">Nos Tarifs</a>
-      <a href="#">Zone d'intervention</a>
-      <a href="#">Contact</a>
-    </div>
-    <div>
-      <h4>Légal</h4>
-      <a href="#">Mentions légales</a>
-      <a href="#">Politique de confidentialité</a>
-      <a href="#">Conditions générales</a>
+    <ul class="zones__list" role="list">
+      <li>Genève Centre</li>
+      <li>Carouge</li>
+      <li>Lancy</li>
+      <li>Meyrin</li>
+      <li>Vernier</li>
+      <li>Onex</li>
+      <li>Bernex</li>
+      <li>Champel</li>
+      <li>Plainpalais</li>
+      <li>Les Eaux-Vives</li>
+      <li>Chêne-Bougeries</li>
+      <li>Thônex</li>
+      <li>Grand-Saconnex</li>
+      <li>Cologny</li>
+      <li>Bellevue</li>
+      <li>Collonge-Bellerive</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fin" aria-labelledby="fin-h">
+  <div class="container fin__grid">
+    <h2 id="fin-h" class="fin__head">Vous avez un problème maintenant&#8239;?</h2>
+    <div class="fin__act">
+      <p class="lead">N’attendez pas. Chaque minute compte.</p>
+      <a class="bib" href="tel:0225183492"><span class="bib__label">Appeler le</span> <span class="bib__num"><span>022&nbsp;518</span> <span>34&nbsp;92</span></span></a>
     </div>
   </div>
-  <div class="footer-copy">
-    © 2026 PlombierGenève.ch — Tous droits réservés · Rue de Carouge 42, 1205 Genève
+</section>
+
+</main>
+
+<footer class="foot" id="contact">
+  <div class="container">
+    <div class="foot__sign">
+      <h2 class="foot__mark">PlombierGenève.ch</h2>
+      <div class="foot__card">
+        <address class="foot__addr">Rue de Carouge 42<br>1205 Genève, Suisse</address>
+        <p class="foot__reach"><a href="tel:0225183492">022&nbsp;518&nbsp;34&nbsp;92</a><br><a href="mailto:contact@plombiergeneve.ch">contact@plombiergeneve.ch</a></p>
+        <p class="foot__avail">Disponible 24h/24, 7j/7</p>
+      </div>
+    </div>
+    <div class="foot__base">
+      <p class="foot__date">© 2026 PlombierGenève.ch. Tous droits réservés.</p>
+      <div class="foot__index">
+        <nav class="foot__links" aria-labelledby="foot-nav">
+          <h3 id="foot-nav">Navigation</h3>
+          <ul role="list">
+            <li><a href="#top">Accueil</a></li>
+            <li><a href="#urgences">Nos services</a></li>
+            <li><a href="#">Nos tarifs</a></li>
+            <li><a href="#zones">Zone d’intervention</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="foot__links">
+          <h3 id="foot-legal">Légal</h3>
+          <ul role="list">
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">Conditions générales</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
 
+<script>
+(() => {
+  const bar = document.querySelector('[data-retract]');
+  if (!bar) return;
+  let last = window.scrollY, ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (Math.abs(y - last) > 4) { bar.classList.toggle('is-retracted', y > last && y > 240); last = y; }
+      ticking = false;
+    });
+  }, { passive: true });
+  bar.addEventListener('focusin', () => bar.classList.remove('is-retracted'));
+})();
+</script>
 </body>
 </html>
