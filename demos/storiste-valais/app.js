@@ -73,14 +73,71 @@
     var ficheObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) mark(e.target.id); });
     }, { rootMargin: '-45% 0px -54% 0px' });
-    document.querySelectorAll('.fiche').forEach(function (f) { ficheObs.observe(f); });
+    document.querySelectorAll('.fiche, .gamme').forEach(function (f) { ficheObs.observe(f); });
   }
 
-  /* occasions : masquer les stores vendus */
-  var hideSold = document.getElementById('hide-sold');
-  if (hideSold) {
-    hideSold.addEventListener('change', function () {
-      document.querySelectorAll('.occ__item.is-sold').forEach(function (li) { li.hidden = hideSold.checked; });
+  /* menu Produits déroulant : clic, survol à la souris, Échap et clic extérieur ferment */
+  var drop = document.querySelector('.drop');
+  if (drop) {
+    var dropBtn = drop.querySelector('.drop__btn');
+    var setDrop = function (open) { drop.classList.toggle('is-open', open); dropBtn.setAttribute('aria-expanded', String(open)); };
+    var hoverable = window.matchMedia('(hover: hover) and (min-width: 961px)');
+    var closeTimer, hoverOpenedAt = 0;
+    dropBtn.addEventListener('click', function () {
+      // un clic juste après l'ouverture au survol confirme l'ouverture au lieu de refermer
+      if (hoverable.matches && Date.now() - hoverOpenedAt < 600) { setDrop(true); return; }
+      setDrop(!drop.classList.contains('is-open'));
+    });
+    drop.addEventListener('mouseenter', function () {
+      if (!hoverable.matches) return;
+      clearTimeout(closeTimer);
+      if (!drop.classList.contains('is-open')) hoverOpenedAt = Date.now();
+      setDrop(true);
+    });
+    drop.addEventListener('mouseleave', function () { if (hoverable.matches) { closeTimer = setTimeout(function () { setDrop(false); }, 180); } });
+    document.addEventListener('click', function (e) { if (!drop.contains(e.target) && hoverable.matches) setDrop(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drop.classList.contains('is-open')) { setDrop(false); dropBtn.focus(); } });
+  }
+
+  /* réalisations : filtre et photo agrandie */
+  var realBtns = document.querySelectorAll('[data-real]');
+  realBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var k = btn.dataset.real;
+      realBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      document.querySelectorAll('.real').forEach(function (fig) {
+        fig.hidden = k !== 'tout' && fig.dataset.cats.split(' ').indexOf(k) === -1;
+      });
+    });
+  });
+  var box = document.getElementById('lightbox');
+  if (box && typeof box.showModal === 'function') {
+    var boxImg = box.querySelector('img');
+    var boxCap = box.querySelector('.lightbox__cap');
+    document.querySelectorAll('.real__open').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var im = b.querySelector('img');
+        boxImg.src = im.currentSrc || im.src; boxImg.alt = im.alt;
+        boxCap.textContent = b.closest('.real').querySelector('figcaption').textContent.replace(/\s+/g, ' ').trim();
+        box.showModal();
+      });
+    });
+    box.querySelector('.lightbox__close').addEventListener('click', function () { box.close(); });
+    box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+  }
+
+  /* occasions : stores ou toiles, et vendus masqués par défaut */
+  var occBtns = document.querySelectorAll('[data-occ]');
+  occBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      occBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      document.querySelectorAll('[data-occ-list]').forEach(function (ul) { ul.hidden = ul.dataset.occList !== btn.dataset.occ; });
+    });
+  });
+  var showSold = document.getElementById('show-sold');
+  if (showSold) {
+    showSold.addEventListener('change', function () {
+      document.querySelectorAll('.occ__item.is-sold').forEach(function (li) { li.hidden = !showSold.checked; });
     });
   }
 

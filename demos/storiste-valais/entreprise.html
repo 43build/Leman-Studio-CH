@@ -21,9 +21,24 @@
       <svg aria-hidden="true" width="34" height="24" viewBox="0 0 34 24"><rect width="34" height="5" rx="1" class="logo__bar"/><polygon points="3,5 31,5 26,24 8,24" class="logo__toile"/></svg>ombrage
     </a>
     <nav class="head__nav" id="menu" aria-label="Navigation principale">
-      <a href="produits.html">Produits</a>
-      <a href="reparation.html">Réparation</a>
+      <div class="drop">
+        <button class="drop__btn" type="button" aria-expanded="false" aria-controls="drop-produits">Produits</button>
+        <div class="drop__panel" id="drop-produits">
+          <ul class="drop__list">
+          <li><a href="stores-bannes-stobag.html"><strong>Stores bannes Stobag</strong><span>14 séries, avec ou sans coffre</span></a></li>
+          <li><a href="protections-solaires-gibus-glatz.html"><strong>Autres protections solaires</strong><span>Gibus, voiles d’ombrage, parasols Glatz</span></a></li>
+          <li><a href="pergolas.html"><strong>Pergolas</strong><span>Bioclimatiques, à toile, à toit vitré</span></a></li>
+          <li><a href="stores-exterieurs.html"><strong>Stores extérieurs</strong><span>Lamelles, volets roulants, portes roulantes</span></a></li>
+          <li><a href="volets-aluminium.html"><strong>Volets</strong><span>Aluminium battants, coulissants, pliables</span></a></li>
+          <li><a href="stores-interieurs.html"><strong>Stores intérieurs</strong><span>Plissés, rollos, vénitiens, moustiquaires, Velux</span></a></li>
+          <li><a href="domotique.html"><strong>Domotique</strong><span>Somfy, TaHoma, KNX, Animeo</span></a></li>
+          <li><a href="realisations.html"><strong>Nos réalisations</strong><span>Villas, chalets, restaurants, écoles</span></a></li>
+          </ul>
+          <a class="drop__all" href="produits.html">Voir tous les produits</a>
+        </div>
+      </div>
       <a href="occasions.html">Occasions</a>
+      <a href="reparation.html">Réparation</a>
       <a href="entreprise.html" aria-current="page">L’entreprise</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -133,11 +148,13 @@
     <div>
       <h2>Produits</h2>
       <ul>
-        <li><a href="produits.html#stores-bannes">Stores bannes</a></li>
-        <li><a href="produits.html#stores-lamelles">Stores à lamelles</a></li>
-        <li><a href="produits.html#volets-alu">Volets en aluminium</a></li>
-        <li><a href="produits.html#pergolas">Pergolas bioclimatiques</a></li>
-        <li><a href="produits.html#domotique">Motorisation et domotique</a></li>
+        <li><a href="stores-bannes-stobag.html">Stores bannes Stobag</a></li>
+        <li><a href="protections-solaires-gibus-glatz.html">Autres protections solaires</a></li>
+        <li><a href="pergolas.html">Pergolas</a></li>
+        <li><a href="stores-exterieurs.html">Stores extérieurs</a></li>
+        <li><a href="volets-aluminium.html">Volets</a></li>
+        <li><a href="stores-interieurs.html">Stores intérieurs</a></li>
+        <li><a href="domotique.html">Domotique</a></li>
       </ul>
     </div>
     <div>
@@ -145,6 +162,7 @@
       <ul>
         <li><a href="reparation.html">Réparation et entretien</a></li>
         <li><a href="occasions.html">Stores d’occasion</a></li>
+        <li><a href="realisations.html">Nos réalisations</a></li>
         <li><a href="entreprise.html#professionnels">Architectes et communes</a></li>
         <li><a href="contact.html">Contact et devis</a></li>
       </ul>

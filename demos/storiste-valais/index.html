@@ -22,9 +22,24 @@
       <svg aria-hidden="true" width="34" height="24" viewBox="0 0 34 24"><rect width="34" height="5" rx="1" class="logo__bar"/><polygon points="3,5 31,5 26,24 8,24" class="logo__toile"/></svg>ombrage
     </a>
     <nav class="head__nav" id="menu" aria-label="Navigation principale">
-      <a href="produits.html">Produits</a>
-      <a href="reparation.html">Réparation</a>
+      <div class="drop">
+        <button class="drop__btn" type="button" aria-expanded="false" aria-controls="drop-produits">Produits</button>
+        <div class="drop__panel" id="drop-produits">
+          <ul class="drop__list">
+          <li><a href="stores-bannes-stobag.html"><strong>Stores bannes Stobag</strong><span>14 séries, avec ou sans coffre</span></a></li>
+          <li><a href="protections-solaires-gibus-glatz.html"><strong>Autres protections solaires</strong><span>Gibus, voiles d’ombrage, parasols Glatz</span></a></li>
+          <li><a href="pergolas.html"><strong>Pergolas</strong><span>Bioclimatiques, à toile, à toit vitré</span></a></li>
+          <li><a href="stores-exterieurs.html"><strong>Stores extérieurs</strong><span>Lamelles, volets roulants, portes roulantes</span></a></li>
+          <li><a href="volets-aluminium.html"><strong>Volets</strong><span>Aluminium battants, coulissants, pliables</span></a></li>
+          <li><a href="stores-interieurs.html"><strong>Stores intérieurs</strong><span>Plissés, rollos, vénitiens, moustiquaires, Velux</span></a></li>
+          <li><a href="domotique.html"><strong>Domotique</strong><span>Somfy, TaHoma, KNX, Animeo</span></a></li>
+          <li><a href="realisations.html"><strong>Nos réalisations</strong><span>Villas, chalets, restaurants, écoles</span></a></li>
+          </ul>
+          <a class="drop__all" href="produits.html">Voir tous les produits</a>
+        </div>
+      </div>
       <a href="occasions.html">Occasions</a>
+      <a href="reparation.html">Réparation</a>
       <a href="entreprise.html">L’entreprise</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -65,41 +80,41 @@
   <div class="produits__group produits__group--ext" data-group="ext">
     <figure class="prod prod--portrait">
       <img src="img/stores-lamelles-sion.webp" width="1000" height="1250" loading="lazy" alt="Immeuble récent à Sion équipé de stores à lamelles en aluminium, vignes et montagnes en arrière-plan">
-      <figcaption><strong><a href="produits.html#stores-lamelles">Stores à lamelles</a></strong><span>Réglez la lumière lame par lame et gardez la chaleur dehors.</span></figcaption>
+      <figcaption><strong><a href="stores-exterieurs.html#lamelles">Stores à lamelles</a></strong><span>Réglez la lumière lame par lame et gardez la chaleur dehors.</span></figcaption>
     </figure>
     <figure class="prod prod--portrait">
       <img src="img/volets-alu-chalet.webp" width="1000" height="1250" loading="lazy" alt="Chalet valaisan en mélèze équipé de volets battants en aluminium anthracite et de géraniums">
-      <figcaption><strong><a href="produits.html#volets-alu">Volets en aluminium</a></strong><span>L’allure des volets d’origine, sans jamais les repeindre.</span></figcaption>
+      <figcaption><strong><a href="volets-aluminium.html">Volets en aluminium</a></strong><span>L’allure des volets d’origine, sans jamais les repeindre.</span></figcaption>
     </figure>
     <figure class="prod prod--portrait">
       <img src="img/screen-zip-chalet.webp" width="1000" height="1250" loading="lazy" alt="Screen ZIP abaissé devant une grande baie vitrée de chalet, vue sur les vignes et les montagnes">
-      <figcaption><strong><a href="produits.html#screens-zip">Screens ZIP</a></strong><span>Une toile guidée qui tient au foehn et laisse voir la vallée.</span></figcaption>
+      <figcaption><strong><a href="protections-solaires-gibus-glatz.html#verticales">Screens ZIP</a></strong><span>Une toile guidée qui tient au foehn et laisse voir la vallée.</span></figcaption>
     </figure>
     <figure class="prod prod--wide">
       <img src="img/pergola-crans-montana.webp" width="1600" height="1063" loading="lazy" alt="Pergola bioclimatique anthracite éclairée à la tombée du jour sur une terrasse de Crans-Montana, montagnes enneigées">
-      <figcaption><strong><a href="produits.html#pergolas">Pergolas bioclimatiques</a></strong><span>Des lames orientables, et chauffantes en option pour la neige.</span></figcaption>
+      <figcaption><strong><a href="pergolas.html">Pergolas bioclimatiques</a></strong><span>Des lames orientables, et chauffantes en option pour la neige.</span></figcaption>
     </figure>
     <figure class="prod prod--side">
       <img src="img/terrasse-parasols-sion.webp" width="1600" height="1063" loading="lazy" alt="Terrasse de café dans la vieille ville de Sion avec grands parasols et store toile sur la façade">
-      <figcaption><strong><a href="produits.html#stores-bannes">Stores bannes &amp; parasols</a></strong><span>Pour les terrasses de villa comme pour celles des cafés.</span></figcaption>
+      <figcaption><strong><a href="stores-bannes-stobag.html">Stores bannes &amp; parasols</a></strong><span>Pour les terrasses de villa comme pour celles des cafés.</span></figcaption>
     </figure>
   </div>
 
   <div class="produits__group" data-group="int">
     <figure class="prod prod--portrait">
       <img src="img/stores-plisses.webp" width="1000" height="1250" loading="lazy" alt="Store plissé en lin devant une fenêtre de salon lumineux">
-      <figcaption><strong><a href="produits.html#stores-interieurs">Stores plissés</a></strong><span>Tamisants ou occultants, même sur les fenêtres de toit.</span></figcaption>
+      <figcaption><strong><a href="stores-interieurs.html">Stores plissés</a></strong><span>Tamisants ou occultants, même sur les fenêtres de toit.</span></figcaption>
     </figure>
     <figure class="prod prod--portrait">
       <img src="img/stores-venitiens.webp" width="1000" height="1250" loading="lazy" alt="Stores vénitiens en bois de chêne projetant des rayures de lumière sur un bureau">
-      <figcaption><strong><a href="produits.html#stores-interieurs">Stores vénitiens</a></strong><span>En bois ou en aluminium, pour doser la lumière pièce par pièce.</span></figcaption>
+      <figcaption><strong><a href="stores-interieurs.html">Stores vénitiens</a></strong><span>En bois ou en aluminium, pour doser la lumière pièce par pièce.</span></figcaption>
     </figure>
     <figure class="prod prod--portrait">
       <img src="img/moustiquaires.webp" width="1000" height="1250" loading="lazy" alt="Moustiquaire plissée sur une porte-fenêtre ouverte sur le balcon">
-      <figcaption><strong><a href="produits.html#moustiquaires">Moustiquaires &amp; Velux</a></strong><span>Fenêtres ouvertes tout l’été, sans les insectes.</span></figcaption>
+      <figcaption><strong><a href="stores-interieurs.html#moustiquaires">Moustiquaires &amp; Velux</a></strong><span>Fenêtres ouvertes tout l’été, sans les insectes.</span></figcaption>
     </figure>
   </div>
-  <a class="more" href="produits.html">Prix indicatifs, délais et options de chaque produit</a>
+  <a class="more" href="produits.html">Toutes nos gammes : plus de soixante modèles</a>
 </section>
 
 <section id="methode" class="methode wrap" aria-labelledby="methode-titre">
@@ -172,7 +187,7 @@
     <div class="row"><h3>Restaurants et hôtels</h3><p>Stores à grande avancée, pergolas étanches et parasols pour les terrasses, posés hors saison pour ne pas fermer.</p></div>
     <div class="row"><h3>Régies et PPE</h3><p>Réparations groupées par immeuble, devis clairs pour les assemblées et un seul numéro pour les locataires.</p></div>
   </div>
-  <a class="more" href="entreprise.html#professionnels">Nos références professionnelles</a>
+  <a class="more" href="realisations.html">Voir nos réalisations</a>
 </section>
 
 <section class="occasions-teaser band-sand" aria-labelledby="occ-titre">
@@ -277,11 +292,13 @@
     <div>
       <h2>Produits</h2>
       <ul>
-        <li><a href="produits.html#stores-bannes">Stores bannes</a></li>
-        <li><a href="produits.html#stores-lamelles">Stores à lamelles</a></li>
-        <li><a href="produits.html#volets-alu">Volets en aluminium</a></li>
-        <li><a href="produits.html#pergolas">Pergolas bioclimatiques</a></li>
-        <li><a href="produits.html#domotique">Motorisation et domotique</a></li>
+        <li><a href="stores-bannes-stobag.html">Stores bannes Stobag</a></li>
+        <li><a href="protections-solaires-gibus-glatz.html">Autres protections solaires</a></li>
+        <li><a href="pergolas.html">Pergolas</a></li>
+        <li><a href="stores-exterieurs.html">Stores extérieurs</a></li>
+        <li><a href="volets-aluminium.html">Volets</a></li>
+        <li><a href="stores-interieurs.html">Stores intérieurs</a></li>
+        <li><a href="domotique.html">Domotique</a></li>
       </ul>
     </div>
     <div>
@@ -289,6 +306,7 @@
       <ul>
         <li><a href="reparation.html">Réparation et entretien</a></li>
         <li><a href="occasions.html">Stores d’occasion</a></li>
+        <li><a href="realisations.html">Nos réalisations</a></li>
         <li><a href="entreprise.html#professionnels">Architectes et communes</a></li>
         <li><a href="contact.html">Contact et devis</a></li>
       </ul>
