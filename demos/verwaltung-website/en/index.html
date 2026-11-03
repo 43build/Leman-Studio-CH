@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MJ Verwaltung &amp; Gebäudeunterhalt, caretaking and property management in Bottighofen</title>
+<meta name="description" content="Caretaking, technical maintenance and property management from a single provider. MJ Verwaltung &amp; Gebäudeunterhalt GmbH, Seestrasse 31, 8598 Bottighofen, Switzerland. +41 79 292 84 89.">
+<meta name="robots" content="noindex">
+<link rel="alternate" hreflang="de-CH" href="https://www.lemanstudio.ch/demos/verwaltung-website/">
+<link rel="alternate" hreflang="en" href="https://www.lemanstudio.ch/demos/verwaltung-website/en/">
+<meta property="og:title" content="MJ Verwaltung &amp; Gebäudeunterhalt, Bottighofen">
+<meta property="og:description" content="Caretaking, technical maintenance and property management from a single provider in Bottighofen.">
+<meta property="og:image" content="https://www.lemanstudio.ch/demos/verwaltung-website/img/hero.jpg">
+<link rel="preload" href="../fonts/host-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Host Grotesk";src:url("../fonts/host-grotesk-latin.woff2") format("woff2");font-weight:300 800;font-display:swap}
+@font-face{font-family:"Host Grotesk";src:url("../fonts/host-grotesk-latin-ext.woff2") format("woff2");font-weight:300 800;font-display:swap;unicode-range:U+0100-024F,U+1E00-1EFF}
+/* Layout: light Swiss page signed with the roof line of the MJ logo. Split opener, service triptych, two before/after sliders, a quote-led team block, one blue contact band, roof-line footer. Single light theme by choice. */
+:root{
+  color-scheme:light;
+  --paper:#FFFFFF;
+  --stone:#F2F3F1;
+  --ink:#18212B;
+  --grey:#59626C;
+  --rule:#DFE2E2;
+  --blue:#3A7FC1;        /* MJ logo blue: roof marks, active states */
+  --blue-deep:#1F5487;   /* buttons, contact band */
+  --blue-dark:#173F66;
+  --font:"Host Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --wrap:1360px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+h1,h2,h3{margin:0;font-weight:500;text-wrap:balance}
+p{margin:0}
+.wrap{--gut:32px;max-width:var(--wrap);margin:0 auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+
+/* Roof mark from the logo */
+.roof{display:block;width:44px;height:18px;color:var(--blue);margin-bottom:22px}
+.roof path{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:square}
+
+/* Buttons and links */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 30px;border-radius:2px;font:500 16.5px/1 var(--font);text-decoration:none;cursor:pointer;border:0;background:var(--blue-deep);color:#fff;transition:background-color .2s ease}
+.btn:hover{background:var(--blue-dark)}
+.btn.light{background:#fff;color:var(--blue-dark)}
+.btn.light:hover{background:#E8F0F8}
+.ul{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;text-decoration-color:var(--blue)}
+.ul:hover{color:var(--blue-deep)}
+
+/* Header */
+.head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.head-row{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:80px}
+.brand img{height:50px;width:auto}
+.nav{display:flex;align-items:center;gap:36px;font-size:15.5px}
+.nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.nav a:not(.btn):hover{color:var(--blue-deep)}
+.nav .btn{min-height:46px;padding:0 22px;font-size:15px}
+.m-act{display:none;gap:8px;align-items:center}
+.lang{display:flex;margin:0;font-size:14px;font-weight:500;border:1px solid var(--rule);border-radius:2px}
+.lang a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;text-decoration:none;color:var(--grey)}
+.lang a[aria-current]{background:var(--ink);color:#fff}
+.lang a:not([aria-current]):hover{color:var(--blue-deep)}
+.nav .lang a{min-height:42px}
+.m-btn{min-height:44px;min-width:44px;padding:0 16px;border:1px solid var(--rule);border-radius:2px;background:#fff;color:var(--ink);font:500 15px/1 var(--font);display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;cursor:pointer}
+.m-menu{padding-block:4px 24px;border-top:1px solid var(--rule)}
+.m-menu a{display:flex;align-items:center;min-height:60px;font-size:22px;text-decoration:none;border-bottom:1px solid var(--rule)}
+.m-menu .btn{margin-top:20px;width:100%;font-size:17px}
+.m-menu .lang{margin-top:16px}
+.m-menu .lang a{flex:1;min-height:52px;font-size:16px;border-bottom:0}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px clamp(32px,4vw,72px);padding-block:clamp(40px,5vw,72px) clamp(72px,8vw,120px);align-items:end}
+.hero h1{font-size:clamp(44px,5.4vw,84px);line-height:1;letter-spacing:-0.04em;font-weight:450}
+.hero .lede{margin-top:26px;font-size:clamp(18px,1.45vw,21px);line-height:1.5;color:var(--grey);max-width:30em}
+.hero .acts{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:36px}
+.hero .acts .alt{font-size:16px;color:var(--grey)}
+.hero .acts .alt a{color:var(--ink)}
+.hero-fig{margin:0}
+.hero-fig img{width:100%;height:clamp(380px,46vw,660px);object-fit:cover;object-position:46% 60%}
+.hero-fig figcaption{margin-top:12px;font-size:13.5px;color:var(--grey)}
+
+/* Section titles */
+.sec{padding-block:clamp(88px,10vw,150px)}
+.stone{background:var(--stone)}
+.h2{font-size:clamp(34px,3.8vw,58px);line-height:1.04;letter-spacing:-0.035em}
+
+/* Services: triptych */
+.svc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 48px;margin-bottom:clamp(40px,5vw,64px)}
+.svc-head p{max-width:28em;color:var(--grey);font-size:18px}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px clamp(24px,2.6vw,44px)}
+.svc img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.svc h3{margin-top:26px;font-size:clamp(25px,2.1vw,31px);letter-spacing:-0.025em;line-height:1.12}
+.svc .lead{margin-top:12px;color:var(--grey);font-size:16.5px;line-height:1.55}
+.svc ul{list-style:none;margin:22px 0 0;padding:0;border-top:1px solid var(--ink)}
+.svc li{padding:11px 0;border-bottom:1px solid var(--rule);font-size:15.5px}
+.svc details summary{display:none}
+.svc .ask{display:inline-flex;align-items:center;min-height:44px;margin-top:16px;font-weight:500}
+
+/* Work: two sliders */
+.work{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px clamp(32px,4vw,72px);align-items:start}
+.work-txt p.intro{margin-top:22px;color:var(--grey);font-size:18px;max-width:26em}
+.pairs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.pair figcaption{margin-top:14px}
+.pair figcaption b{display:block;font-weight:500;font-size:18px}
+.pair figcaption span{display:block;color:var(--grey);font-size:15.5px;margin-top:2px}
+.ba{position:relative;overflow:hidden;background:#cfd3d5;aspect-ratio:3/4;user-select:none;-webkit-user-select:none;touch-action:pan-y;--pos:50%}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 72%;pointer-events:none}
+.ba .before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:#fff;pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 14px rgba(0,0,0,.22)}
+.ba .tag{position:absolute;top:14px;padding:5px 10px;background:#fff;color:var(--ink);font-size:13px;font-weight:500;pointer-events:none}
+.ba .tag.l{left:14px}.ba .tag.r{right:14px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.ba:has(input:focus-visible){outline:2px solid var(--blue);outline-offset:4px}
+.more-work{margin-top:clamp(56px,6vw,88px);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px clamp(32px,4vw,72px)}
+.more-work h3{font-size:22px;letter-spacing:-0.02em}
+.duo-list{display:grid;gap:28px}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.duo figure{margin:0;position:relative}
+.duo img{width:100%;aspect-ratio:2/1;object-fit:cover}
+.duo .tag{position:absolute;top:10px;left:10px;padding:4px 9px;background:#fff;font-size:12.5px;font-weight:500}
+.duo-cap{grid-column:1 / -1;margin-top:6px;font-size:15.5px;color:var(--grey)}
+.duo-cap b{color:var(--ink);font-weight:500}
+
+/* Team */
+.quote{font-size:clamp(30px,3.6vw,54px);line-height:1.12;letter-spacing:-0.03em;font-weight:400;max-width:20em;margin:0}
+.quote-by{margin-top:20px;color:var(--grey);font-size:16px}
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px clamp(32px,4vw,72px);margin-top:clamp(56px,6vw,96px);padding-top:clamp(40px,4vw,56px);border-top:1px solid var(--rule)}
+.person{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px 28px;align-items:start}
+.person img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 16%;filter:saturate(.88)}
+.person h3{font-size:26px;letter-spacing:-0.02em;line-height:1.15}
+.person .role{margin-top:3px;color:var(--blue-deep);font-weight:500;font-size:15.5px}
+.person .bio{margin-top:14px;font-size:16px;line-height:1.6}
+.creds{list-style:none;margin:16px 0 0;padding:0;font-size:14.5px;color:var(--grey)}
+.creds li{padding:8px 0;border-top:1px solid var(--rule)}
+
+/* Contact band */
+.contact-band{background:var(--blue-deep);color:#fff}
+.contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px clamp(32px,4vw,72px);align-items:start}
+.contact .roof{color:#9CC7EE}
+.contact h2{color:#fff}
+.contact .lede{margin-top:20px;font-size:19px;color:#D4E3F1;max-width:26em}
+.cinfo{margin-top:40px;display:grid;gap:18px;font-size:17px;color:#D4E3F1}
+.cinfo .big{display:inline-flex;align-items:center;min-height:56px;padding:0 26px;border:1px solid rgba(255,255,255,.55);border-radius:2px;color:#fff;text-decoration:none;font-size:22px;font-weight:500;letter-spacing:-0.01em}
+.cinfo .big:hover{background:rgba(255,255,255,.08)}
+.panel{background:#fff;color:var(--ink);padding:clamp(24px,3.4vw,48px);border-radius:2px}
+form{display:grid;gap:22px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.f{display:grid;gap:8px}
+.f label,legend{font-size:14.5px;font-weight:500;padding:0}
+input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid #C9CED2;border-radius:2px;padding:14px;min-height:54px}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue-deep);box-shadow:0 0 0 3px rgba(58,127,193,.2)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.ck{position:relative}
+.ck input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}
+.ck label{display:flex;align-items:center;gap:12px;min-height:54px;padding:0 14px;border:1px solid #C9CED2;border-radius:2px;font-size:15.5px;cursor:pointer}
+.ck label::before{content:"";width:16px;height:16px;border:1px solid var(--ink);flex-shrink:0}
+.ck input:checked + label{border-color:var(--blue-deep);background:#F1F6FB}
+.ck input:checked + label::before{background:var(--blue-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E") center/12px no-repeat;border-color:var(--blue-deep)}
+.ck input:focus-visible + label{outline:2px solid var(--blue);outline-offset:2px}
+details.extra summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-size:15px;font-weight:500;color:var(--blue-deep);list-style:none}
+details.extra summary::-webkit-details-marker{display:none}
+details.extra summary::after{content:"+";margin-left:8px;font-size:18px}
+details.extra[open] summary::after{content:"−"}
+details.extra .grid2{margin-top:10px}
+.ffoot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.ffoot small{color:var(--grey);font-size:13.5px;max-width:34em}
+.sent{padding:16px 18px;background:#F1F6FB;border:1px solid var(--blue)}
+
+/* Footer */
+.foot{color:var(--grey);font-size:14.5px}
+.foot-roof{display:block;width:100%;height:auto;color:var(--rule)}
+.foot-roof path{fill:none;stroke:currentColor;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.foot-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px clamp(32px,4vw,72px);padding-block:36px 40px;align-items:end}
+.foot-row img{height:46px;width:auto}
+.foot-info{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
+.foot-info nav{display:flex;gap:4px 24px;flex-wrap:wrap}
+.foot-info nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.foot-info nav a:hover{color:var(--ink)}
+.credit{padding-block:16px 28px;font-size:13px;border-top:1px solid var(--rule)}
+
+@media (max-width: 1080px){
+  .trio{grid-template-columns:minmax(0,1fr)}
+  .svc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0 32px}
+  .svc img{grid-row:1 / span 6;aspect-ratio:4/5}
+  .svc h3{margin-top:0}
+  .person{grid-template-columns:minmax(0,1fr)}
+  .person img{max-width:340px}
+}
+@media (max-width: 880px){
+  .nav{display:none}
+  .m-act{display:flex}
+  .head-row{min-height:66px}
+  .brand img{height:42px}
+  .hero,.work,.more-work,.contact,.foot-row{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-bottom:64px;gap:28px}
+  .hero-fig{margin-inline:calc(-1 * var(--gut))}
+  .hero-fig img{height:auto;aspect-ratio:4/3}
+  .hero-fig figcaption{padding-inline:var(--gut)}
+  .team{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width: 600px){
+  .wrap{--gut:20px}
+  body{font-size:16.5px}
+  .m-btn.call span{display:none}
+  .m-btn.call{padding:0}
+  .head-row{gap:12px}
+  .brand img{height:38px}
+  .hero{padding-top:28px}
+  .hero h1{font-size:clamp(36px,10vw,44px)}
+  .hero .lede{margin-top:18px;font-size:17.5px}
+  .hero .acts{margin-top:26px;gap:14px}
+  .hero .acts .btn{width:100%}
+  .sec{padding-block:72px}
+  .svc{grid-template-columns:minmax(0,1fr)}
+  .svc img{grid-row:auto;aspect-ratio:3/2;margin-inline:calc(-1 * var(--gut));width:calc(100% + 2 * var(--gut));max-width:none}
+  .svc h3{margin-top:20px}
+  .svc details summary{display:flex;align-items:center;justify-content:space-between;min-height:52px;margin-top:14px;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);font-weight:500;cursor:pointer;list-style:none}
+  .svc details summary::-webkit-details-marker{display:none}
+  .svc details summary::after{content:"+";font-size:20px}
+  .svc details[open] summary::after{content:"−"}
+  .svc details ul{margin-top:0;border-top:0}
+  .pairs{gap:10px}
+  .ba .knob{width:40px;height:40px;margin:-20px 0 0 -20px}
+  .ba .tag{top:8px;font-size:12px;padding:4px 7px}
+  .ba .tag.l{left:8px}.ba .tag.r{right:8px}
+  .pair figcaption b{font-size:16px}
+  .pair figcaption span{font-size:14px}
+  .duo img{aspect-ratio:1/1}
+  .person{grid-template-columns:120px minmax(0,1fr);gap:16px}
+  .person img{grid-row:span 2}
+  .person .bio,.creds{grid-column:1 / -1}
+  .grid2,.checks{grid-template-columns:minmax(0,1fr)}
+  .ffoot .btn{width:100%}
+  .cinfo .big{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="roof" viewBox="0 0 44 18"><path d="M1 17 L22 4 L43 17" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 1 V18" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+</svg>
+
+<header class="head" id="top">
+  <div class="wrap head-row">
+    <a class="brand" href="#top" aria-label="MJ Verwaltung und Gebäudeunterhalt, home"><img src="../img/logo.png" alt="MJ Verwaltung &amp; Gebäudeunterhalt" width="179" height="50"></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#leistungen">Services</a>
+      <a href="#arbeiten">Our work</a>
+      <a href="#team">About us</a>
+      <a class="num" href="tel:+41792928489">079 292 84 89</a>
+      <a class="btn" href="#kontakt">Request a quote</a>
+      <p class="lang"><a href="../" lang="de" hreflang="de">DE</a><a href="./" lang="en" hreflang="en" aria-current="true">EN</a></p>
+    </nav>
+    <div class="m-act">
+      <a class="m-btn" href="../" lang="de" hreflang="de" aria-label="Deutsche Version">DE</a>
+      <a class="m-btn call" href="tel:+41792928489" aria-label="Call 079 292 84 89"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 7 7L16 14l5 2v3a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Call</span></a>
+      <button class="m-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mMenu" data-open="Menu" data-close="Close">Menu</button>
+    </div>
+  </div>
+  <nav class="wrap m-menu" id="mMenu" aria-label="Menu" hidden>
+    <a href="#leistungen">Services</a>
+    <a href="#arbeiten">Our work</a>
+    <a href="#team">About us</a>
+    <a class="btn" href="#kontakt">Request a quote</a>
+    <p class="lang"><a href="../" lang="de" hreflang="de">Deutsch</a><a href="./" lang="en" hreflang="en" aria-current="true">English</a></p>
+  </nav>
+</header>
+
+<main>
+<section class="wrap hero" aria-labelledby="h1">
+  <div>
+    <svg class="roof" aria-hidden="true"><use href="#roof"/></svg>
+    <h1 id="h1">Your property in good hands.</h1>
+    <p class="lede">Caretaking, technical maintenance and property management from a single provider. For owners, condominium owners and businesses, from our base in Bottighofen.</p>
+    <div class="acts">
+      <a class="btn" href="#kontakt">Request a quote</a>
+      <span class="alt">or call <a class="ul num" href="tel:+41792928489">079 292 84 89</a></span>
+    </div>
+  </div>
+  <figure class="hero-fig">
+    <img src="../img/hero.jpg" alt="Aerial view of residential buildings by a harbour on Lake Constance" width="1600" height="900">
+    <figcaption>Residential buildings on the shore of Lake Constance.</figcaption>
+  </figure>
+</section>
+
+<section class="sec stone" id="leistungen" aria-labelledby="h-svc">
+  <div class="wrap">
+    <div class="svc-head">
+      <div><svg class="roof" aria-hidden="true"><use href="#roof"/></svg><h2 class="h2" id="h-svc">What we take care of</h2></div>
+      <p>Individually or combined. One phone number for cleaning, technical work and management.</p>
+    </div>
+    <div class="trio">
+      <article class="svc">
+        <img src="../img/treppe.jpg" loading="lazy" alt="MJ team member with a cleaning machine in the entrance of a residential building" width="800" height="1066" style="object-position:50% 55%">
+        <h3>Caretaking</h3>
+        <p class="lead">Stairwells, windows and grounds, all year round. In winter we clear the snow and grit.</p>
+        <details open><summary>All services</summary>
+        <ul><li>Stairwells and shared rooms</li><li>Window cleaning</li><li>Waste disposal and recycling</li><li>Lawns, tree pruning, green spaces</li><li>Footpaths and car parks</li><li>Snow clearing and gritting</li></ul>
+        </details>
+        <a class="ask ul" href="#kontakt" data-svc="c-hw">Ask about caretaking</a>
+      </article>
+      <article class="svc">
+        <img src="../img/fenster.jpg" loading="lazy" alt="MJ team member repairing the window blinds of a flat" width="800" height="1066" style="object-position:50% 30%">
+        <h3>Technical maintenance</h3>
+        <p class="lead">Electrics, heating and plumbing. As trained electricians, we carry out inspections and repairs ourselves.</p>
+        <details open><summary>All services</summary>
+        <ul><li>Electrical safety inspections (NIV Art. 15)</li><li>Lighting, sockets, intercoms</li><li>Electric gates, network installations</li><li>Heating monitoring and optimisation</li><li>Dripping taps, blocked drains</li><li>Emergency service for technical faults</li></ul>
+        </details>
+        <a class="ask ul" href="#kontakt" data-svc="c-tu">Ask about maintenance</a>
+      </article>
+      <article class="svc">
+        <img src="../img/van.jpg" loading="lazy" alt="MJ Verwaltung company van outside a managed property" width="800" height="1066" style="object-position:70% 70%">
+        <h3>Property management</h3>
+        <p class="lead">You set the framework, we take care of the rest. Tenant changes, damage claims, contracts and renovations.</p>
+        <details open><summary>All services</summary>
+        <ul><li>Move-in and move-out inspections</li><li>Damage claims</li><li>Notices, payments, contracts</li><li>Finding tenants</li><li>Coordinating repairs and renovations</li></ul>
+        </details>
+        <a class="ask ul" href="#kontakt" data-svc="c-vw">Ask about property management</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="arbeiten" aria-labelledby="h-work">
+  <div class="wrap">
+    <div class="work">
+      <div class="work-txt">
+        <svg class="roof" aria-hidden="true"><use href="#roof"/></svg>
+        <h2 class="h2" id="h-work">Before and after</h2>
+        <p class="intro">Two cleaning jobs from our everyday work, each photographed from the same spot.</p>
+      </div>
+      <div class="pairs">
+        <figure class="pair" style="margin:0">
+          <div class="ba">
+            <img class="after" src="../img/balkon-nachher.jpg" width="396" height="800" loading="lazy" alt="Cleaned balcony">
+            <img class="before" src="../img/balkon-vorher.jpg" width="396" height="800" loading="lazy" alt="Dirty balcony with moss">
+            <span class="tag l">Before</span><span class="tag r">After</span>
+            <span class="line"><span class="knob"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the balcony before and after">
+          </div>
+          <figcaption><b>Balcony</b><span>Moss and dirt removed, the surface is light again.</span></figcaption>
+        </figure>
+        <figure class="pair" style="margin:0">
+          <div class="ba">
+            <img class="after" src="../img/garage-nachher.jpg" width="396" height="800" loading="lazy" alt="Cleaned garage ramp">
+            <img class="before" src="../img/garage-vorher.jpg" width="396" height="800" loading="lazy" alt="Dirty garage ramp">
+            <span class="tag l">Before</span><span class="tag r">After</span>
+            <span class="line"><span class="knob"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the garage ramp before and after">
+          </div>
+          <figcaption><b>Garage ramp</b><span>The ramp of an underground car park, pressure-washed.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="more-work">
+      <h3>More work</h3>
+      <div class="duo-list">
+        <div class="duo">
+          <figure><img src="../img/spielplatz-vorher.jpg" width="800" height="396" loading="lazy" alt="Overgrown playground before the grounds work"><span class="tag">Before</span></figure>
+          <figure><img src="../img/spielplatz-nachher.jpg" width="800" height="396" loading="lazy" alt="Tidy playground after the grounds work"><span class="tag">After</span></figure>
+          <p class="duo-cap"><b>Grounds.</b> Overgrowth cut back, paths cleared, the playground is inviting again.</p>
+        </div>
+        <div class="duo">
+          <figure><img src="../img/parkett-vorher.jpg" width="800" height="382" loading="lazy" alt="Damaged parquet floor in an office"><span class="tag">Before</span></figure>
+          <figure><img src="../img/parkett-nachher.jpg" width="800" height="382" loading="lazy" alt="Office with new carpet"><span class="tag">After</span></figure>
+          <p class="duo-cap"><b>New flooring.</b> The damaged parquet was removed and replaced with new carpet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec stone" id="team" aria-labelledby="h-team">
+  <div class="wrap">
+    <h2 class="sr" id="h-team" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">About us</h2>
+    <svg class="roof" aria-hidden="true"><use href="#roof"/></svg>
+    <blockquote class="quote">“Our mission is to make managing property as smooth as possible for owners and businesses.”</blockquote>
+    <p class="quote-by">Michael Jud and Fabian Rentzsch, both trained electricians. You speak directly with the people who do the work on site.</p>
+    <div class="team">
+      <article class="person">
+        <img src="../img/michael.jpg" loading="lazy" alt="Portrait of Michael Jud" width="800" height="1200">
+        <div>
+          <h3>Michael Jud</h3>
+          <p class="role">Founder, management and planning</p>
+          <p class="bio">Trained electrician, then project manager at Schenker Storen and facility manager at UNDERI MÜLI AG. He founded MJ Verwaltung in Bottighofen in 2023.</p>
+          <ul class="creds"><li>Technical business administrator, BVS</li><li>Property management specialist, BVS</li><li>Building maintenance specialist, WISS</li><li>Accounting, BZWW</li></ul>
+        </div>
+      </article>
+      <article class="person">
+        <img src="../img/fabian.jpg" loading="lazy" alt="Portrait of Fabian Rentzsch" width="800" height="1200">
+        <div>
+          <h3>Fabian Rentzsch</h3>
+          <p class="role">Building services and facility management</p>
+          <p class="bio">Trained electrician and service technician. He looks after everything in your building that needs power, heat or water.</p>
+          <ul class="creds"><li>Electrician, Swiss federal certificate (EFZ)</li><li>NIV Art. 13 and 15</li><li>Licence holder course: NIV, NIN, measurements</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact-band" id="kontakt" aria-labelledby="h-kontakt">
+  <div class="wrap contact">
+    <div>
+      <svg class="roof" aria-hidden="true"><use href="#roof"/></svg>
+      <h2 class="h2" id="h-kontakt">Request a quote</h2>
+      <p class="lede">Tell us briefly about your property. We will get back to you personally and are happy to come and see it on site.</p>
+      <div class="cinfo">
+        <a class="big num" href="tel:+41792928489">079 292 84 89</a>
+        <a class="ul" href="mailto:info@mj-verwaltung.ch">info@mj-verwaltung.ch</a>
+        <span>Office hours Monday to Friday, 8 am to 12 noon and 2 pm to 5 pm. Emergency service for technical faults.</span>
+      </div>
+    </div>
+    <div class="panel">
+      <form id="form" novalidate data-to="info@mj-verwaltung.ch" data-subject="Quote request via the website">
+        <div class="grid2">
+          <div class="f"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="f"><label for="f-tel">Phone</label><input id="f-tel" name="telefon" type="tel" autocomplete="tel" required></div>
+        </div>
+        <fieldset>
+          <legend>What can we take care of?</legend>
+          <div class="checks">
+            <div class="ck"><input type="checkbox" id="c-hw" name="leistung" value="hauswartung"><label for="c-hw">Caretaking</label></div>
+            <div class="ck"><input type="checkbox" id="c-tu" name="leistung" value="unterhalt"><label for="c-tu">Technical maintenance</label></div>
+            <div class="ck"><input type="checkbox" id="c-vw" name="leistung" value="verwaltung"><label for="c-vw">Property management</label></div>
+          </div>
+        </fieldset>
+        <div class="f"><label for="f-msg">Message</label><textarea id="f-msg" name="nachricht" placeholder="What needs doing, how many flats, from when?"></textarea></div>
+        <details class="extra">
+          <summary>More details</summary>
+          <div class="grid2">
+            <div class="f"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email"></div>
+            <div class="f"><label for="f-ort">Property location</label><input id="f-ort" name="ort" placeholder="e.g. Kreuzlingen"></div>
+          </div>
+          <div class="f" style="margin-top:22px"><label for="f-art">Type of property</label><select id="f-art" name="art"><option value="">Please choose</option><option>Apartment building</option><option>Condominium (Stockwerkeigentum)</option><option>Commercial property</option><option>Single-family house</option></select></div>
+        </details>
+        <div class="ffoot">
+          <button class="btn" type="submit">Send request</button>
+          <small>Your email app opens with the request ready, you only need to press send.</small>
+        </div>
+        <p class="sent" id="sent" role="status" hidden>Your email app should now be open. If not, write to <a class="ul" href="mailto:info@mj-verwaltung.ch">info@mj-verwaltung.ch</a> or call <a class="ul num" href="tel:+41792928489">079 292 84 89</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <svg class="foot-roof" viewBox="0 0 1300 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 118 L650 8 L1300 118"/><path d="M330 0 V120"/></svg>
+    <div class="foot-row">
+      <img src="../img/logo.png" alt="MJ Verwaltung &amp; Gebäudeunterhalt" width="164" height="46">
+      <div class="foot-info">
+        <p>MJ Verwaltung &amp; Gebäudeunterhalt GmbH<br>Seestrasse 31, 8598 Bottighofen</p>
+        <nav aria-label="Footer"><a href="https://www.linkedin.com/in/michael-jud-4ab541162/">LinkedIn</a><a href="mailto:info@mj-verwaltung.ch">info@mj-verwaltung.ch</a></nav>
+      </div>
+    </div>
+    <div class="credit">VAT CHE-466.371.854 · Design proposal by Léman Studio</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var mb=document.getElementById('menuBtn'),mm=document.getElementById('mMenu');
+  function setMenu(o){mm.hidden=!o;mb.setAttribute('aria-expanded',String(o));mb.textContent=o?mb.dataset.close:mb.dataset.open;}
+  mb.addEventListener('click',function(){setMenu(mm.hidden)});
+  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+  document.querySelectorAll('.ba').forEach(function(ba){
+    var r=ba.querySelector('input');
+    r.addEventListener('input',function(){ba.style.setProperty('--pos',r.value+'%')});
+  });
+
+  /* On phones the service lists start folded */
+  try{ if(window.matchMedia('(max-width: 600px)').matches){ document.querySelectorAll('.svc details').forEach(function(d){d.open=false}); } }catch(e){}
+
+  document.querySelectorAll('[data-svc]').forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById(a.dataset.svc);if(c)c.checked=true;})});
+
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('f-name'),t=document.getElementById('f-tel');
+    [n,t].forEach(function(f){f.style.borderColor=f.value.trim()?'':'#B3261E'});
+    if(!n.value.trim()||!t.value.trim()){(n.value.trim()?t:n).focus();return;}
+    var f=this,lines=[];
+    function lab(el){return document.querySelector('label[for="'+el.id+'"]').textContent.trim();}
+    f.querySelectorAll('input:not([type=checkbox]),select,textarea').forEach(function(el){if(el.value.trim())lines.push(lab(el)+': '+el.value.trim());});
+    var picked=[].map.call(f.querySelectorAll('input[type=checkbox]:checked'),lab);
+    if(picked.length)lines.splice(2,0,f.querySelector('legend').textContent.trim()+' '+picked.join(', '));
+    location.href='mailto:'+f.dataset.to+'?subject='+encodeURIComponent(f.dataset.subject)+'&body='+encodeURIComponent(lines.join('\n'));
+    document.getElementById('sent').hidden=false;
+  });
+})();
+</script>
+
+</body>
+</html>
