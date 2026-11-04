@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accademia d'Archi | École de musique à Genève : violon, alto, violoncelle, contrebasse</title>
-<meta name="description" content="École de musique accréditée par le DIP depuis 2010. Cours de violon, alto, violoncelle et contrebasse à Genève, formation musicale et trois orchestres. Inscriptions ouvertes toute l'année.">
+<meta name="description" content="École de musique accréditée par le DIP, spécialisée dans les instruments à cordes : violon, alto, violoncelle et contrebasse. Cours individuels, formation musicale, orchestres et camps musicaux à Genève. Inscriptions ouvertes toute l'année.">
 <meta property="og:title" content="Accademia d'Archi, école de musique à Genève">
-<meta property="og:description" content="Violon, alto, violoncelle et contrebasse. 197 élèves, 20 professeurs, trois orchestres. Inscriptions ouvertes toute l'année.">
+<meta property="og:description" content="Violon, alto, violoncelle et contrebasse depuis 1998. 197 élèves, 20 professeurs, trois orchestres. Inscriptions ouvertes toute l'année.">
 <meta property="og:image" content="https://www.lemanstudio.ch/demos/accademia-archi/photos/concert.jpg">
 <meta name="robots" content="noindex">
 <link rel="preload" href="fonts/eb-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -31,7 +31,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{background:var(--white);color:var(--encre);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
@@ -47,6 +47,10 @@ p{max-width:62ch;color:var(--texte)}
 .btn-solid:hover{background:var(--bordeaux-deep);border-color:var(--bordeaux-deep)}
 .btn-line{background:transparent;color:var(--bordeaux)}
 .btn-line:hover{background:var(--bordeaux);color:var(--white)}
+.btn-light{background:var(--white);color:var(--bordeaux-deep);border-color:var(--white)}
+.btn-light:hover{background:var(--or);border-color:var(--or)}
+.btn-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,.7)}
+.btn-ghost:hover{background:var(--white);color:var(--bordeaux-deep)}
 
 /* Top bar */
 .topbar{background:var(--bordeaux-deep);color:#F1DCD6;font-size:14px}
@@ -61,8 +65,8 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand img{width:46px;height:auto}
 .brand b{display:block;font-family:var(--serif);font-weight:500;font-size:25px;line-height:1}
-.brand span{display:block;font-size:13px;color:var(--texte);margin-top:4px}
-.mainnav{display:flex;align-items:center;gap:30px}
+.brand small{display:block;font-size:13px;color:var(--texte);margin-top:4px}
+.mainnav{display:flex;align-items:center;gap:28px}
 .mainnav a{text-decoration:none;font-weight:500;font-size:16px}
 .mainnav a:not(.btn):hover{color:var(--bordeaux)}
 .mainnav .btn{padding:12px 18px;font-size:15px}
@@ -73,43 +77,46 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 .mnav[hidden]{display:none}
 
 /* Hero */
-.hero{padding:72px 0 0}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:56px;align-items:end}
-.hero h1{font-size:clamp(44px,5.4vw,76px);letter-spacing:-0.01em}
-.hero .lead{margin-top:26px;max-width:46ch}
-.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
-.hero .note{margin-top:22px;font-size:15px}
-.hero .note a{color:var(--bordeaux);font-weight:500}
-.hero figure{justify-self:end;max-width:460px}
-.hero figure img{width:100%}
-.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--encre);margin-top:8px}
-.fact{padding:26px 24px 34px 0}
+.hero{position:relative;min-height:640px;display:flex;align-items:flex-end;color:var(--white);background:#3a2420}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(40,14,11,.86) 0%,rgba(40,14,11,.62) 42%,rgba(40,14,11,.12) 78%),linear-gradient(180deg,rgba(40,14,11,0) 55%,rgba(40,14,11,.6) 100%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-top:120px;padding-bottom:56px}
+.hero h1{color:var(--white);font-size:clamp(42px,5.2vw,74px);max-width:15ch;letter-spacing:-0.01em}
+.hero .lead{color:#F3E4DF;margin-top:22px;max-width:52ch}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero .who{margin-top:28px;font-size:15px;color:#E9D3CC}
+
+.facts{background:var(--white);border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.fact{padding:28px 24px 30px 0}
 .fact + .fact{padding-left:24px;border-left:1px solid var(--line)}
 .fact b{display:block;font-family:var(--serif);font-weight:500;font-size:46px;line-height:1;color:var(--bordeaux)}
 .fact span{display:block;margin-top:8px;font-size:15px;color:var(--texte)}
-.accred{background:var(--or-pale);padding:16px 0;font-size:15px;color:var(--encre)}
+.accred{background:var(--or-pale);padding:16px 0;font-size:15px}
 .accred .wrap{display:flex;gap:10px 32px;flex-wrap:wrap;justify-content:space-between}
 
 /* Sections */
-section{padding:112px 0}
-.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:end;margin-bottom:56px}
+section{padding:104px 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:end;margin-bottom:52px}
+.cream{background:var(--creme)}
 
-/* Instruments */
-.instruments{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--encre)}
-.instr{padding:28px 24px 8px 0}
-.instr + .instr{padding-left:24px;border-left:1px solid var(--line)}
-.instr h3{font-size:30px}
-.instr p{margin-top:10px;font-size:16px}
-.how{margin-top:18px;font-size:16px}
-.size-note{margin-top:40px;font-family:var(--serif);font-style:italic;font-size:24px;color:var(--bordeaux);max-width:40ch}
+/* Parcours */
+.paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.path{background:var(--white);padding:28px 26px;border-top:3px solid var(--or);display:flex;flex-direction:column}
+.path h3{font-size:24px}
+.path p{margin-top:10px;font-size:16px;flex:1}
+.path a{margin-top:18px;color:var(--bordeaux);font-weight:500;font-size:15px}
 
 /* Enseignement */
-.cream{background:var(--creme)}
-.teach{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.course{background:var(--white);padding:32px;border-top:3px solid var(--or)}
-.course small{display:block;font-size:14px;font-weight:500;color:var(--bordeaux);margin-bottom:8px}
-.course p{margin-top:10px;font-size:16px}
-.course.wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center;border-top-color:var(--bordeaux)}
+.teach-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start}
+.teach-grid figure img{width:100%}
+.teach-grid figure figcaption{font-size:14px;color:var(--texte);margin-top:10px}
+.instr-list{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 8px}
+.instr-list span{font-family:var(--serif);font-size:22px;padding:6px 16px;border:1px solid var(--line);border-radius:999px}
+.facts-list{list-style:none;margin-top:28px;border-top:1px solid var(--encre)}
+.facts-list li{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.facts-list b{font-weight:600}
+.facts-list span{color:var(--texte);font-size:16px}
 
 /* Orchestres */
 .orch-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
@@ -121,65 +128,90 @@ section{padding:112px 0}
 .orch dt{color:var(--texte)}
 .orch dd{font-weight:500}
 .orch p{margin-top:16px;font-size:16px;flex:1}
-.orch .btn{margin-top:22px;align-self:flex-start;padding:12px 18px;font-size:15px}
-.orch-foot{margin-top:36px;padding:22px 26px;background:var(--or-pale);font-size:16px;max-width:none}
-.orch-foot b{font-weight:600}
+.orch-foot{margin-top:32px;padding:22px 26px;background:var(--or-pale);font-size:16px;max-width:none}
+.orch-foot b{font-weight:600;color:var(--encre)}
 
-/* Scène */
-.stage{padding:0;background:var(--bordeaux-deep);color:#F1DCD6}
-.stage-photo{position:relative}
-.stage-photo img{width:100%;max-height:640px;object-fit:cover}
-.stage-photo figcaption{position:absolute;left:0;bottom:0;background:var(--bordeaux-deep);padding:14px 24px;font-size:14px;color:#E8CFC8}
-.stage-body{padding:88px 0 104px}
-.stage h2{color:var(--white)}
-.stage p{color:#E3C9C2}
-.stage-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px}
-.stage ul{list-style:none;margin-top:28px;border-top:1px solid #7E2C25}
-.stage li{padding:14px 0;border-bottom:1px solid #7E2C25;color:#F6E6E1}
-.agenda{background:var(--white);color:var(--encre);padding:36px}
-.agenda h3{font-size:28px}
-.agenda p{margin-top:10px;font-size:16px;color:var(--texte)}
-.agenda .big{font-family:var(--serif);font-size:64px;line-height:1;color:var(--bordeaux);margin-top:18px}
-.agenda .big span{font-size:22px;color:var(--texte)}
-.agenda h4{margin-top:28px;font-size:15px;font-weight:600}
-.agenda ul{border-top:1px solid var(--line);margin-top:10px}
-.agenda li{color:var(--encre);border-bottom:1px solid var(--line);font-size:15px;padding:10px 0}
-.agenda .btn{margin-top:26px}
-.agenda .where{margin-top:6px;font-size:15px}
-.dates li{display:flex;justify-content:space-between;gap:12px}
-.dates time{font-weight:500}
-.dates span{color:var(--texte)}
-.agenda details{margin-top:14px;font-size:15px}
-.agenda summary{cursor:pointer;color:var(--bordeaux);font-weight:500;min-height:44px;display:flex;align-items:center}
+/* Agenda */
+.agenda-sec{background:var(--bordeaux-deep);color:#F1DCD6}
+.agenda-sec h2{color:var(--white)}
+.agenda-sec p{color:#E3C9C2}
+.agenda-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:start}
+.where{margin-top:26px;padding:18px 20px;border:1px solid #7E2C25;font-size:16px;color:#F6E6E1;max-width:40ch}
+.dates{list-style:none;background:var(--white);color:var(--encre)}
+.dates li{display:grid;grid-template-columns:120px 1fr auto;gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid var(--line)}
+.dates li:last-child{border-bottom:0}
+.dates .d{font-family:var(--serif);font-size:24px;line-height:1;color:var(--bordeaux)}
+.dates .d small{display:block;font-family:var(--sans);font-size:13px;color:var(--texte);margin-top:4px}
+.dates .t{font-size:16px}
+.dates .t em{font-style:normal;font-size:13px;font-weight:500;color:var(--bordeaux);background:var(--or-pale);padding:3px 8px;margin-left:6px;border-radius:2px}
+.dates .h{font-size:15px;color:var(--texte)}
+.dates .next{background:var(--creme)}
+.more-dates summary{list-style:none;margin-top:20px}
+.more-dates summary::-webkit-details-marker{display:none}
+.more-dates[open] summary{display:none}
+.more-dates .dates{border-top:1px solid var(--line)}
+
+/* Musijeunes */
+.mj{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.mj article{border-top:1px solid var(--encre);padding-top:22px}
+.mj .meta{font-size:14px;font-weight:500;color:var(--bordeaux)}
+.mj h3{margin-top:6px}
+.mj p{margin-top:10px;font-size:16px}
+.mj .price{margin-top:14px;font-weight:600;color:var(--encre)}
+.mj-note{margin-top:36px;font-size:16px}
+.mj-note a{color:var(--bordeaux);font-weight:500}
+
+/* Ecolages */
+.eco-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:start}
+.included{list-style:none;margin-top:24px}
+.included li{padding:12px 0 12px 30px;border-bottom:1px solid var(--line);position:relative;color:var(--encre)}
+.included li::before{content:"";position:absolute;left:4px;top:21px;width:12px;height:6px;border-left:2px solid var(--bordeaux);border-bottom:2px solid var(--bordeaux);transform:rotate(-45deg)}
+.tarifs{background:var(--white);padding:32px}
+.tarifs h3{font-size:24px}
+.tarifs table{width:100%;border-collapse:collapse;margin-top:16px;font-size:16px}
+.tarifs th{text-align:left;font-size:13px;font-weight:600;color:var(--texte);padding:8px 0;border-bottom:1px solid var(--encre)}
+.tarifs th.r,.tarifs td.r{text-align:right}
+.tarifs td{padding:12px 0;border-bottom:1px solid var(--line)}
+.tarifs .small{margin-top:16px;font-size:14px}
+.bourse{margin-top:20px;padding:18px 20px;border-left:3px solid var(--or);background:var(--creme);font-size:16px}
+.bourse a{color:var(--bordeaux);font-weight:500}
+
+/* DIP */
+.dip{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:center}
+.schools{list-style:none;border-top:1px solid var(--encre)}
+.schools li{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px}
+.schools span{color:var(--texte);font-size:15px}
+.partners{margin-top:22px;font-size:15px}
+.schools-cap{font-size:15px;margin-bottom:14px}
+
+/* Lieux */
+.places{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.places div{border-top:1px solid var(--encre);padding-top:16px}
+.places h3{font-size:22px}
+.places p{font-size:15px;margin-top:8px}
 
 /* Inscription */
 .inscr-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px}
-.steps{list-style:none;margin-top:36px;counter-reset:s}
+.steps{list-style:none;margin-top:32px;counter-reset:s}
 .steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
 .steps li::before{content:counter(s);font-family:var(--serif);font-size:30px;line-height:1;color:var(--bordeaux)}
 .steps b{display:block;font-weight:600}
 .steps span{color:var(--texte);font-size:16px}
-.fees{margin-top:36px}
-.fees h3{font-size:24px}
-.fees table{width:100%;border-collapse:collapse;margin-top:14px;font-size:16px;font-variant-numeric:tabular-nums}
-.fees th,.fees td{text-align:left;padding:10px 0;border-bottom:1px solid var(--line)}
-.fees th{font-size:14px;font-weight:500;color:var(--texte)}
-.fees td:not(:first-child),.fees th:not(:first-child){text-align:right}
-.fees p{margin-top:12px;font-size:15px}
-.bourse{margin-top:28px;padding:20px 22px;border-left:3px solid var(--or);background:var(--creme);font-size:16px}
-.bourse a{color:var(--bordeaux);font-weight:500}
 form{background:var(--creme);padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
 form .full{grid-column:1/-1}
 label{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
 input,select,textarea{width:100%;font:16px var(--sans);color:var(--encre);padding:13px 14px;border:1px solid var(--line);border-radius:2px;background:var(--white)}
 textarea{min-height:110px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--bordeaux)}
+.consent{display:flex;gap:10px;font-size:14px;color:var(--texte);line-height:1.45}
+.consent input{width:auto;margin-top:3px}
+.consent a{color:var(--bordeaux)}
 .secure{font-size:14px;color:var(--texte)}
 .sent{grid-column:1/-1;color:var(--encre);font-size:15px;padding:14px 16px;background:var(--white);border-left:3px solid var(--bordeaux)}
 .sent a{color:var(--bordeaux)}
 
 /* Soutiens */
-.support{padding:56px 0;border-top:1px solid var(--line)}
+.support{padding:52px 0;border-top:1px solid var(--line)}
 .support .wrap{display:flex;gap:16px 48px;flex-wrap:wrap;align-items:center;justify-content:space-between}
 .support p{font-size:15px}
 .support strong{color:var(--encre);font-weight:500}
@@ -187,9 +219,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--bordeaux
 /* Footer */
 footer{background:var(--encre);color:#C9BCB6;padding:64px 0 36px;font-size:15px}
 .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
-.foot .brand b{color:var(--white)}
-.foot .brand span{color:#B9A9A2}
-.foot address{font-style:normal;margin-top:18px;line-height:1.7}
+.foot b.name{color:var(--white);font-family:var(--serif);font-weight:500;font-size:24px;display:block}
+.foot address{font-style:normal;margin-top:14px;line-height:1.7}
 .foot h4{color:var(--white);font-weight:500;font-size:15px;margin-bottom:12px}
 .foot a{text-decoration:none;display:block;padding:3px 0}
 .foot a:hover{color:var(--white)}
@@ -198,20 +229,16 @@ footer{background:var(--encre);color:#C9BCB6;padding:64px 0 36px;font-size:15px}
 
 .callbar{display:none}
 
-/* Responsive */
 @media (max-width:1040px){
   .mainnav a:not(.btn){display:none}
   .burger{display:block}
-  .hero-grid,.sec-head,.inscr-grid,.stage-grid{grid-template-columns:1fr;gap:32px}
-  .hero figure{justify-self:center;max-width:380px}
-  .facts{grid-template-columns:1fr 1fr}
+  .sec-head,.teach-grid,.agenda-grid,.eco-grid,.dip,.inscr-grid{grid-template-columns:1fr;gap:32px}
+  .paths{grid-template-columns:1fr 1fr}
+  .facts .wrap{grid-template-columns:1fr 1fr}
   .fact:nth-child(3){padding-left:0;border-left:0}
   .fact:nth-child(n+3){border-top:1px solid var(--line)}
-  .instruments{grid-template-columns:1fr 1fr}
-  .instr:nth-child(3){padding-left:0;border-left:0}
-  .instr:nth-child(n+3){border-top:1px solid var(--line);margin-top:8px}
-  .orch-list{grid-template-columns:1fr}
-  .orch img{height:130px}
+  .orch-list,.mj{grid-template-columns:1fr}
+  .places{grid-template-columns:1fr 1fr}
   .foot{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
@@ -223,22 +250,20 @@ footer{background:var(--encre);color:#C9BCB6;padding:64px 0 36px;font-size:15px}
   .brand img{width:38px}
   .brand b{font-size:21px}
   .mainnav .btn{display:none}
-  .hero{padding-top:44px}
+  .hero{min-height:560px}
+  .hero::after{background:linear-gradient(180deg,rgba(40,14,11,.72) 0%,rgba(40,14,11,.66) 60%,rgba(40,14,11,.88) 100%)}
+  .hero .wrap{padding-top:90px;padding-bottom:36px}
   .hero .ctas .btn{flex:1 1 100%}
-  .facts{grid-template-columns:1fr 1fr}
   .fact{padding:20px 12px 22px 0}
   .fact + .fact{padding-left:12px}
   .fact:nth-child(3){padding-left:0}
   .fact b{font-size:38px}
   section{padding:72px 0}
-  .instruments{grid-template-columns:1fr}
-  .instr,.instr + .instr{padding:22px 0 6px;border-left:0}
-  .instr + .instr{border-top:1px solid var(--line)}
-  .teach{grid-template-columns:1fr}
-  .course,.course.wide{padding:24px;grid-template-columns:1fr;gap:12px}
-  .stage-body{padding:64px 0 72px}
-  .stage-photo figcaption{position:static}
-  .agenda{padding:24px}
+  .paths,.places{grid-template-columns:1fr}
+  .facts-list li{grid-template-columns:1fr;gap:4px}
+  .dates li{grid-template-columns:1fr auto;padding:14px 16px}
+  .dates .t{grid-column:1/-1;grid-row:2}
+  .tarifs{padding:22px}
   form{grid-template-columns:1fr;padding:24px}
   .foot{grid-template-columns:1fr}
   .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;gap:8px}
@@ -263,185 +288,266 @@ footer{background:var(--encre);color:#C9BCB6;padding:64px 0 36px;font-size:15px}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Accademia d'Archi, accueil">
       <img src="photos/embleme.png" alt="" width="46" height="50">
-      <span><b>Accademia d'Archi</b><span>École de musique à Genève</span></span>
+      <span><b>Accademia d'Archi</b><small>École de musique à Genève</small></span>
     </a>
     <nav class="mainnav" aria-label="Navigation principale">
-      <a href="#instruments">Cours</a>
+      <a href="#enseignement">Enseignement</a>
       <a href="#orchestres">Orchestres</a>
-      <a href="#concerts">Concerts</a>
-      <a href="#ecole">L'école</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#musijeunes">Musijeunes</a>
+      <a href="#ecolages">Écolages</a>
       <a class="btn btn-solid" href="#inscription">S'inscrire</a>
       <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
     </nav>
   </div>
   <nav class="mnav" id="mnav" hidden aria-label="Menu mobile">
-    <a href="#instruments">Cours</a>
+    <a href="#enseignement">Enseignement</a>
     <a href="#orchestres">Orchestres</a>
-    <a href="#concerts">Concerts et auditions</a>
-    <a href="#ecole">L'école</a>
-    <a href="#inscription">S'inscrire</a>
+    <a href="#agenda">Concerts et auditions</a>
+    <a href="#musijeunes">Musijeunes : camps et week-ends</a>
+    <a href="#ecolages">Écolages et bourses</a>
+    <a href="#inscription">Inscription 2026/2027</a>
   </nav>
 </header>
 
 <main id="top">
 
-<section class="hero" aria-labelledby="h1">
+<section class="hero" aria-labelledby="h1" style="padding:0">
+  <img class="bg" src="photos/concert.jpg" width="1588" height="794" fetchpriority="high" alt="Les orchestres de l'Accademia d'Archi en concert dans une église, devant un public nombreux">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <h1 id="h1">Apprendre un instrument à cordes à Genève, dès le plus jeune âge.</h1>
-        <p class="lead">Violon, alto, violoncelle et contrebasse. Des cours d'instrument, la formation musicale et trois orchestres pour jouer ensemble, depuis 1998.</p>
-        <div class="ctas">
-          <a class="btn btn-solid" href="#inscription">Inscrire mon enfant</a>
-          <a class="btn btn-line" href="#instruments">Découvrir les cours</a>
-        </div>
-        <p class="note">Dès CHF 1'455.– par année, orchestres compris. Une bourse est possible. <a href="#ecolages">Voir les écolages</a></p>
-      </div>
-      <figure>
-        <img src="photos/eleves.jpg" alt="Cinq élèves de l'Accademia d'Archi avec leurs violons, alto, violoncelle et contrebasse" width="591" height="805">
-      </figure>
+    <h1 id="h1">L'école de musique des instruments à cordes, à Genève.</h1>
+    <p class="lead">Violon, alto, violoncelle et contrebasse. Cours individuels, formation musicale, trois orchestres, musique de chambre et camps musicaux, depuis 1998.</p>
+    <div class="ctas">
+      <a class="btn btn-light" href="#inscription">S'inscrire pour 2026/2027</a>
+      <a class="btn btn-ghost" href="#agenda">Voir les prochaines auditions</a>
     </div>
-    <div class="facts" id="ecole">
-      <div class="fact"><b>197</b><span>élèves</span></div>
-      <div class="fact"><b>20</b><span>professeurs</span></div>
-      <div class="fact"><b>12</b><span>lieux d'enseignement</span></div>
-      <div class="fact"><b>1998</b><span>année de fondation</span></div>
-    </div>
-  </div>
-  <div class="accred">
-    <div class="wrap">
-      <span>Accréditée par le Département de l'instruction publique depuis juin 2010</span>
-      <span>Membre de la Confédération des écoles genevoises de musique</span>
-    </div>
+    <p class="who">Pour les mélomanes, élèves, parents, musiciens et instrumentistes de tous âges.</p>
   </div>
 </section>
 
-<section id="instruments">
+<div class="facts" id="ecole">
+  <div class="wrap">
+    <div class="fact"><b>197</b><span>élèves</span></div>
+    <div class="fact"><b>20</b><span>professeurs</span></div>
+    <div class="fact"><b>12</b><span>lieux d'enseignement</span></div>
+    <div class="fact"><b>28</b><span>années d'enseignement</span></div>
+  </div>
+</div>
+<div class="accred">
+  <div class="wrap">
+    <span>Accréditée par le Département de l'instruction publique depuis juin 2010</span>
+    <span>Membre de la Confédération des écoles genevoises de musique</span>
+  </div>
+</div>
+
+<section class="cream" aria-labelledby="h-paths">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Quatre instruments, un même archet.</h2>
-      <p class="lead">Depuis sa fondation, l'Accademia d'Archi se consacre aux instruments à cordes frottées par un archet, complétés par la formation musicale.</p>
+      <h2 id="h-paths">Une école pour chaque musicien.</h2>
+      <p class="lead">Que vous découvriez un instrument, que vous le pratiquiez depuis des années ou que vous visiez une carrière, l'Accademia vous accompagne.</p>
     </div>
-    <div class="instruments">
-      <div class="instr"><h3>Violon</h3><p>Le plus aigu de la famille. Une année de violon suffit pour rejoindre l'orchestre Giocosino.</p></div>
-      <div class="instr"><h3>Alto</h3><p>Un peu plus grand que le violon, au timbre plus grave, avec son propre plan d'études.</p></div>
-      <div class="instr"><h3>Violoncelle</h3><p>Joué assis. Il existe en petites tailles, on peut donc le commencer très jeune.</p></div>
-      <div class="instr"><h3>Contrebasse</h3><p>Le pilier grave de l'orchestre, que l'on peut commencer dès 6 ans.</p></div>
-    </div>
-    <p class="size-note">La taille de l'élève ne joue aucun rôle : on trouve des instruments de toutes les grandeurs.</p>
-    <p class="how">Pas de test d'entrée ni d'âge minimum. Un cours individuel par semaine, de 30 à 60 minutes selon le niveau, un cours de groupe chaque trimestre, et une ou deux leçons d'essai si l'enfant hésite encore entre deux instruments.</p>
-  </div>
-</section>
-
-<section class="cream" aria-labelledby="h-ens">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="h-ens">Un parcours pour chaque élève.</h2>
-      <p class="lead">De la première initiation au cursus intensif, chaque élève avance à son rythme, entouré de 20 professeurs.</p>
-    </div>
-    <div class="teach">
-      <div class="course">
-        <small>Pour commencer</small>
-        <h3>Formation musicale de base</h3>
-        <p>L'initiation musicale dès quatre ans, puis la formation musicale, appelée aussi solfège. En petits groupes, le mardi, avec Sandrine Girardon.</p>
+    <div class="paths">
+      <div class="path">
+        <h3>Commencer un instrument</h3>
+        <p>Aucun test d'entrée, aucun âge minimum, et des instruments de toutes les grandeurs. Les professeurs conseillent sur le choix de l'instrument et proposent une ou deux leçons d'essai.</p>
+        <a href="#enseignement">L'enseignement</a>
       </div>
-      <div class="course">
-        <small>À l'école primaire</small>
-        <h3>Orchestres en classe</h3>
-        <p>Depuis 2012, avec le DIP, nos professeurs enseignent les cordes à des classes primaires entières. Cette année : Bois-des-Arts, Adrien-Jeandin, Charmilles et Sécheron.</p>
+      <div class="path">
+        <h3>Jouer ensemble</h3>
+        <p>Trois orchestres, la musique de chambre et des cours de groupe chaque trimestre, compris dans l'écolage.</p>
+        <a href="#orchestres">Les orchestres</a>
       </div>
-      <div class="course">
-        <small>Pour les élèves très motivés</small>
-        <h3>Cursus intensif Archi Dobble</h3>
-        <p>Deux cours d'instrument par semaine, solfège, musique de chambre et orchestre, pour préparer l'examen d'entrée au precollege de la HEM.</p>
+      <div class="path">
+        <h3>Viser plus haut</h3>
+        <p>Le cursus intensif Archi Dobble prépare les élèves motivés à l'examen d'entrée du precollege de la HEM de Genève.</p>
+        <a href="#enseignement">Le cursus intensif</a>
       </div>
-      <div class="course">
-        <small>Avec un grand maître</small>
-        <h3>Masterclasses</h3>
-        <p>Des cours de maître avec des solistes invités, comme le contrebassiste Franco Petracchi ou l'altiste Mathis Rochat.</p>
+      <div class="path">
+        <h3>Adultes bienvenus</h3>
+        <p>Des tarifs dédiés dès 25 ans, et des week-ends musicaux ouverts aux instrumentistes adultes.</p>
+        <a href="#ecolages">Les écolages</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="orchestres" aria-labelledby="h-orch">
+<section id="enseignement" aria-labelledby="h-ens">
+  <div class="wrap teach-grid">
+    <div>
+      <h2 id="h-ens">Un enseignement à la mesure de chaque élève.</h2>
+      <p class="lead" style="margin-top:22px">L'Accademia d'Archi se consacre aux instruments à cordes frottées par un archet, complétés par la formation musicale.</p>
+      <div class="instr-list" aria-label="Instruments enseignés"><span>Violon</span><span>Alto</span><span>Violoncelle</span><span>Contrebasse</span></div>
+      <ul class="facts-list">
+        <li><b>Cours individuel</b><span>Une fois par semaine, de 30 à 60 minutes selon le niveau de l'élève.</span></li>
+        <li><b>Cours de groupe</b><span>Une fois par trimestre, pour découvrir des œuvres à plusieurs.</span></li>
+        <li><b>Auditions</b><span>Plusieurs fois par an, pour fixer des objectifs et prendre de l'assurance sur scène.</span></li>
+        <li><b>Formation musicale</b><span>Initiation musicale dès 4 ans et solfège, en petits groupes, le mardi.</span></li>
+        <li><b>Contrebasse</b><span>Accessible dès l'âge de 6 ans.</span></li>
+        <li><b>Cursus intensif</b><span>Deux cours d'instrument par semaine, solfège, musique de chambre et orchestre, jusqu'à l'examen du precollege de la HEM.</span></li>
+        <li><b>Masterclasses</b><span>Avec de grands interprètes, dont Franco Petracchi, maître de la contrebasse.</span></li>
+      </ul>
+    </div>
+    <figure>
+      <img src="photos/eleves.jpg" alt="Élèves de l'Accademia d'Archi avec leurs violons, alto, violoncelle et contrebasse" width="577" height="791">
+      <figcaption>Violon, alto, violoncelle, contrebasse : la taille de l'élève ne joue aucun rôle, on trouve des instruments de toutes les grandeurs.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="orchestres" class="cream" aria-labelledby="h-orch">
   <div class="wrap">
     <div class="sec-head">
       <h2 id="h-orch">Trois orchestres, du premier concert aux grandes œuvres.</h2>
-      <p class="lead">Apprendre un instrument à cordes n'a de sens que s'il permet de partager le plaisir de faire de la musique avec d'autres. Chaque élève trouve l'orchestre qui correspond à son niveau.</p>
+      <p class="lead">Apprendre un instrument à cordes n'a de sens que s'il permet de partager le plaisir de faire de la musique avec d'autres.</p>
     </div>
     <div class="orch-list">
-      <article class="orch">
+      <article class="orch" style="background:var(--white)">
         <span class="lvl">Premier orchestre</span>
         <img src="photos/giocosino.png" alt="Logo de l'orchestre Giocosino">
         <h3>Giocosino</h3>
         <dl><dt>Niveau</dt><dd>Dès 1 an de violon</dd><dt>Direction</dt><dd>Guillaume Chambaud</dd></dl>
-        <p>Pour découvrir ensemble le plaisir de jouer en orchestre, dès la première année.</p>
-        <a class="btn btn-line" href="#inscription">Rejoindre Giocosino</a>
+        <p>Pour découvrir le plaisir de jouer en orchestre dès la première année d'instrument.</p>
       </article>
-      <article class="orch">
+      <article class="orch" style="background:var(--white)">
         <span class="lvl">Orchestre des jeunes</span>
         <img src="photos/giocoso.png" alt="Logo de l'orchestre Giocoso">
         <h3>Giocoso</h3>
         <dl><dt>Niveau</dt><dd>4 à 5 ans de pratique</dd><dt>Direction</dt><dd>Raffaello Diambrini Palazzi</dd></dl>
-        <p>Un vaste répertoire de toutes les époques, de la Fête de la Musique aux festivals internationaux.</p>
-        <a class="btn btn-line" href="#inscription">Rejoindre Giocoso</a>
+        <p>Un vaste répertoire de toutes les époques, joué de la Fête de la Musique au Festival international des jeunes à Shanghai.</p>
       </article>
-      <article class="orch">
+      <article class="orch" style="background:var(--white)">
         <span class="lvl">Ensemble avancé</span>
         <img src="photos/camerata.png" alt="Logo de la Camerata d'Archi">
         <h3>Camerata d'Archi</h3>
-        <dl><dt>Niveau</dt><dd>Élèves avancés et professeurs</dd><dt>Direction</dt><dd>Stéphane Boichut</dd></dl>
+        <dl><dt>Niveau</dt><dd>Professeurs et élèves avancés</dd><dt>Direction</dt><dd>Stéphane Boichut</dd></dl>
         <p>Professeurs et élèves les plus avancés réunis pour interpréter les œuvres les plus exigeantes du répertoire.</p>
-        <a class="btn btn-line" href="#inscription">Se renseigner</a>
       </article>
     </div>
-    <p class="orch-foot"><b>Ouverts à tous les jeunes instrumentistes à cordes.</b> Giocoso et Giocosino accueillent aussi les musiciens qui ne suivent pas leurs cours à l'Accademia : ils y sont invités gracieusement. Pour les élèves de l'Accademia, l'orchestre est compris dans le forfait instrumental.</p>
+    <p class="orch-foot"><b>Ouverts à tout jeune instrumentiste à cordes.</b> Giocoso et Giocosino accueillent aussi les musiciens qui ne suivent pas leurs cours à l'Accademia : ils y sont invités gracieusement. Pour les élèves de l'Accademia, l'orchestre est compris dans l'écolage.</p>
   </div>
 </section>
 
-<section class="stage" id="concerts" aria-labelledby="h-stage">
-  <figure class="stage-photo">
-    <img src="photos/concert.jpg" alt="Concert des orchestres de l'Accademia d'Archi dans une église, devant un public nombreux" width="1588" height="794">
-    <figcaption>Les orchestres de l'Accademia en concert</figcaption>
-  </figure>
-  <div class="stage-body">
-    <div class="wrap stage-grid">
-      <div>
-        <h2 id="h-stage">Sur scène, toute l'année.</h2>
-        <p class="lead" style="margin-top:22px">Les orchestres de l'Accademia se produisent régulièrement à Genève et bien au-delà.</p>
-        <ul>
-          <li>Fête de la Musique au Victoria Hall</li>
-          <li>Festival international des jeunes à Shanghai</li>
-          <li>Festival international de musique universitaire (FIMU) à Belfort</li>
-          <li>Opéras pour enfants : Dr Jekyll et Mr Haydn, Tutti fan frutti, Le raton et la grenouille</li>
-          <li>Ali Baba et les 40 voleurs de Cherubini, pour les 20 ans de l'école</li>
-        </ul>
-      </div>
-      <div class="agenda">
-        <h3>Prochaines auditions</h3>
-        <p class="where">À 19h30, au Centre paroissial protestant, rue de Genève 77, Chêne-Bourg.</p>
-        <p class="big">12 <span>auditions jusqu'en juin 2027</span></p>
+<section class="agenda-sec" id="agenda" aria-labelledby="h-ag">
+  <div class="wrap agenda-grid">
+    <div>
+      <h2 id="h-ag">Concerts et auditions 2026/2027</h2>
+      <p class="lead" style="margin-top:22px">Douze auditions d'octobre 2026 à juin 2027, dont deux consacrées au cursus intensif Archi Dobble. Venez écouter les élèves sur scène.</p>
+      <p class="where">Toutes les auditions ont lieu au Centre paroissial protestant, 77 rue de Genève, 1225 Chêne-Bourg, à 19h30.</p>
+    </div>
+    <div>
+      <ul class="dates">
+        <li class="next"><span class="d">13 nov.<small>Vendredi</small></span><span class="t">Audition des élèves <em>Prochaine</em></span><span class="h">19h30</span></li>
+        <li><span class="d">16 déc.<small>Mercredi</small></span><span class="t">Audition des élèves</span><span class="h">19h30</span></li>
+        <li><span class="d">22 janv.<small>Vendredi</small></span><span class="t">Audition des élèves</span><span class="h">19h30</span></li>
+        <li><span class="d">10 févr.<small>Mercredi</small></span><span class="t">Audition des élèves</span><span class="h">19h30</span></li>
+        <li><span class="d">10 mars<small>Mercredi</small></span><span class="t">Audition des élèves</span><span class="h">19h30</span></li>
+        <li><span class="d">19 mars<small>Vendredi</small></span><span class="t">Cursus intensif Archi Dobble</span><span class="h">19h30</span></li>
+      </ul>
+      <details class="more-dates">
+        <summary class="btn btn-ghost">Voir les dates jusqu'en juin</summary>
         <ul class="dates">
-          <li><time datetime="2026-11-13">Vendredi 13 novembre</time><span>19h30</span></li>
-          <li><time datetime="2026-12-16">Mercredi 16 décembre</time><span>19h30</span></li>
-          <li><time datetime="2027-01-22">Vendredi 22 janvier 2027</time><span>19h30</span></li>
-          <li><time datetime="2027-02-10">Mercredi 10 février 2027</time><span>19h30</span></li>
+          <li><span class="d">24 mars<small>Mercredi</small></span><span class="t">Cursus intensif Archi Dobble</span><span class="h">19h30</span></li>
+          <li><span class="d">23 avr.<small>Vendredi</small></span><span class="t">Audition des élèves</span><span class="h">19h30</span></li>
+          <li><span class="d">19 mai<small>Mercredi</small></span><span class="t">Audition des élèves</span><span class="h">19h30</span></li>
+          <li><span class="d">28 mai<small>Vendredi</small></span><span class="t">Audition des élèves</span><span class="h">19h30</span></li>
+          <li><span class="d">11 juin<small>Vendredi</small></span><span class="t">Audition des élèves</span><span class="h">19h30</span></li>
         </ul>
-        <details>
-          <summary>Toutes les dates jusqu'en juin</summary>
-          <ul class="dates">
-            <li><time datetime="2027-03-10">Mercredi 10 mars</time><span>19h30</span></li>
-            <li><time datetime="2027-03-19">Vendredi 19 mars</time><span>Archi Dobble</span></li>
-            <li><time datetime="2027-03-24">Mercredi 24 mars</time><span>Archi Dobble</span></li>
-            <li><time datetime="2027-04-23">Vendredi 23 avril</time><span>19h30</span></li>
-            <li><time datetime="2027-05-19">Mercredi 19 mai</time><span>19h30</span></li>
-            <li><time datetime="2027-05-28">Vendredi 28 mai</time><span>19h30</span></li>
-            <li><time datetime="2027-06-11">Vendredi 11 juin</time><span>19h30</span></li>
-          </ul>
-        </details>
-        <a class="btn btn-solid" href="#inscription">Inscrire mon enfant</a>
-      </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="musijeunes" aria-labelledby="h-mj">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-mj">Musijeunes : la musique en groupe, toute l'année.</h2>
+      <p class="lead">Créée en 1992, l'organisation Musijeunes réunit des instrumentistes venus de toute l'Europe et même d'autres continents, pour découvrir ensemble le répertoire de toutes les époques.</p>
+    </div>
+    <div class="mj">
+      <article>
+        <span class="meta">Du samedi au dimanche</span>
+        <h3>Week-ends musicaux</h3>
+        <p>Musique d'ensemble avec les professeurs, jeux et moments de détente, puis un concert-audition pour finir. Les instrumentistes adultes sont aussi les bienvenus.</p>
+        <p class="price">CHF 130.– le week-end</p>
+      </article>
+      <article>
+        <span class="meta">En août, dès 5 ans</span>
+        <h3>Centres aérés musicaux</h3>
+        <p>Une semaine d'éveil musical et d'initiation, instrumentistes ou non, autour d'un thème développé toute la semaine, à la Maison de la Bessonnette à Chêne-Bougeries.</p>
+        <p class="price">CHF 321.– la semaine</p>
+      </article>
+      <article>
+        <span class="meta">Août 2027, Château-d'Oex</span>
+        <h3>Camps musicaux d'été</h3>
+        <p>Deux camps d'une semaine de musique de chambre au Vieux Chalet, dès 7 ans : du 8 au 14 ou du 15 au 21 août 2027. Quatre professeurs chevronnés par camp.</p>
+        <p class="price">Dès CHF 639.– la semaine</p>
+      </article>
+    </div>
+    <p class="mj-note">Renseignements et inscriptions : <a href="mailto:info@musijeunes.ch">info@musijeunes.ch</a> ou 022 751 26 76.</p>
+  </div>
+</section>
+
+<section class="cream" id="ecolages" aria-labelledby="h-eco">
+  <div class="wrap eco-grid">
+    <div>
+      <h2 id="h-eco">Un écolage qui comprend bien plus que le cours.</h2>
+      <p class="lead" style="margin-top:22px">En plus des cours d'instrument, l'écolage donne droit à :</p>
+      <ul class="included">
+        <li>La formation musicale de base, initiation et solfège</li>
+        <li>Les cours de musique de chambre</li>
+        <li>Les orchestres Giocosino, Giocoso et Camerata d'Archi</li>
+        <li>Le cursus intensif Archi Dobble</li>
+        <li>5 % de réduction chez notre luthier partenaire</li>
+      </ul>
+    </div>
+    <div class="tarifs">
+      <h3>Tarifs annuels</h3>
+      <table>
+        <thead><tr><th>Durée du cours</th><th class="r">Jusqu'à 25 ans</th><th class="r">Dès 25 ans</th></tr></thead>
+        <tbody>
+          <tr><td>30 minutes</td><td class="r">CHF 1'455.–</td><td class="r">CHF 1'540.–</td></tr>
+          <tr><td>40 minutes</td><td class="r">CHF 1'915.–</td><td class="r">CHF 2'055.–</td></tr>
+          <tr><td>50 minutes</td><td class="r">CHF 2'370.–</td><td class="r">CHF 2'570.–</td></tr>
+          <tr><td>60 minutes</td><td class="r">CHF 2'855.–</td><td class="r">CHF 3'080.–</td></tr>
+        </tbody>
+      </table>
+      <p class="small">Payable en une, trois ou dix fois. Tarifs des résidents du canton de Genève, conditions spécifiques pour les non-résidents. 5 % de réduction par enfant dès deux enfants de la même famille.</p>
+      <p class="bourse">Les familles au revenu modeste peuvent obtenir une bourse d'écolage, selon le règlement cantonal C 1 20 08. <a href="https://www.ge.ch/document/demande-reduction-ecolages-cours-musique-rythmique-danse-theatre">Demande de réduction sur ge.ch</a></p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-dip">
+  <div class="wrap dip">
+    <div>
+      <h2 id="h-dip">L'orchestre entre aussi à l'école.</h2>
+      <p class="lead" style="margin-top:22px">Depuis 2012, dans le cadre d'une convention avec le DIP, les professeurs de l'Accademia enseignent les instruments à cordes à des classes entières d'écoles primaires genevoises.</p>
+      <p style="margin-top:16px">Les élèves gardent leur instrument pendant deux ans. Une initiative de démocratisation culturelle, qui permet à des enfants de tous milieux d'accéder à la musique par la pratique en groupe.</p>
+      <p class="partners">Avec le soutien de CARIGEST, la Fondation Wilsdorf, la Loterie Romande, la SUISA, SIG et la Fondation Philanthropique Famille Sandoz.</p>
+    </div>
+    <div>
+    <p class="schools-cap">Cette année, chaque classe part en week-end de travail aux Pérouses, qui se termine par un concert pour les parents à 14h30.</p>
+    <ul class="schools">
+      <li>École des Charmilles <span>26 et 27 février 2027</span></li>
+      <li>École de Sécheron <span>5 et 6 mars 2027</span></li>
+      <li>École Adrien-Jeandin <span>12 et 13 mars 2027</span></li>
+      <li>École du Bois-des-Arts <span>19 et 20 mars 2027</span></li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cream" aria-labelledby="h-lieux" style="padding:88px 0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-lieux">Des cours près de chez vous.</h2>
+      <p class="lead">Selon l'instrument et le professeur, les cours ont lieu dans les Trois-Chêne et ailleurs dans le canton.</p>
+    </div>
+    <div class="places">
+      <div><h3>Chêne-Bougeries</h3><p>Foyer paroissial, écoles de Chêne-Bougeries, de la Montagne, de Conches et de Grange-Canal</p></div>
+      <div><h3>Genève</h3><p>Écoles de Peschier et Carl-Vogt</p></div>
+      <div><h3>Veyrier</h3><p>École du Bois-Gourmand</p></div>
+      <div><h3>Onex</h3><p>Maison de la musique</p></div>
     </div>
   </div>
 </section>
@@ -450,42 +556,29 @@ footer{background:var(--encre);color:#C9BCB6;padding:64px 0 36px;font-size:15px}
   <div class="wrap inscr-grid">
     <div>
       <h2 id="h-ins">Toutes et tous à vos archets !</h2>
-      <p class="lead" style="margin-top:22px">Les inscriptions sont ouvertes toute l'année. Il est admis que l'apprentissage d'un instrument doit débuter dès le plus jeune âge.</p>
+      <p class="lead" style="margin-top:22px">Les inscriptions sont ouvertes toute l'année. Il est admis que l'apprentissage d'un instrument doit débuter dès le plus jeune âge, mais il n'est jamais trop tard pour commencer.</p>
       <ol class="steps">
-        <li><div><b>Choisissez l'instrument</b><span>Violon, alto, violoncelle ou contrebasse.</span></div></li>
-        <li><div><b>Envoyez le formulaire</b><span>Quelques informations sur l'élève, son âge et son niveau.</span></div></li>
-        <li><div><b>Nous vous recontactons</b><span>Pour trouver le professeur et le lieu de cours qui vous conviennent, avec une ou deux leçons d'essai si besoin.</span></div></li>
+        <li><div><b>Remplissez le formulaire</b><span>Quelques informations sur l'élève, l'instrument et le niveau.</span></div></li>
+        <li><div><b>Nous vous recontactons</b><span>Pour choisir le professeur, le lieu et la durée de cours, et organiser une leçon d'essai si besoin.</span></div></li>
+        <li><div><b>Les cours commencent</b><span>Avec l'accès à la formation musicale, aux orchestres et aux auditions.</span></div></li>
       </ol>
-      <div class="fees" id="ecolages">
-        <h3>Écolages 2026/2027</h3>
-        <table>
-          <thead><tr><th scope="col">Cours par semaine</th><th scope="col">Par année</th><th scope="col">ou 10 ×</th></tr></thead>
-          <tbody>
-            <tr><td>30 minutes</td><td>CHF 1'455.–</td><td>145.50</td></tr>
-            <tr><td>40 minutes</td><td>CHF 1'915.–</td><td>191.50</td></tr>
-            <tr><td>50 minutes</td><td>CHF 2'370.–</td><td>237.–</td></tr>
-            <tr><td>60 minutes</td><td>CHF 2'855.–</td><td>285.50</td></tr>
-          </tbody>
-        </table>
-        <p>Jusqu'à 25 ans, domicile dans le canton de Genève. Formation musicale, musique de chambre et orchestres compris. 5 % de réduction par enfant dès deux enfants de la même famille.</p>
-      </div>
-      <p class="bourse">Les familles au revenu modeste peuvent obtenir une bourse d'écolage, selon le règlement cantonal C 1 20 08. <a href="https://www.ge.ch/document/demande-reduction-ecolages-cours-musique-rythmique-danse-theatre">Demande de réduction sur ge.ch</a></p>
     </div>
-    <form id="iform" novalidate data-to="info@accademia-archi.ch" data-subject="Demande d'inscription 2026/2027">
-      <div><label for="f-prenom">Prénom du parent</label><input id="f-prenom" autocomplete="given-name"></div>
-      <div><label for="f-nom">Nom</label><input id="f-nom" autocomplete="family-name" required></div>
+    <form id="iform" novalidate data-to="info@accademia-archi.ch" data-subject="Inscription 2026/2027">
+      <div><label for="f-prenom">Prénom de l'élève</label><input id="f-prenom"></div>
+      <div><label for="f-nom">Nom de l'élève</label><input id="f-nom" required></div>
+      <div><label for="f-naiss">Date de naissance</label><input id="f-naiss" placeholder="jj.mm.aaaa"></div>
+      <div><label for="f-instr">Instrument</label>
+        <select id="f-instr"><option>Violon</option><option>Alto</option><option>Violoncelle</option><option>Contrebasse</option><option>Formation musicale uniquement</option><option>Je ne sais pas encore</option></select>
+      </div>
       <div><label for="f-mail">E-mail</label><input id="f-mail" type="email" autocomplete="email"></div>
       <div><label for="f-tel">Téléphone</label><input id="f-tel" type="tel" autocomplete="tel"></div>
-      <div><label for="f-instr">Instrument souhaité</label>
-        <select id="f-instr"><option>Violon</option><option>Alto</option><option>Violoncelle</option><option>Contrebasse</option><option>Je ne sais pas encore</option></select>
-      </div>
-      <div><label for="f-age">Âge de l'élève</label><input id="f-age" inputmode="numeric"></div>
       <div class="full"><label for="f-niv">Niveau</label>
-        <select id="f-niv"><option>Débutant</option><option>Déjà pratiquant</option><option>Intéressé par un orchestre</option><option>Cursus intensif</option></select>
+        <select id="f-niv"><option>Débutant</option><option>Déjà pratiquant</option><option>Orchestre uniquement</option><option>Cursus intensif</option></select>
       </div>
       <div class="full"><label for="f-msg">Message (facultatif)</label><textarea id="f-msg"></textarea></div>
-      <button class="btn btn-solid" type="submit">Préparer la demande</button>
-      <p class="secure full">Votre messagerie s'ouvre avec la demande prête, adressée à info@accademia-archi.ch. Il ne reste qu'à l'envoyer.</p>
+      <label class="consent full"><input type="checkbox" id="f-ok"> <span>J'ai pris connaissance de la <a href="http://www.accademia-archi.ch/project/inscription/">Charte et du Règlement</a> de l'école.</span></label>
+      <button class="btn btn-solid" type="submit">Préparer l'inscription</button>
+      <p class="secure full">Votre messagerie s'ouvre avec l'inscription prête, adressée à info@accademia-archi.ch. Il ne reste qu'à l'envoyer.</p>
       <p class="sent" role="status" hidden>Votre messagerie devrait s'être ouverte. Sinon, écrivez à <a href="mailto:info@accademia-archi.ch">info@accademia-archi.ch</a> ou appelez le <a href="tel:+41227512676">022 751 26 76</a>.</p>
     </form>
   </div>
@@ -504,32 +597,32 @@ footer{background:var(--encre);color:#C9BCB6;padding:64px 0 36px;font-size:15px}
   <div class="wrap">
     <div class="foot">
       <div>
-        <span class="brand"><span><b>Accademia d'Archi</b><span>École de musique à Genève</span></span></span>
+        <b class="name">Accademia d'Archi</b>
+        <span>École de musique à Genève</span>
         <address>Route de Chêne 153, case postale 207<br>1224 Chêne-Bougeries<br><a href="tel:+41227512676">022 751 26 76</a><a href="mailto:info@accademia-archi.ch">info@accademia-archi.ch</a>Secrétariat du lundi au vendredi, 8h à 16h</address>
       </div>
       <div>
         <h4>Enseignement</h4>
-        <a href="#instruments">Violon, alto, violoncelle, contrebasse</a>
-        <a href="#instruments">Formation musicale</a>
+        <a href="#enseignement">Cordes</a>
         <a href="#orchestres">Orchestres</a>
-        <a href="#instruments">Cursus intensif et masterclasses</a>
+        <a href="#enseignement">Formation musicale</a>
+        <a href="#enseignement">Cursus intensif et masterclasses</a>
       </div>
       <div>
-        <h4>Pratique</h4>
+        <h4>Infos pratiques</h4>
         <a href="#inscription">Inscription 2026/2027</a>
         <a href="#ecolages">Écolages et bourses</a>
-        <a href="#concerts">Concerts et auditions</a>
+        <a href="#agenda">Concerts et auditions</a>
       </div>
       <div>
         <h4>L'école</h4>
-        <a href="#ecole">Qui sommes-nous</a>
-        <a href="#orchestres">Les orchestres</a>
+        <a href="http://www.accademia-archi.ch/project/administration/">Équipe et administration</a>
+        <a href="#musijeunes">Musijeunes</a>
         <a href="mailto:info@accademia-archi.ch">Contact</a>
-        <a href="https://www.facebook.com/accademiadarchi.geneve.5">Facebook</a>
       </div>
     </div>
     <div class="legal">
-      <span><a href="http://www.accademia-archi.ch/wp-content/uploads/2025/09/Protection-des-donnees.pdf">Protection des données</a></span>
+      <span><a href="http://www.accademia-archi.ch/wp-content/uploads/2025/09/Protection-des-donnees.pdf">Protection des données</a> &nbsp;&nbsp; <a href="http://www.accademia-archi.ch/project/inscription/">Charte de l'Accademia d'Archi</a></span>
       <span>Maquette proposée par Léman Studio</span>
     </div>
   </div>
@@ -547,13 +640,16 @@ footer{background:var(--encre);color:#C9BCB6;padding:64px 0 36px;font-size:15px}
   mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mnav.hidden=true;burger.setAttribute('aria-expanded','false');});});
   document.getElementById('iform').addEventListener('submit',function(e){
     e.preventDefault();
-    var f=this,nom=document.getElementById('f-nom');
+    var f=this,nom=document.getElementById('f-nom'),ok=document.getElementById('f-ok');
     nom.style.borderColor=nom.value.trim()?'':'#B3261E';
+    ok.parentNode.style.color=ok.checked?'':'#B3261E';
     if(!nom.value.trim()){nom.focus();return;}
+    if(!ok.checked){ok.focus();return;}
     var lines=[];
-    f.querySelectorAll('input,select,textarea').forEach(function(el){
+    f.querySelectorAll('input:not([type=checkbox]),select,textarea').forEach(function(el){
       if(el.value.trim())lines.push(f.querySelector('label[for="'+el.id+'"]').textContent.trim()+' : '+el.value.trim());
     });
+    lines.push('Charte et règlement lus : oui');
     location.href='mailto:'+f.dataset.to+'?subject='+encodeURIComponent(f.dataset.subject)+'&body='+encodeURIComponent(lines.join('\n'));
     f.querySelector('.sent').hidden=false;
   });
