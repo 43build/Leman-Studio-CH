@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gratis-Bewertung Ihrer Immobilie | Bestag (Entwurf)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/demos/bestag/style.css">
+</head>
+<body>
+
+<div class="demo-note"><strong>Entwurf von Léman Studio</strong> für Bestag. Inhalte und Bilder stammen von bestag.ch.</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/demos/bestag/index.html"><img src="https://cdn.prod.website-files.com/6a7ebbf8a44b93d1703bf293/6a840853b45c893143584d04_9011a8469b9026a7e780b57af4751a77_bestag_logo.svg" alt="Bestag" width="132" height="30"><span>Der Schweizer Maklervergleich</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen"><svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="#044325" stroke-width="2"/></svg></button>
+    <nav class="nav" id="nav" aria-label="Hauptnavigation">
+      <a href="/demos/bestag/index.html#methode">Methode</a>
+      <a href="/demos/bestag/index.html#situationen">Lebenssituationen</a>
+      <a href="/demos/bestag/index.html#experten">Über Bestag</a>
+      <a href="/demos/bestag/bewertung.html" aria-current="page">Gratis-Bewertung</a>
+    </nav>
+    <a class="header-phone" href="tel:+41445526511">044 552 65 11</a>
+    <a class="btn btn-green btn-small header-cta" href="/demos/bestag/bewertung.html">Gratis-Bewertung</a>
+  </div>
+</header>
+
+<main>
+  <section class="eval-hero">
+    <div class="wrap">
+      <h1>1x ausfüllen, 2 Schätzungen, 2 Minuten</h1>
+      <p>Sie erhalten die Bewertungen von IAZI/CIFI und Wüest Partner, kostenlos und vertraulich.</p>
+      <ol class="progress" id="progress">
+        <li class="current">Adresse</li><li>Art der Immobilie</li><li>Besitzverhältnisse</li><li>Informationen</li><li>Persönliche Angaben</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="wrap eval-layout">
+    <div class="eval-card">
+      <form id="eval" novalidate>
+        <fieldset class="step active" data-step="0" style="border:0;padding:0;margin:0">
+          <h2>Wo befindet sich das Haus oder die Wohnung?</h2>
+          <label class="field">PLZ oder Wohnort<input type="text" name="plz" id="plz" autocomplete="postal-code" placeholder="z. B. 8002 Zürich"></label>
+          <label class="field">Strasse und Hausnummer<input type="text" name="strasse" autocomplete="street-address"></label>
+        </fieldset>
+
+        <fieldset class="step" data-step="1" style="border:0;padding:0;margin:0">
+          <h2>Um welche Art von Immobilie handelt es sich?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="art" value="wohnung"><span>Wohnung<small>Eigentumswohnung, Stockwerkeigentum</small></span></label>
+            <label class="option"><input type="radio" name="art" value="haus"><span>Einfamilienhaus<small>freistehend, Reihen- oder Doppelhaus</small></span></label>
+            <label class="option"><input type="radio" name="art" value="mfh"><span>Mehrfamilienhaus<small>mehrere Wohneinheiten</small></span></label>
+            <label class="option"><input type="radio" name="art" value="anderes"><span>Anderes<small>Grundstück, gemischte Nutzung</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="step" data-step="2" style="border:0;padding:0;margin:0">
+          <h2>Wem gehört die Immobilie?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="besitz" value="ich"><span>Mir allein</span></label>
+            <label class="option"><input type="radio" name="besitz" value="paar"><span>Mir und meinem Partner</span></label>
+            <label class="option"><input type="radio" name="besitz" value="erben"><span>Einer Erbengemeinschaft</span></label>
+            <label class="option"><input type="radio" name="besitz" value="auftrag"><span>Ich handle im Auftrag</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="step" data-step="3" style="border:0;padding:0;margin:0">
+          <h2>Ein paar Angaben zur Immobilie</h2>
+          <div class="grid2">
+            <label class="field">Wohnfläche in m²<input type="number" name="flaeche" min="10" inputmode="numeric"></label>
+            <label class="field">Anzahl Zimmer<input type="number" name="zimmer" min="1" step="0.5" inputmode="decimal"></label>
+            <label class="field">Baujahr<input type="number" name="baujahr" min="1800" max="2026" inputmode="numeric"></label>
+            <label class="field">Zustand<select name="zustand"><option>Gut</option><option>Renoviert</option><option>Neuwertig</option><option>Renovationsbedürftig</option></select></label>
+          </div>
+          <label class="field">Wann möchten Sie verkaufen?<select name="zeit"><option>In den nächsten 6 Monaten</option><option>In 6 bis 12 Monaten</option><option>Später</option><option>Ich möchte nur den Wert kennen</option></select></label>
+        </fieldset>
+
+        <fieldset class="step" data-step="4" style="border:0;padding:0;margin:0">
+          <h2>Wohin dürfen wir Ihre Bewertung senden?</h2>
+          <div class="grid2">
+            <label class="field">Vorname<input type="text" name="vorname" autocomplete="given-name"></label>
+            <label class="field">Nachname<input type="text" name="nachname" autocomplete="family-name"></label>
+          </div>
+          <label class="field">E-Mail<input type="email" name="email" autocomplete="email"></label>
+          <label class="field">Telefon<input type="tel" name="tel" autocomplete="tel"></label>
+        </fieldset>
+
+        <div class="step-nav">
+          <button class="btn btn-outline" type="button" id="back" hidden>Zurück</button>
+          <button class="btn btn-green" type="button" id="next" style="margin-left:auto">Weiter</button>
+        </div>
+      </form>
+      <div class="done-box" id="done" role="status">
+        <h2>Danke, Ihre Bewertung ist unterwegs</h2>
+        <p>Im fertigen Formular erhalten Sie hier die beiden Schätzungen von IAZI/CIFI und Wüest Partner. In diesem Entwurf werden keine Daten gesendet.</p>
+        <p><a class="btn btn-dark" href="/demos/bestag/index.html#methode">So geht es nach der Bewertung weiter</a></p>
+      </div>
+      <p class="trust-line">Ihre Angaben behandeln wir vertraulich. Pro Jahr profitieren rund <b>7'500 Immobilienbesitzer</b> vom Bewertungs-Vergleich von Bestag.</p>
+    </div>
+
+    <aside class="eval-aside">
+      <div class="aside-card">
+        <h3>Was Sie erhalten</h3>
+        <ol>
+          <li>Zwei unabhängige Schätzungen von IAZI/CIFI und Wüest Partner, den führenden Bewertungsmodellen der Schweiz.</li>
+          <li>Auf Wunsch die Bestag-Methode: drei passende Makler, fünf Bewertungen, ein leistungsabhängiger Vertrag.</li>
+        </ol>
+      </div>
+      <div class="aside-card">
+        <div class="contact-person">
+          <img src="https://cdn.prod.website-files.com/6a7ebbf8a44b93d1703bf293/6a85d06999a978972f860b58_Gabriel-Diezi_highres-quad.avif" alt="Gabriel Diezi" width="64" height="64">
+          <div><b>Gabriel Diezi</b><span>Leiter Deutschschweiz</span></div>
+        </div>
+        <p>Fragen zur Bewertung oder zum Verkauf? Rufen Sie uns an: <a href="tel:+41445526511">044 552 65 11</a></p>
+      </div>
+      <div class="badges"><img src="https://cdn.prod.website-files.com/6a7ebbf8a44b93d1703bf293/6a86bff7b213296919443767_566866e0fff9c37ae9b17be2420d6516_Google%20Review.svg" alt="Google Bewertungen" width="140" height="38"><img src="https://cdn.prod.website-files.com/6a7ebbf8a44b93d1703bf293/6aa3c819cb4e05a92dbb9ee1_zhaw-de.svg" alt="Wissenschaftlich gestützt, ZHAW" width="120" height="38"></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer" id="kontakt">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="https://cdn.prod.website-files.com/6a7ebbf8a44b93d1703bf293/6a840853b45c893143584d04_9011a8469b9026a7e780b57af4751a77_bestag_logo.svg" alt="Bestag" width="123" height="28">
+        <p>Bestag Vermittlung AG<br>ZH Büro: Tessinerplatz 7, 8002 Zürich<br>BE Büro: Hotelgasse 10, 3011 Bern<br>VD Büro: Ch. du Vuasset 2, 1028 Préverenges</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul><li><a href="mailto:info@bestag.ch">info@bestag.ch</a></li><li>Zürich: <a href="tel:+41445526511">044 552 65 11</a></li><li>Bern: <a href="tel:+41315520116">031 552 01 16</a></li><li>Basel: <a href="tel:+41615512205">061 551 22 05</a></li><li>Luzern: <a href="tel:+41415521005">041 552 10 05</a></li><li>St. Gallen: <a href="tel:+41715522405">071 552 24 05</a></li></ul>
+      </div>
+      <div>
+        <h4>Bestag</h4>
+        <ul><li><a href="/demos/bestag/index.html#methode">Die Bestag-Methode</a></li><li><a href="/demos/bestag/bewertung.html">Gratis-Bewertung</a></li><li><a href="/demos/bestag/index.html#situationen">Lebenssituationen</a></li><li><a href="/demos/bestag/index.html#experten">Geschäftsleitung</a></li></ul>
+      </div>
+    </div>
+    <p class="footer-base">© 2026 Bestag Vermittlung AG. Entwurf erstellt von Léman Studio, nicht die offizielle Website.</p>
+  </div>
+</footer>
+
+<script>
+  const t=document.querySelector('.menu-toggle'),n=document.getElementById('nav');
+  t.addEventListener('click',()=>{const o=n.classList.toggle('is-open');t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Menü schliessen':'Menü öffnen');});
+  n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('is-open');t.setAttribute('aria-expanded','false');}));
+  const steps=[...document.querySelectorAll('.step')],marks=[...document.querySelectorAll('#progress li')];
+  const next=document.getElementById('next'),back=document.getElementById('back');let i=0;
+  const p=new URLSearchParams(location.search).get('plz');if(p)document.getElementById('plz').value=p;
+  function show(){steps.forEach((s,k)=>s.classList.toggle('active',k===i));marks.forEach((m,k)=>{m.classList.toggle('done',k<i);m.classList.toggle('current',k===i);});back.hidden=i===0;next.textContent=i===steps.length-1?'Bewertung anfordern':'Weiter';const f=steps[i].querySelector('input,select');if(f&&i>0)f.focus();}
+  next.addEventListener('click',()=>{if(i<steps.length-1){i++;show();window.scrollTo({top:0});}else{document.getElementById('eval').style.display='none';document.getElementById('done').classList.add('active');marks.forEach(m=>{m.classList.add('done');m.classList.remove('current');});}});
+  back.addEventListener('click',()=>{if(i>0){i--;show();}});
+  show();
+</script>
+</body>
+</html>
